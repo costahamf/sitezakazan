@@ -19,20 +19,6 @@ body.theme-football{
   background-image:none !important;
 }
 
-/* Desktop: keep football hero background continuous and avoid black seams */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: repeat-y !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: scroll !important;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-}
-
 /* Decor is temporarily disabled.
    When you're ready, send a per-section placement list, and we'll fill this table:
    Section | Element file | X (left/right + value) | Y (top/bottom + value) | Size (px)
@@ -635,24 +621,4 @@ body.theme-football .quiz-title-gradient{
 }
 body.theme-football .quiz-error-inline::before{
   color: var(--brand-yellow) !important;
-}
-body.theme-football .hero-quick-links{
-  background: var(--surface-light) !important;
-}
-
-@media (min-width: 992px) {
-  body.theme-football .hero-quick-links{
-    background-image: var(--hero-bg-url, url("../img/heroBg.webp")) !important;
-    background-repeat: repeat-y !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-color: transparent !important;
-    border-top-color: transparent !important;
-  }
-}
-
-@media (max-width: 991.98px) {
-  body.theme-football .hero-quick-links{
-    background: var(--surface-light) !important;
-  }
 }
