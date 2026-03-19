@@ -41,7 +41,7 @@
     const chess = document.getElementById("chessBlock");
     if(chess){
       chess.innerHTML = `
-        <div class="card-dark p-4">
+        <div class="card-dark p-4 chess-panel">
           <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
             <div>
               <h2 class="section-title mb-0">${SITE_DATA.chess.title}</h2>
@@ -52,17 +52,19 @@
             </div>
           </div>
           <div class="soft-line my-3"></div>
-          <div class="row g-2">
+          <div class="row g-3">
             ${SITE_DATA.chess.bullets.map(b=>`
               <div class="col-md-6">
-                <div class="glass p-3 h-100">
-                  <i class="bi bi-check2-circle me-1" style="color:var(--accent-3)"></i>${b}
+                <div class="chess-bullet-card h-100">
+                  <span class="chess-bullet-icon">♟</span>
+                  <div>${b}</div>
                 </div>
               </div>
             `).join("")}
           </div>
-          <div class="soft-line my-3"></div>
-          <div class="muted">${SITE_DATA.chess.note}</div>
+          <div class="glass p-3 mt-3 chess-note-box">
+            <div class="muted">${SITE_DATA.chess.note}</div>
+          </div>
           <div class="mt-3 d-grid d-md-flex gap-2">
             <button class="btn btn-accent px-4 py-2" data-bs-toggle="modal" data-bs-target="#signupModal">Записаться</button>
             <a class="btn btn-outline-accent px-4 py-2" href="locations.html">Выбрать локацию</a>
@@ -82,7 +84,7 @@
           <img src="${c.photo}" alt="${c.name}" loading="lazy" />
         </div>
         <div class="fw-bold">${c.name}</div>
-        <div class="muted small">${c.edu}</div>
+        <div class="muted small">${c.education || c.edu || ""}</div>
       </div>
     `;
 

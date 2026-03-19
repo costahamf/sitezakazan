@@ -1,12 +1,20 @@
 {
   "photoSlides": [
     {
-      "src": "assets/img/gallery/01.svg",
-      "caption": "Тренировка • техника"
+      "src": "assets/img/photo_2026-03-19_16-50-55.webp",
+      "caption": "Тренировка и атмосфера на занятиях"
     },
     {
-      "src": "assets/img/gallery/02.svg",
-      "caption": "Мини-игры • решения"
+      "src": "assets/img/coaches/mihail-tagiev-osnovatel.webp",
+      "caption": "Рабочий момент с тренерским составом"
+    },
+    {
+      "src": "assets/img/coaches/igor-trener-sbornoy.webp",
+      "caption": "Подготовка к игровым упражнениям"
+    },
+    {
+      "src": "assets/img/Vipusknoy/Aleksandr-Osipov.webp",
+      "caption": "Выпускники школы и их спортивный путь"
     }
   ],
   "videoSlides": [

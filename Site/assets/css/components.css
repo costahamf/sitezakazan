@@ -75,7 +75,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   overflow: visible !important;
 }
 .kpi-grid .feature-icon-img{
-  width: 144px !important;
+  width: clamp(108px, 10vw, 136px) !important;
   height: auto !important;
   max-width: none !important;
   object-fit: contain !important;
@@ -125,7 +125,61 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   max-height: none;
   filter: none;
 }
-/* Desktop control knobs for right hero object (heroboy.webp) */
+.hero-visual--summary{
+  min-height: 100%;
+}
+.hero-visual-card{
+  width: 100%;
+  border-radius: 26px;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(233,244,255,.88));
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 22px 60px rgba(7, 20, 40, .26);
+  color: #17304b;
+}
+.hero-visual-card--desktop{
+  max-width: 34rem;
+  margin-left: auto;
+}
+.hero-visual-eyebrow{
+  display: inline-flex;
+  padding: .4rem .7rem;
+  margin-bottom: .85rem;
+  border-radius: 999px;
+  background: rgba(42, 158, 230, .12);
+  color: #236aa7;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.hero-visual-title{
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.1;
+  font-weight: 900;
+  margin-bottom: .75rem;
+}
+.hero-visual-text{
+  color: rgba(23, 48, 75, .78);
+  line-height: 1.55;
+}
+.hero-visual-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1.15rem;
+}
+.hero-visual-tag{
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(42, 158, 230, .15);
+  color: #17304b;
+  font-weight: 700;
+}
 .hero--index{
   --hero-boy-max-width: 903px;
 }
@@ -187,6 +241,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .hero-quick-links{
   background: #fff;
   padding: 1rem 0 0;
+}
+@media (min-width: 992px){
+  .hero-quick-links{
+    padding-top: 2.5rem;
+  }
+  .hero-quick-links .kpi-grid{
+    padding-inline: 1.25rem;
+  }
 }
 
 
@@ -1823,5 +1885,61 @@ body[data-page="cabinet"] #siteFooter{
 @media (min-width: 992px){
   .hero--index .hero-visual img{
      transform: scale(1.5) translate(100px, 130px);  
+  }
+}
+
+
+/* Philosophy / chess clean cards */
+#philosophy .card-dark,
+.chess-panel{
+  overflow: visible;
+}
+#philosophy .list-check{
+  display: grid;
+  gap: .85rem;
+}
+#philosophy .list-check .d-flex{
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(240, 248, 255, .88);
+  border: 1px solid rgba(42, 158, 230, .12);
+  box-shadow: 0 14px 30px rgba(8, 24, 42, .08);
+}
+.chess-bullet-card{
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  padding: 1rem 1.05rem;
+  border-radius: 18px;
+  background: rgba(240, 248, 255, .88);
+  border: 1px solid rgba(42, 158, 230, .14);
+  color: #1a2433;
+  box-shadow: 0 14px 30px rgba(8, 24, 42, .08);
+}
+.chess-bullet-icon{
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(42, 158, 230, .12);
+  color: #236aa7;
+  font-size: 1rem;
+  font-weight: 800;
+}
+.chess-note-box{
+  background: rgba(248, 252, 255, .72);
+}
+@media (max-width: 991.98px){
+  .hero-visual-card{
+    padding: 1.15rem;
+    border-radius: 22px;
+  }
+  .hero-visual-title{
+    font-size: 1.2rem;
+  }
+  .hero-quick-links .feature-icon-img{
+    width: 96px !important;
   }
 }

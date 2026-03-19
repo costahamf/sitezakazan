@@ -23,6 +23,8 @@ html, body{ overflow-x:hidden; min-height:100%; }
   --bg-film-last: .00;
 
   --site-bg-repeat: no-repeat;
+  --site-bg-position: center top;
+  --site-bg-size: cover;
   --site-bg-size-desktop: cover;
   --site-bg-size-mobile: cover;
 
@@ -56,14 +58,14 @@ body{
   -moz-osx-font-smoothing: grayscale;
   background-image: var(--site-bg-url, none);
   background-repeat: var(--site-bg-repeat, no-repeat);
-  background-position: center top;
-  background-size: var(--site-bg-size-desktop, 100% auto);
+  background-position: var(--site-bg-position, center top);
+  background-size: var(--site-bg-size, var(--site-bg-size-desktop, 100% auto));
   background-attachment: fixed;
 }
 
 @media (max-width: 767.98px){
   body{
-    background-size: var(--site-bg-size-mobile, var(--site-bg-size-desktop, 100% auto));
+    background-size: var(--site-bg-size, var(--site-bg-size-mobile, var(--site-bg-size-desktop, 100% auto)));
     background-attachment: scroll;
   }
 }
@@ -83,9 +85,8 @@ body:before{
     radial-gradient(940px 740px at 15% 25%, rgba(120,210,255,var(--bg-film-spot-2)), transparent 52%),
     linear-gradient(180deg, rgba(4,8,18,var(--bg-film-top)) 0%, rgba(6,12,26,var(--bg-film-mid)) 30%, rgba(8,15,31,var(--bg-film-bot)) 70%, rgba(4,9,20,var(--bg-film-last)) 100%);
   background-repeat: var(--site-bg-repeat, no-repeat);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-size: var(--site-bg-size, cover);
+  background-position: var(--site-bg-position, center top);
 }
 
 .bg-hero{

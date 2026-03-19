@@ -12,8 +12,24 @@ window.SITE_CONFIG = {
   },
 
   media: {
-    siteBg: "assets/img/44.png",
-    siteBgMobile: "assets/img/44.png",
+    siteBgLayers: {
+      desktop: [
+        { src: "assets/img/sitebg-decor/Chart.webp", position: "right 3vw top 180px", size: "220px auto" },
+        { src: "assets/img/sitebg-decor/book.webp", position: "left 4vw top 760px", size: "180px auto" },
+        { src: "assets/img/sitebg-decor/coach.webp", position: "right 2vw top 1380px", size: "220px auto" },
+        { src: "assets/img/sitebg-decor/chess.webp", position: "left 3vw top 1980px", size: "190px auto" },
+        { src: "assets/img/sitebg-decor/test.webp", position: "right 4vw bottom 260px", size: "220px auto" },
+        { src: "assets/img/sitebg-decor/conus.webp", position: "left 5vw bottom 180px", size: "170px auto" }
+      ],
+      mobile: [
+        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -24px top 110px", size: "110px auto" },
+        { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 760px", size: "96px auto" },
+        { src: "assets/img/sitebg-decor/chess.webp", position: "right -20px top 1640px", size: "102px auto" },
+        { src: "assets/img/sitebg-decor/test.webp", position: "left -14px bottom 320px", size: "110px auto" }
+      ]
+    },
+    siteBg: "assets/img/sitebg-decor/swistl.webp",
+    siteBgMobile: "assets/img/sitebg-decor/swistl.webp",
     heroBg: "assets/img/heroBg.webp",
     heroBgMobile: "assets/img/heroBgMobile.webp",
     galleryFolder: "assets/img/gallery/",
