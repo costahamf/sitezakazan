@@ -68,6 +68,29 @@
     return (isMobile && mobile) ? mobile : desktop;
   }
 
+  function buildLayerCss(layers){
+    if(!Array.isArray(layers) || !layers.length) return null;
+    const urls = [];
+    const positions = [];
+    const sizes = [];
+    const repeats = [];
+    layers.forEach(layer=>{
+      if(!layer?.src) return;
+      const href = new URL(layer.src, document.baseURI).href;
+      urls.push(`url('${href}')`);
+      positions.push(layer.position || 'center top');
+      sizes.push(layer.size || 'auto');
+      repeats.push(layer.repeat || 'no-repeat');
+    });
+    if(!urls.length) return null;
+    return {
+      image: urls.join(', '),
+      position: positions.join(', '),
+      size: sizes.join(', '),
+      repeat: repeats.join(', ')
+    };
+  }
+
   function applyBackgrounds(){
     const media = SITE_CONFIG?.media || {};
     const desktopSiteBg = (current === "index")
@@ -77,10 +100,19 @@
       ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg)
       : (media.siteBgMobile || media.heroBgMobile || desktopSiteBg);
     const siteBg = pickBg(desktopSiteBg, mobileSiteBg);
+    const layerCss = buildLayerCss(pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile));
 
-    if(siteBg){
+    if(layerCss){
+      document.documentElement.style.setProperty("--site-bg-url", layerCss.image);
+      document.documentElement.style.setProperty("--site-bg-position", layerCss.position);
+      document.documentElement.style.setProperty("--site-bg-size", layerCss.size);
+      document.documentElement.style.setProperty("--site-bg-repeat", layerCss.repeat);
+    } else if(siteBg){
       const absSite = new URL(siteBg, document.baseURI).href;
       document.documentElement.style.setProperty("--site-bg-url", `url('${absSite}')`);
+      document.documentElement.style.setProperty("--site-bg-position", 'center top');
+      document.documentElement.style.setProperty("--site-bg-size", 'cover');
+      document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
     }
 
     const hero = document.querySelector("[data-hero-bg]");

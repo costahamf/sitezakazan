@@ -30,7 +30,7 @@
       const isMobile = window.matchMedia && window.matchMedia('(max-width: 767.98px)').matches;
       const byId = Object.fromEntries((h.kpis || []).map(k => [k.id, k]));
       const kpis = isMobile
-        ? [byId.uefa, byId.transfers].filter(Boolean)
+        ? [byId.years, byId.transfers].filter(Boolean)
         : (h.kpis || []);
 
       kpiHost.innerHTML = kpis.map((k)=>{
@@ -230,21 +230,25 @@
     if(!c) return;
 
     host.innerHTML = `
-      <div class="card-dark p-4 p-lg-5">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-7">
+      <div class="card-dark p-4 p-lg-5 chess-panel">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6">
             <h3 class="fw-black mb-2" style="font-weight:950;">${c.title || "Шахматы + футбол"}</h3>
             <div class="muted mb-3">${c.lead || ""}</div>
-            <div class="list-check">
-              ${(c.bullets||[]).map(s=>itemRow(`${iconCheck}<div>${s}</div>`)).join("")}
-            </div>
-            <div class="glass p-3 mt-3">
+            <div class="glass p-3 chess-note-box">
               <div class="muted small">${c.note || ""}</div>
             </div>
           </div>
-          <div class="col-lg-5">
-            <div class="card-image">
-              <img src="assets/img/gallery/05.svg" alt="Шахматы (замените на фото)">
+          <div class="col-lg-6">
+            <div class="row g-3">
+              ${(c.bullets||[]).map(s=>`
+                <div class="col-sm-6">
+                  <div class="chess-bullet-card h-100">
+                    <span class="chess-bullet-icon">♟</span>
+                    <div>${s}</div>
+                  </div>
+                </div>
+              `).join("")}
             </div>
           </div>
         </div>

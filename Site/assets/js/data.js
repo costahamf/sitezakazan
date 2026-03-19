@@ -9,7 +9,7 @@ window.SITE_DATA = {
     kpis: [
       { id: "years", label: "работаем", value: 2017, suffix: "" },
       { id: "transfers", label: "переходов в топ академии", value: 30, suffix: "+" },
-      { id: "uefa", label: "", text: "Тренеры UEFA" }
+      { id: "uefa", label: "", text: "Тренеры UEFA coach kids" }
     ],
     age: "3–16 лет",
     headline: "Детская футбольная школа",
@@ -25,11 +25,13 @@ window.SITE_DATA = {
       "5-6 % выпускников в год успешно проходят просмотры в ТОП Академии",
       "Для сравнения показатель школ региона: 0.03 - 0.1 %"
     ],
-    trajectories: [{ name: "Арсений Дмитриев", note: "Дебют на взрослом уровне в 17 лет, выступления за сборную U-17" , photo:"assets/img/graduates/grad-1.svg"},
-      { name: "Саша Осипов", note: "Переход в Локомотив Москва (2024)" , photo:"assets/img/graduates/grad-2.svg"},
-      { name: "Кирилл Сумин", note: "Переход в ЦСКА Москва (2024)" , photo:"assets/img/graduates/grad-3.svg"},
-      { name: "Артём Щербинин", note: "Переход в ФК Краснодар (2023)" , photo:"assets/img/graduates/grad-4.svg"},
-      { name: "Матвей Александров", note: "Переход в ФК Краснодар (2023)" , photo:"assets/img/graduates/grad-5.svg"}]
+    trajectories: [
+      { name: "Арсений Дмитриев", note: "Дебют на взрослом уровне в 17 лет, выступления за сборную U-17", photo:"assets/img/Vipusknoy/Arseniy-Dmitr.webp" },
+      { name: "Александр Осипов", note: "Переход в Локомотив Москва (2024)", photo:"assets/img/Vipusknoy/Aleksandr-Osipov.webp" },
+      { name: "Кирилл Сумин", note: "Переход в ЦСКА Москва (2024)", photo:"assets/img/Vipusknoy/Kirill-Sumin.webp" },
+      { name: "Игрок академии Краснодара", note: "Поступление в структуру ФК Краснодар и адаптация к академическому режиму", photo:"assets/img/Vipusknoy/Proshel-Krasnodar.webp" },
+      { name: "Матвей Синягин", note: "Переход в сильную академическую среду и стабильный соревновательный рост", photo:"assets/img/Vipusknoy/Sinyagin-Matvey%20.webp" }
+    ]
   },
 
   pricing: [
@@ -108,11 +110,12 @@ window.SITE_DATA = {
       "Работа по системе: оценка уровня → обратная связь родителям → индивидуальные цели → отслеживание прогресса → корректировка программы."
         ],
     team: [
-      { name:"ФИО тренера 1", education:"Образование: укажите (например, высшее спортивное)", photo:"assets/img/coaches/coach-1.png" },
-      { name:"ФИО тренера 2", education:"Образование: укажите", photo:"assets/img/coaches/coach-2.png" },
-      { name:"ФИО тренера 3", education:"Образование: укажите", photo:"assets/img/coaches/coach-3.svg" },
-      { name:"ФИО тренера 4", education:"Образование: укажите", photo:"assets/img/coaches/coach-4.svg" },
-      { name:"ФИО тренера 5", education:"Образование: укажите", photo:"assets/img/coaches/coach-5.svg" }
+      { name:"Михаил Тагиев", education:"Основатель школы • методика подготовки и развитие игрового мышления", photo:"assets/img/coaches/mihail-tagiev-osnovatel.webp" },
+      { name:"Игорь", education:"Тренер сборной • подготовка к просмотрам и соревновательным матчам", photo:"assets/img/coaches/igor-trener-sbornoy.webp" },
+      { name:"Владимир", education:"Начальная подготовка • адаптация детей к системным тренировкам", photo:"assets/img/coaches/vladimir-nachalnaya-podgotovka.webp" },
+      { name:"Олег", education:"Физическая подготовка • скорость, координация и контроль нагрузки", photo:"assets/img/coaches/oleg-fizpodgotovka.webp" },
+      { name:"Егор", education:"Общая подготовка • техника и уверенность в игровых эпизодах", photo:"assets/img/coaches/egot-obshaya-podgotovka.webp" },
+      { name:"Александра", education:"Психологическое сопровождение • концентрация, уверенность и коммуникация", photo:"assets/img/coaches/Siteassetsimgcoachesaleksandra-psycholog.webp" }
     ]
   },
 
