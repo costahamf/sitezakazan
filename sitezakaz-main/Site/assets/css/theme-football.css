@@ -80,8 +80,8 @@ body.theme-football .bg-hero::after{
   /* keep existing hero image/gradient behavior untouched */
 }
 body.theme-football .bg-hero::before{
-  background-size: cover !important;
-  background-position: center center !important;
+  background-size: 100% auto !important;
+  background-position: center top !important;
   background-repeat: no-repeat !important;
 }
 
