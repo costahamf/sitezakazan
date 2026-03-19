@@ -19,114 +19,14 @@ body.theme-football{
   background-image:none !important;
 }
 
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: cover !important;
-    background-attachment: fixed;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-
-  /* Keep quick-links transparent on desktop so body hero background stays continuous */
-  body.theme-football section.hero-quick-links,
-  body.theme-football section.hero-quick-links:nth-of-type(even){
-    background: transparent !important;
-    border-top: none !important;
-  }
-
-}
-
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: scroll;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-
-  /* Keep quick-links transparent on desktop so body hero background stays continuous */
-  body.theme-football section.hero-quick-links,
-  body.theme-football section.hero-quick-links:nth-of-type(even){
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: fixed !important;
-    background-color: transparent !important;
-    border-top: none !important;
-  }
-
-}
-
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: scroll;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-
-  /* Keep quick-links transparent on desktop so body hero background stays continuous */
-  body.theme-football section.hero-quick-links,
-  body.theme-football section.hero-quick-links:nth-of-type(even){
-    background: transparent !important;
-    border-top-color: transparent !important;
-  }
-
-}
-
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
+/* Desktop: keep football hero background continuous and avoid black seams */
 @media (min-width: 992px){
   body.theme-football{
     background-image: url("../img/heroBg.webp") !important;
     background-repeat: repeat-y !important;
     background-position: center top !important;
     background-size: 100% auto !important;
-    background-attachment: scroll;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-
-}
-
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: repeat-y !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: scroll;
-  }
-  body.theme-football::after{
-    display: none;
-  }
-}
-
-/* Desktop: show the configured hero background behind sections (instead of flat black) */
-@media (min-width: 992px){
-  body.theme-football{
-    background-image: var(--hero-bg-url, var(--site-bg-url, none)) !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: cover !important;
-    background-attachment: fixed;
+    background-attachment: scroll !important;
   }
   body.theme-football::after{
     display: none;
