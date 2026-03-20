@@ -58,13 +58,11 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 @media (min-width: 992px){
   .hero--index{
-    min-height: max(920px, 100svh);
-    padding-bottom: 34px;
+    min-height: max(1120px, calc(100svh + 180px));
+    padding-bottom: 96px;
   }
   .hero--index #heroKpis{
-    margin-top: auto !important;
-    padding-top: 24px;
-    padding-bottom: 12px;
+    margin-top: clamp(180px, 20vh, 300px) !important;
   }
 }
 
