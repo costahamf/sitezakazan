@@ -234,8 +234,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: max(700px, 92svh);
-    padding-bottom: 34px;
+    min-height: max(760px, 100svh);
+    padding-bottom: 42px;
   }
   .hero--index .container{
     min-height: inherit;
@@ -245,12 +245,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .container > .row{
     flex: 0 0 auto;
   }
-  .hero--index .hero-mobile-actions{
-    margin-top: auto !important;
-    margin-bottom: .75rem !important;
-  }
   .hero--index #heroKpis{
-    margin-top: 0.5rem !important;
+    margin-top: clamp(180px, 28vh, 320px) !important;
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -263,10 +259,9 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
-    min-height: max(660px, 88svh);
+    min-height: max(780px, 100svh);
   }
-  .hero--index .hero-mobile-actions{ margin-bottom: .65rem !important; }
-  .hero--index #heroKpis{ margin-top: .35rem !important; }
+  .hero--index #heroKpis{ margin-top: clamp(220px, 30vh, 320px) !important; }
 }
 
 .hero-quick-links{
@@ -1948,111 +1943,109 @@ section > .container > :not(.section-decor){
   z-index: 1;
 }
 .section-decor--steps{
-  left: -134px;
-  top: 54px;
+  left: -126px;
+  top: 38px;
   background-image: url("../img/sitebg-decor/conus.webp");
 }
 .section-decor--pricing{
-  right: -138px;
-  top: 146px;
+  right: -118px;
+  top: 112px;
   background-image: url("../img/sitebg-decor/money.webp");
 }
 .section-decor--result{
-  left: -128px;
-  bottom: 28px;
+  left: -120px;
+  bottom: 10px;
   background-image: url("../img/sitebg-decor/Chart.webp");
 }
 .section-decor--coaches{
-  right: -138px;
-  bottom: 30px;
+  right: -124px;
+  bottom: 54px;
   background-image: url("../img/sitebg-decor/coach.webp");
 }
 .section-decor--media{
-  left: -122px;
-  top: 96px;
+  left: -112px;
+  top: 68px;
   background-image: url("../img/sitebg-decor/TV.webp");
 }
 .section-decor--philosophy{
-  right: -126px;
-  top: 22px;
+  right: -110px;
+  top: 54px;
   background-image: url("../img/sitebg-decor/book.webp");
 }
 .section-decor--chess{
-  left: -124px;
-  top: 104px;
+  left: -116px;
+  top: 86px;
   background-image: url("../img/sitebg-decor/chess.webp");
 }
 .section-decor--testing{
-  right: -118px;
-  bottom: 30px;
+  right: -106px;
+  bottom: 18px;
   background-image: url("../img/sitebg-decor/test.webp");
 }
 @media (max-width: 1199.98px){
   .section-decor{
-    width: 126px;
+    width: 128px;
   }
   .section-decor--steps,
   .section-decor--result,
   .section-decor--media,
   .section-decor--chess{
-    left: -82px;
+    left: -70px;
   }
   .section-decor--pricing,
   .section-decor--coaches,
   .section-decor--philosophy,
   .section-decor--testing{
-    right: -84px;
+    right: -72px;
   }
 }
 @media (max-width: 991.98px){
   .section-decor{
-    width: 78px;
+    width: 84px;
     opacity: .94;
   }
   .section-decor--steps{
     left: auto;
-    right: 10px;
+    right: 12px;
     top: 118px;
   }
   .section-decor--pricing{
-    right: -6px;
-    top: 136px;
+    right: 12px;
+    top: 168px;
   }
   .section-decor--result{
-    left: -6px;
-    bottom: 26px;
+    left: 12px;
+    bottom: 16px;
   }
   .section-decor--coaches{
-    right: -6px;
-    bottom: 28px;
+    right: 12px;
+    bottom: 14px;
   }
   .section-decor--media{
-    left: -4px;
-    top: 132px;
+    left: 12px;
+    top: 122px;
   }
   .section-decor--philosophy{
-    right: -2px;
-    top: 104px;
+    right: 12px;
+    top: 96px;
   }
   .section-decor--chess{
-    left: -4px;
-    top: 116px;
+    left: 12px;
+    top: 106px;
   }
   .section-decor--testing{
-    right: -4px;
-    bottom: 24px;
+    right: 12px;
+    bottom: 14px;
   }
 }
 @media (max-width: 576px){
   .section-decor{
-    width: 70px;
+    width: 72px;
     opacity: .96;
   }
-  .section-decor--steps{ top: 124px; }
-  .section-decor--pricing{ top: 146px; }
-  .section-decor--media{ top: 136px; }
-  .section-decor--philosophy{ top: 112px; }
-  .section-decor--chess{ top: 124px; }
+  .section-decor--steps{ top: 126px; }
+  .section-decor--pricing{ top: 178px; }
+  .section-decor--media{ top: 128px; }
 }
 
 /* Philosophy / chess clean cards */
@@ -2066,7 +2059,7 @@ section > .container > :not(.section-decor){
 }
 .philosophy-line,
 .chess-bullet-card,
-.chess-note-box{
+.chess-note-box--decor{
   position: relative;
   overflow: hidden;
 }
@@ -2090,10 +2083,26 @@ section > .container > :not(.section-decor){
 }
 .philosophy-line > div,
 .chess-bullet-card > div,
-.chess-note-box .muted{
+.chess-note-box--decor .muted{
   position: relative;
   z-index: 1;
 }
+.philosophy-line-decor,
+.chess-bullet-decor{
+  position: absolute;
+  right: .5rem;
+  bottom: .4rem;
+  width: 58px;
+  height: 58px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .28;
+  pointer-events: none;
+}
+.philosophy-line--one .philosophy-line-decor{ background-image: url("../img/sitebg-decor/book.webp"); }
+.philosophy-line--two .philosophy-line-decor{ background-image: url("../img/sitebg-decor/coach.webp"); }
+.philosophy-line--three .philosophy-line-decor{ background-image: url("../img/sitebg-decor/Chart.webp"); }
 .chess-bullet-card{
   display: flex;
   gap: .75rem;
@@ -2105,6 +2114,10 @@ section > .container > :not(.section-decor){
   color: #1a2433;
   box-shadow: 0 14px 30px rgba(8, 24, 42, .08);
 }
+.chess-bullet-card--1 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/chess.webp"); }
+.chess-bullet-card--2 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/test.webp"); }
+.chess-bullet-card--3 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/conus.webp"); }
+.chess-bullet-card--4 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/money.webp"); }
 .chess-bullet-icon{
   width: 34px;
   height: 34px;
@@ -2124,8 +2137,36 @@ section > .container > :not(.section-decor){
   border: 2px solid #111;
   border-radius: 0;
 }
+.chess-bullet-decor--note{
+  right: .75rem;
+  top: .65rem;
+  bottom: auto;
+  width: 64px;
+  height: 64px;
+  background-image: url("../img/sitebg-decor/TV.webp");
+  opacity: .22;
+}
 @media (max-width: 991.98px){
   .hero-quick-links .feature-icon-img{
     width: 96px !important;
+  }
+  .philosophy-line,
+  .chess-bullet-card,
+  .chess-note-box--decor{
+    padding-right: 3.8rem;
+  }
+  .philosophy-line-decor,
+  .chess-bullet-decor{
+    right: .35rem;
+    bottom: .35rem;
+    width: 44px;
+    height: 44px;
+    opacity: .24;
+  }
+  .chess-bullet-decor--note{
+    top: auto;
+    bottom: .35rem;
+    width: 48px;
+    height: 48px;
   }
 }
