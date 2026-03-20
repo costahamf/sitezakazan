@@ -31,22 +31,35 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 .hero--page{ padding-bottom: 26px; }
 @media (max-width: 576px){ .hero--page{ padding-top: 76px; padding-bottom: 22px; } }
-/* Index hero: keep players visible on mobile (overlay cutout) */
-.hero--index .container{ position: relative; }
-.hero--index .container > .row{ position: relative; z-index: 2; }
-
-/* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
-@media (min-width: 992px){
-  .hero--index .container > .row{
-    align-items: flex-start !important;
-  }
-  .hero--index .hero-copy{ margin-top: 18px; }
+/* Index hero: keep content above floating site background decor */
+.hero--index .container{
+  position: relative;
+}
+.hero--index .container > *{
+  position: relative;
+  z-index: 2;
 }
 
-/* Desktop + tablet: place KPI row noticeably lower in the first screen */
-@media (min-width: 768px){
+/* Desktop: pin the KPI row to the bottom of the hero so it sits close to the icons block */
+@media (min-width: 992px){
+  .hero--index{
+    min-height: max(1120px, calc(100svh + 140px));
+    padding-bottom: 24px;
+  }
+  .hero--index .container{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero--index .container > .row{
+    align-items: flex-start !important;
+    flex: 0 0 auto;
+  }
+  .hero--index .hero-copy{ margin-top: 18px; }
   .hero--index #heroKpis{
-    margin-top: clamp(72px, 12vh, 140px) !important;
+    margin-top: auto !important;
+    padding-top: clamp(32px, 6vh, 72px);
+    padding-bottom: 0;
   }
 }
 
