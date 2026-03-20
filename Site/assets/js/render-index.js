@@ -236,7 +236,6 @@
             <h3 class="fw-black mb-2" style="font-weight:950;">${c.title || "Шахматы + футбол"}</h3>
             <div class="muted mb-3">${c.lead || ""}</div>
             <div class="glass p-3 chess-note-box chess-note-box--decor">
-              <span class="chess-bullet-decor chess-bullet-decor--note" aria-hidden="true"></span>
               <div class="muted small">${c.note || ""}</div>
             </div>
           </div>
@@ -245,7 +244,6 @@
               ${(c.bullets||[]).map((s, idx)=>`
                 <div class="col-sm-6">
                   <div class="chess-bullet-card chess-bullet-card--${idx + 1} h-100">
-                    <span class="chess-bullet-decor" aria-hidden="true"></span>
                     <span class="chess-bullet-icon">♟</span>
                     <div>${s}</div>
                   </div>
