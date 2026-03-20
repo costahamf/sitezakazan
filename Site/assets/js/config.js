@@ -21,15 +21,11 @@ window.SITE_CONFIG = {
         { src: "assets/img/sitebg-decor/test.webp", position: "right 4vw bottom 260px", size: "220px auto" },
         { src: "assets/img/sitebg-decor/conus.webp", position: "left 5vw bottom 180px", size: "170px auto" }
       ],
-      mobile: [
-        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -24px top 110px", size: "110px auto" },
-        { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 760px", size: "96px auto" },
-        { src: "assets/img/sitebg-decor/chess.webp", position: "right -20px top 1640px", size: "102px auto" },
-        { src: "assets/img/sitebg-decor/test.webp", position: "left -14px bottom 320px", size: "110px auto" }
-      ]
+      mobile: []
     },
     siteBg: "assets/img/sitebg-decor/swistl.webp",
     siteBgMobile: "assets/img/sitebg-decor/swistl.webp",
+    siteBgCompositeMobile: "assets/img/sitebg-decor/sitebg-mobile-composite.svg",
     heroBg: "assets/img/heroBg.webp",
     heroBgMobile: "assets/img/heroBgMobile.webp",
     galleryFolder: "assets/img/gallery/",
