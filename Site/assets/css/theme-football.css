@@ -99,8 +99,8 @@ body.theme-football .bg-hero::before{
 }
 @media (min-width: 992px){
   body.theme-football .bg-hero::before{
-    background-size: 100% auto !important;
-    background-position: center top !important;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
 

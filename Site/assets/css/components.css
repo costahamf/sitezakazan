@@ -37,8 +37,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
 @media (min-width: 992px){
+  .hero--index .container{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
   .hero--index .container > .row{
     align-items: flex-start !important;
+    flex: 1 0 auto;
   }
   .hero--index .hero-copy{ margin-top: 18px; }
 }
@@ -292,6 +298,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .hero-quick-links{
   background: #fff;
   padding: 1rem 0 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero--index + .hero-quick-links{
@@ -299,6 +307,27 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   z-index: 1;
 }
 @media (min-width: 992px){
+  .hero--index + .hero-quick-links{
+    margin-top: -6px;
+    padding-top: 1.25rem;
+  }
+  .hero--index + .hero-quick-links::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(180deg, rgba(7,12,18,.10) 0%, rgba(7,12,18,.04) 100%),
+      var(--index-hero-bg-url, none);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+  .hero--index + .hero-quick-links > .container{
+    position: relative;
+    z-index: 1;
+  }
   .hero-quick-links{
     padding-top: 2.5rem;
     padding-bottom: 1.4rem;
