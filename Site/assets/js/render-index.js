@@ -1,5 +1,5 @@
 (function(){
-  const iconCheck = `<i class="bi bi-check2-circle" style="color:var(--accent-3)"></i>`;
+  const iconCheck = `<i class="bi bi-check2-circle" style="color:var(--brand-yellow, #f2c400)"></i>`;
 
   function itemRow(html){
     return `<div class="d-flex gap-2 align-items-start mb-2">${html}</div>`;
@@ -27,7 +27,7 @@
     if(cityEl) cityEl.textContent = SITE_CONFIG.contacts.city;
 
     if(kpiHost){
-      const isMobile = window.matchMedia && window.matchMedia('(max-width: 767.98px)').matches;
+      const isMobile = window.matchMedia && window.matchMedia('(max-width: 991.98px)').matches;
       const byId = Object.fromEntries((h.kpis || []).map(k => [k.id, k]));
       const kpis = isMobile
         ? [byId.years, byId.transfers].filter(Boolean)
@@ -235,15 +235,17 @@
           <div class="col-lg-6">
             <h3 class="fw-black mb-2" style="font-weight:950;">${c.title || "Шахматы + футбол"}</h3>
             <div class="muted mb-3">${c.lead || ""}</div>
-            <div class="glass p-3 chess-note-box">
+            <div class="glass p-3 chess-note-box chess-note-box--decor">
+              <span class="chess-bullet-decor chess-bullet-decor--note" aria-hidden="true"></span>
               <div class="muted small">${c.note || ""}</div>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="row g-3">
-              ${(c.bullets||[]).map(s=>`
+              ${(c.bullets||[]).map((s, idx)=>`
                 <div class="col-sm-6">
-                  <div class="chess-bullet-card h-100">
+                  <div class="chess-bullet-card chess-bullet-card--${idx + 1} h-100">
+                    <span class="chess-bullet-decor" aria-hidden="true"></span>
                     <span class="chess-bullet-icon">♟</span>
                     <div>${s}</div>
                   </div>
