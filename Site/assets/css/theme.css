@@ -41,6 +41,7 @@ html, body{ overflow-x:hidden; min-height:100%; }
 
   --site-bg-url: none;
   --hero-bg-url: none;
+  --index-hero-bg-url: none;
 }
 
 html{

@@ -74,6 +74,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 
 
+
 .kpi-grid .card-dark{ height:100%; }
 
 
@@ -312,6 +313,27 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   z-index: 1;
 }
 @media (min-width: 992px){
+  .hero--index + .hero-quick-links{
+    margin-top: -6px;
+    padding-top: 1.25rem;
+  }
+  .hero--index + .hero-quick-links::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(180deg, rgba(7,12,18,.10) 0%, rgba(7,12,18,.04) 100%),
+      var(--index-hero-bg-url, none);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+  .hero--index + .hero-quick-links > .container{
+    position: relative;
+    z-index: 1;
+  }
   .hero-quick-links{
     padding-top: 1.5rem;
     padding-bottom: 1.4rem;
