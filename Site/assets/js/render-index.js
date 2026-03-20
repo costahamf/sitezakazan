@@ -1,5 +1,5 @@
 (function(){
-  const iconCheck = `<i class="bi bi-check2-circle" style="color:var(--accent-3)"></i>`;
+  const iconCheck = `<i class="bi bi-check2-circle" style="color:var(--brand-yellow, #f2c400)"></i>`;
 
   function itemRow(html){
     return `<div class="d-flex gap-2 align-items-start mb-2">${html}</div>`;
@@ -27,7 +27,7 @@
     if(cityEl) cityEl.textContent = SITE_CONFIG.contacts.city;
 
     if(kpiHost){
-      const isMobile = window.matchMedia && window.matchMedia('(max-width: 767.98px)').matches;
+      const isMobile = window.matchMedia && window.matchMedia('(max-width: 991.98px)').matches;
       const byId = Object.fromEntries((h.kpis || []).map(k => [k.id, k]));
       const kpis = isMobile
         ? [byId.years, byId.transfers].filter(Boolean)
@@ -267,5 +267,11 @@
     renderPhilosophy();
     renderProgram();
     renderChess();
+
+    let heroResizeTimer = null;
+    window.addEventListener("resize", ()=>{
+      clearTimeout(heroResizeTimer);
+      heroResizeTimer = setTimeout(renderHero, 120);
+    }, { passive:true });
   });
 })();

@@ -42,16 +42,6 @@
 
           <div class="neon-rule my-3"></div>
 
-          <!-- Mobile hero visual under the divider -->
-          <div class="d-lg-none mb-3" aria-hidden="true">
-            <div class="hero-visual hero-visual--placeholder hero-visual--summary">
-              <div class="hero-visual-card">
-                <span class="hero-visual-eyebrow">Футбекс</span>
-                <div class="hero-visual-title">Системная подготовка для детей 3–16 лет</div>
-                <div class="hero-visual-text">Техника, мышление, физическая база и понятная обратная связь для родителей.</div>
-              </div>
-            </div>
-          </div>
 
           <!-- Mobile: hide long description to avoid clutter; actions are moved under the hero image -->
           <p class="lead mb-4 d-none d-lg-block" id="heroSubhead">
@@ -69,24 +59,10 @@
           </div>
 
         </div>
-        <div class="col-lg-6 d-none d-lg-block" aria-hidden="true">
-          <div class="hero-visual hero-visual--placeholder hero-visual--summary">
-            <div class="hero-visual-card hero-visual-card--desktop">
-              <span class="hero-visual-eyebrow">Методика школы</span>
-              <div class="hero-visual-title">Футбол + мышление + дисциплина</div>
-              <div class="hero-visual-text">Развиваем ребёнка через игровые задачи, контроль нагрузки и системную работу над сильными и слабыми сторонами.</div>
-              <div class="hero-visual-tags">
-                <span class="hero-visual-tag">UEFA coach kids</span>
-                <span class="hero-visual-tag">Турниры и сборы</span>
-                <span class="hero-visual-tag">Индивидуальные цели</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Mobile: actions (moved lower, closer to KPI) -->
-      <div class="d-lg-none mt-2 mb-3">
+      <div class="d-lg-none mt-2 mb-3 hero-mobile-actions">
         <div class="d-grid gap-2">
           <button type="button" class="btn btn-accent px-4 py-2" data-bs-toggle="modal" data-bs-target="#quizModal">
             <i class="bi bi-check2-circle me-1"></i> Пройди тест и получи тренировку в подарок
@@ -149,6 +125,7 @@
   <!-- STEPS -->
   <section id="steps">
     <div class="container">
+      <span class="section-decor section-decor--steps" aria-hidden="true"></span>
       <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
         <div>
           <h2 class="section-title">Как проходит пробное занятие</h2>
@@ -194,6 +171,7 @@
   
 <section id="pricing">
   <div class="container" data-aos="fade-up">
+    <span class="section-decor section-decor--pricing" aria-hidden="true"></span>
     <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h2 class="section-title">Цена</h2>
@@ -213,6 +191,7 @@
 <!-- 2) RESULT -->
   <section id="result">
     <div class="container" data-aos="fade-up">
+      <span class="section-decor section-decor--result" aria-hidden="true"></span>
       <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
         <div>
           <h2 class="section-title">Наши достижения</h2>
@@ -274,6 +253,7 @@
   <!-- 3) COACHES -->
   <section id="coaches">
     <div class="container" data-aos="fade-up">
+      <span class="section-decor section-decor--coaches" aria-hidden="true"></span>
       <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
         <div>
           <h2 class="section-title">Наши тренеры по футболу.</h2>
@@ -345,6 +325,7 @@
 <!-- MEDIA: PHOTO + VIDEO -->
 <section id="media">
   <div class="container" data-aos="fade-up">
+    <span class="section-decor section-decor--media" aria-hidden="true"></span>
     <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h2 class="section-title">Фото и видео</h2>
@@ -399,6 +380,7 @@
 <!-- 5) PHILOSOPHY -->
   <section id="philosophy">
     <div class="container" data-aos="fade-up">
+      <span class="section-decor section-decor--philosophy" aria-hidden="true"></span>
       <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
         <div>
           <h2 class="section-title">Наша философия</h2>
@@ -410,16 +392,16 @@
         <div class="row align-items-center g-3">
           <div class="col-lg-8">
             <div class="list-check">
-              <div class="d-flex gap-2 align-items-start mb-2">
-                <i class="bi bi-check2-circle" style="color:var(--accent-3)"></i>
+              <div class="d-flex gap-2 align-items-start mb-2 philosophy-line philosophy-line--one">
+                <i class="bi bi-check2-circle"></i>
                 <div>Ошибка — это не повод ругать, а сигнал, что именно улучшить</div>
               </div>
-              <div class="d-flex gap-2 align-items-start mb-2">
-                <i class="bi bi-check2-circle" style="color:var(--accent-3)"></i>
+              <div class="d-flex gap-2 align-items-start mb-2 philosophy-line philosophy-line--two">
+                <i class="bi bi-check2-circle"></i>
                 <div>Мы усиливаем сильные стороны и спокойно достраиваем слабые</div>
               </div>
-              <div class="d-flex gap-2 align-items-start">
-                <i class="bi bi-check2-circle" style="color:var(--accent-3)"></i>
+              <div class="d-flex gap-2 align-items-start philosophy-line philosophy-line--three">
+                <i class="bi bi-check2-circle"></i>
                 <div>Главная цель - игрок, который умеет думать, не боится брать ответственность и развивается как в игре и в жизни как личность</div>
               </div>
             </div>
@@ -434,6 +416,7 @@
 <!-- 7) CHESS -->
   <section id="chess">
     <div class="container" data-aos="fade-up">
+      <span class="section-decor section-decor--chess" aria-hidden="true"></span>
       <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
         <div>
           <h2 class="section-title">Шахматы</h2>
@@ -450,6 +433,7 @@
 <!-- FINAL: TESTING -->
 <section id="testing">
   <div class="container" data-aos="fade-up">
+    <span class="section-decor section-decor--testing" aria-hidden="true"></span>
     <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h2 class="section-title">Тестирование по запатентованной авторской методике</h2>
