@@ -12,6 +12,11 @@ window.SITE_CONFIG = {
   },
 
   media: {
+    // siteBgLayers:
+    // - position: сначала горизонталь (left/right), потом высота (top/bottom)
+    //   пример: "right -24px top 72px"
+    // - size: первое значение = ширина картинки, второе можно оставить auto
+    // - mobile: меняй именно здесь положение decor-картинок на телефоне
     siteBgLayers: {
       desktop: [
         { src: "assets/img/sitebg-decor/Chart.webp", position: "right 3vw top 180px", size: "220px auto" },
@@ -22,10 +27,10 @@ window.SITE_CONFIG = {
         { src: "assets/img/sitebg-decor/conus.webp", position: "left 5vw bottom 180px", size: "170px auto" }
       ],
       mobile: [
-        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -24px top 110px", size: "110px auto" },
-        { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 760px", size: "96px auto" },
-        { src: "assets/img/sitebg-decor/chess.webp", position: "right -20px top 1640px", size: "102px auto" },
-        { src: "assets/img/sitebg-decor/test.webp", position: "left -14px bottom 320px", size: "110px auto" }
+        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -24px top 72px", size: "110px auto" },
+        { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 680px", size: "96px auto" },
+        { src: "assets/img/sitebg-decor/chess.webp", position: "right -20px top 1500px", size: "102px auto" },
+        { src: "assets/img/sitebg-decor/test.webp", position: "left -14px bottom 420px", size: "110px auto" }
       ]
     },
     siteBg: "assets/img/sitebg-decor/swistl.webp",

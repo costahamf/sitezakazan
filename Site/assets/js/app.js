@@ -68,27 +68,72 @@
     return (isMobile && mobile) ? mobile : desktop;
   }
 
-  function buildLayerCss(layers){
-    if(!Array.isArray(layers) || !layers.length) return null;
-    const urls = [];
-    const positions = [];
-    const sizes = [];
-    const repeats = [];
-    layers.forEach(layer=>{
-      if(!layer?.src) return;
-      const href = new URL(layer.src, document.baseURI).href;
-      urls.push(`url('${href}')`);
-      positions.push(layer.position || 'center top');
-      sizes.push(layer.size || 'auto');
-      repeats.push(layer.repeat || 'no-repeat');
+  function parseInsetPosition(position){
+    if(typeof position !== "string") return null;
+    const matches = [...position.matchAll(/(left|right|top|bottom)\s*(-?(?:\d+\.?\d*|\d*\.?\d+)(?:px|vw|vh|%|rem|em)?|0)?/g)];
+    if(!matches.length) return null;
+    const style = {};
+    matches.forEach(([, edge, value])=>{
+      style[edge] = value || "0";
     });
-    if(!urls.length) return null;
-    return {
-      image: urls.join(', '),
-      position: positions.join(', '),
-      size: sizes.join(', '),
-      repeat: repeats.join(', ')
-    };
+    return style;
+  }
+
+  function parseLayerSize(size){
+    if(typeof size !== "string" || !size.trim()) return {};
+    const [width, height] = size.trim().split(/\s+/, 2);
+    const style = {};
+    if(width && width !== "auto") style.width = width;
+    if(height && height !== "auto") style.height = height;
+    return style;
+  }
+
+  function getLayerHost(){
+    let host = document.getElementById("siteBgLayerHost");
+    if(host) return host;
+    host = document.createElement("div");
+    host.id = "siteBgLayerHost";
+    host.className = "site-bg-layer-host";
+    host.setAttribute("aria-hidden", "true");
+    document.body.prepend(host);
+    return host;
+  }
+
+  function clearSiteBgLayers(){
+    const host = document.getElementById("siteBgLayerHost");
+    if(host) host.innerHTML = "";
+    document.body.classList.remove("site-bg-layers-active");
+  }
+
+  function renderSiteBgLayers(layers){
+    if(!Array.isArray(layers) || !layers.length) {
+      clearSiteBgLayers();
+      return false;
+    }
+
+    const host = getLayerHost();
+    host.innerHTML = "";
+
+    layers.forEach((layer, index)=>{
+      if(!layer?.src) return;
+      const img = document.createElement("img");
+      img.className = "site-bg-layer";
+      img.src = new URL(layer.src, document.baseURI).href;
+      img.alt = "";
+      img.decoding = "async";
+      img.loading = index === 0 ? "eager" : "lazy";
+
+      const pos = parseInsetPosition(layer.position);
+      if(pos) Object.assign(img.style, pos);
+      Object.assign(img.style, parseLayerSize(layer.size));
+      if(layer.opacity != null) img.style.opacity = String(layer.opacity);
+      if(layer.transform) img.style.transform = layer.transform;
+
+      host.appendChild(img);
+    });
+
+    document.body.classList.add("site-bg-layers-active");
+    return host.childElementCount > 0;
   }
 
   function applyBackgrounds(){
@@ -97,13 +142,14 @@
     const desktopSiteBg = isIndex ? (media.heroBg || media.siteBg) : null;
     const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg) : null;
     const siteBg = isIndex ? pickBg(desktopSiteBg, mobileSiteBg) : null;
-    const layerCss = isIndex ? buildLayerCss(pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile)) : null;
+    const activeLayers = isIndex ? pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile) : null;
+    const hasRenderedLayers = renderSiteBgLayers(activeLayers);
 
-    if(layerCss){
-      document.documentElement.style.setProperty("--site-bg-url", layerCss.image);
-      document.documentElement.style.setProperty("--site-bg-position", layerCss.position);
-      document.documentElement.style.setProperty("--site-bg-size", layerCss.size);
-      document.documentElement.style.setProperty("--site-bg-repeat", layerCss.repeat);
+    if(hasRenderedLayers){
+      document.documentElement.style.setProperty("--site-bg-url", 'none');
+      document.documentElement.style.setProperty("--site-bg-position", 'center top');
+      document.documentElement.style.setProperty("--site-bg-size", 'cover');
+      document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
     } else if(siteBg){
       const absSite = new URL(siteBg, document.baseURI).href;
       document.documentElement.style.setProperty("--site-bg-url", `url('${absSite}')`);
@@ -111,6 +157,7 @@
       document.documentElement.style.setProperty("--site-bg-size", 'cover');
       document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
     } else {
+      clearSiteBgLayers();
       document.documentElement.style.setProperty("--site-bg-url", 'none');
       document.documentElement.style.setProperty("--site-bg-position", 'center top');
       document.documentElement.style.setProperty("--site-bg-size", 'cover');
@@ -124,8 +171,10 @@
       if(heroSrc){
         const absHero = new URL(heroSrc, document.baseURI).href;
         hero.style.setProperty("--hero-bg-url", `url('${absHero}')`);
+        document.documentElement.style.setProperty("--index-hero-bg-url", `url('${absHero}')`);
       } else {
         hero.style.setProperty("--hero-bg-url", 'none');
+        document.documentElement.style.setProperty("--index-hero-bg-url", 'none');
       }
     }
   }
