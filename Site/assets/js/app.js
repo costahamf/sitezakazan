@@ -139,11 +139,13 @@
   function applyBackgrounds(){
     const media = SITE_CONFIG?.media || {};
     const isIndex = current === "index";
+    const isMobile = window.matchMedia && window.matchMedia("(max-width: 767.98px)").matches;
     const desktopSiteBg = isIndex ? (media.heroBg || media.siteBg) : null;
     const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg) : null;
     const siteBg = isIndex ? pickBg(desktopSiteBg, mobileSiteBg) : null;
+    const mobileCompositeBg = (isIndex && isMobile) ? media.siteBgCompositeMobile : null;
     const hasSectionDecor = isIndex && document.querySelector(".section-decor") !== null;
-    const activeLayers = (isIndex && !hasSectionDecor)
+    const activeLayers = (isIndex && !hasSectionDecor && !mobileCompositeBg)
       ? pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile)
       : null;
     const hasRenderedLayers = renderSiteBgLayers(activeLayers);
@@ -152,6 +154,12 @@
       document.documentElement.style.setProperty("--site-bg-url", 'none');
       document.documentElement.style.setProperty("--site-bg-position", 'center top');
       document.documentElement.style.setProperty("--site-bg-size", 'cover');
+      document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
+    } else if(mobileCompositeBg){
+      const absComposite = new URL(mobileCompositeBg, document.baseURI).href;
+      document.documentElement.style.setProperty("--site-bg-url", `url('${absComposite}')`);
+      document.documentElement.style.setProperty("--site-bg-position", 'center top');
+      document.documentElement.style.setProperty("--site-bg-size", '100% auto');
       document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
     } else if(siteBg){
       const absSite = new URL(siteBg, document.baseURI).href;
