@@ -1953,6 +1953,17 @@ body[data-page="cabinet"] #siteFooter{
 
 
 
+#steps,
+#pricing,
+#result,
+#coaches,
+#media,
+#philosophy,
+#chess,
+#testing{
+  position: relative;
+}
+
 section > .container{
   position: relative;
   overflow: visible;
