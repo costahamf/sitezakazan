@@ -177,38 +177,7 @@
     }
   }
 
-  function adjustHeroCutoff() {
-    const hero = document.querySelector('[data-hero-bg]');
-    if (!hero) return;
-    
-    const isMobile = window.matchMedia('(max-width: 991.98px)').matches;
-    const kpis = document.getElementById('heroKpis');
-    
-    if (!isMobile && kpis) {
-      const heroRect = hero.getBoundingClientRect();
-      const kpisRect = kpis.getBoundingClientRect();
-      const kpisBottom = kpisRect.bottom - heroRect.top;
-      hero.style.setProperty('--hero-kpis-bottom', kpisBottom + 'px');
-      
-    } else if (isMobile) {
-      const stats = document.querySelectorAll('#heroKpis .stat');
-      if (stats.length >= 3) {
-        const lastStat = stats[stats.length - 1];
-        const heroRect = hero.getBoundingClientRect();
-        const statRect = lastStat.getBoundingClientRect();
-        const uefaBottom = statRect.bottom - heroRect.top;
-        hero.style.setProperty('--hero-uefa-bottom', uefaBottom + 'px');
-      }
-    }
-  }
-
   applyBackgrounds();
-  
-  window.addEventListener('load', function() {
-    setTimeout(adjustHeroCutoff, 100);
-  });
-  
-  window.addEventListener('resize', adjustHeroCutoff);
   
   let __bgT = null;
   window.addEventListener("resize", ()=>{
