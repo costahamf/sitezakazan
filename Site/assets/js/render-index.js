@@ -269,5 +269,11 @@
     renderPhilosophy();
     renderProgram();
     renderChess();
+
+    let heroResizeTimer = null;
+    window.addEventListener("resize", ()=>{
+      clearTimeout(heroResizeTimer);
+      heroResizeTimer = setTimeout(renderHero, 120);
+    }, { passive:true });
   });
 })();

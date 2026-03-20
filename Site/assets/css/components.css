@@ -232,10 +232,36 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     font-size: 1.36rem;
   }
 }
+@media (max-width: 991.98px){
+  .hero--index{
+    min-height: max(760px, 100svh);
+    padding-bottom: 42px;
+  }
+  .hero--index .container{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero--index .container > .row{
+    flex: 0 0 auto;
+  }
+  .hero--index #heroKpis{
+    margin-top: clamp(180px, 28vh, 320px) !important;
+  }
+  .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
+    display: none !important;
+  }
+  .hero--index #heroKpis > [class*="col"]:nth-child(-n+2){
+    width: 50%;
+  }
+}
 @media (max-width: 576px){
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
-  .hero--index #heroKpis{ margin-top: 1rem !important; }
+  .hero--index{
+    min-height: max(780px, 100svh);
+  }
+  .hero--index #heroKpis{ margin-top: clamp(220px, 30vh, 320px) !important; }
 }
 
 .hero-quick-links{
@@ -1894,6 +1920,133 @@ body[data-page="cabinet"] #siteFooter{
   }
 }
 
+
+
+section > .container{
+  position: relative;
+  overflow: visible;
+}
+.section-decor{
+  position: absolute;
+  display: block;
+  width: clamp(118px, 12vw, 180px);
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .92;
+  pointer-events: none;
+  z-index: 0;
+}
+section > .container > :not(.section-decor){
+  position: relative;
+  z-index: 1;
+}
+.section-decor--steps{
+  left: -126px;
+  top: 38px;
+  background-image: url("../img/sitebg-decor/conus.webp");
+}
+.section-decor--pricing{
+  right: -118px;
+  top: 112px;
+  background-image: url("../img/sitebg-decor/money.webp");
+}
+.section-decor--result{
+  left: -120px;
+  bottom: 10px;
+  background-image: url("../img/sitebg-decor/Chart.webp");
+}
+.section-decor--coaches{
+  right: -124px;
+  bottom: 54px;
+  background-image: url("../img/sitebg-decor/coach.webp");
+}
+.section-decor--media{
+  left: -112px;
+  top: 68px;
+  background-image: url("../img/sitebg-decor/TV.webp");
+}
+.section-decor--philosophy{
+  right: -110px;
+  top: 54px;
+  background-image: url("../img/sitebg-decor/book.webp");
+}
+.section-decor--chess{
+  left: -116px;
+  top: 86px;
+  background-image: url("../img/sitebg-decor/chess.webp");
+}
+.section-decor--testing{
+  right: -106px;
+  bottom: 18px;
+  background-image: url("../img/sitebg-decor/test.webp");
+}
+@media (max-width: 1199.98px){
+  .section-decor{
+    width: 128px;
+  }
+  .section-decor--steps,
+  .section-decor--result,
+  .section-decor--media,
+  .section-decor--chess{
+    left: -70px;
+  }
+  .section-decor--pricing,
+  .section-decor--coaches,
+  .section-decor--philosophy,
+  .section-decor--testing{
+    right: -72px;
+  }
+}
+@media (max-width: 991.98px){
+  .section-decor{
+    width: 84px;
+    opacity: .94;
+  }
+  .section-decor--steps{
+    left: auto;
+    right: 12px;
+    top: 118px;
+  }
+  .section-decor--pricing{
+    right: 12px;
+    top: 168px;
+  }
+  .section-decor--result{
+    left: 12px;
+    bottom: 16px;
+  }
+  .section-decor--coaches{
+    right: 12px;
+    bottom: 14px;
+  }
+  .section-decor--media{
+    left: 12px;
+    top: 122px;
+  }
+  .section-decor--philosophy{
+    right: 12px;
+    top: 96px;
+  }
+  .section-decor--chess{
+    left: 12px;
+    top: 106px;
+  }
+  .section-decor--testing{
+    right: 12px;
+    bottom: 14px;
+  }
+}
+@media (max-width: 576px){
+  .section-decor{
+    width: 72px;
+    opacity: .96;
+  }
+  .section-decor--steps{ top: 126px; }
+  .section-decor--pricing{ top: 178px; }
+  .section-decor--media{ top: 128px; }
+}
 
 /* Philosophy / chess clean cards */
 #philosophy .card-dark,
