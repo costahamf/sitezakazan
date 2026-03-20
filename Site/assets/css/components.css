@@ -2090,14 +2090,14 @@ section > .container > :not(.section-decor){
 .philosophy-line-decor,
 .chess-bullet-decor{
   position: absolute;
-  right: .35rem;
-  bottom: .2rem;
-  width: 68px;
-  height: 68px;
+  right: .5rem;
+  bottom: .4rem;
+  width: 58px;
+  height: 58px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: .92;
+  opacity: .28;
   pointer-events: none;
 }
 .philosophy-line--one .philosophy-line-decor{ background-image: url("../img/sitebg-decor/book.webp"); }
@@ -2144,7 +2144,7 @@ section > .container > :not(.section-decor){
   width: 64px;
   height: 64px;
   background-image: url("../img/sitebg-decor/TV.webp");
-  opacity: .9;
+  opacity: .22;
 }
 @media (max-width: 991.98px){
   .hero-quick-links .feature-icon-img{
@@ -2159,14 +2159,14 @@ section > .container > :not(.section-decor){
   .chess-bullet-decor{
     right: .35rem;
     bottom: .35rem;
-    width: 52px;
-    height: 52px;
-    opacity: .9;
+    width: 44px;
+    height: 44px;
+    opacity: .24;
   }
   .chess-bullet-decor--note{
     top: auto;
     bottom: .35rem;
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
   }
 }
