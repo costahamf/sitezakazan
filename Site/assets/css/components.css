@@ -1953,6 +1953,17 @@ body[data-page="cabinet"] #siteFooter{
 
 
 
+#steps,
+#pricing,
+#result,
+#coaches,
+#media,
+#philosophy,
+#chess,
+#testing{
+  position: relative;
+}
+
 section > .container{
   position: relative;
   overflow: visible;
@@ -2044,12 +2055,13 @@ section > .container > :not(.section-decor){
     opacity: .94;
   }
   .section-decor--steps{
-    left: auto;
-    right: 12px;
+    left: 294px;
+    right: auto;
     top: 118px;
   }
   .section-decor--pricing{
-    right: 30px;
+    left: 276px;
+    right: auto;
     top: 168px;
   }
   .section-decor--result{
@@ -2057,7 +2069,8 @@ section > .container > :not(.section-decor){
     bottom: 995px;
   }
   .section-decor--coaches{
-    right: 30px;
+    left: 276px;
+    right: auto;
     bottom: 1435px;
   }
   .section-decor--media{
@@ -2065,7 +2078,8 @@ section > .container > :not(.section-decor){
     top: 122px;
   }
   .section-decor--philosophy{
-    right: 12px;
+    left: 294px;
+    right: auto;
     top: 96px;
   }
   .section-decor--chess{
@@ -2073,22 +2087,24 @@ section > .container > :not(.section-decor){
     top: -30px;
   }
   .section-decor--testing{
-    right: 24px;
+    left: 282px;
+    right: auto;
     bottom: 700px;
   }
 }
-@media (max-width: 576px){
+@media (max-width: 767.98px){
   .section-decor{
     width: 72px;
     opacity: .96;
   }
-  .section-decor--steps{ top: 105px; width: 100px; }
-  .section-decor--pricing{ top: -70px; width: 150px; } 
+  .section-decor--steps{ left: 278px; top: 105px; width: 100px; }
+  .section-decor--pricing{ left: 210px; top: -70px; width: 150px; }
   .section-decor--media{ top: -20px; }
+  .section-decor--philosophy{ left: 306px; }
   .section-decor--result{ width: 100px; }
-  .section-decor--coaches{ width: 100px; }
+  .section-decor--coaches{ left: 260px; width: 100px; }
   .section-decor--chess{ width: 100px; }
-  .section-decor--testing{ width: 100px; }
+  .section-decor--testing{ left: 266px; width: 100px; }
   
 }
 
