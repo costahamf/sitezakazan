@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="40" y1="40" x2="472" y2="472" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a7ff5a"/>
+      <stop offset="1" stop-color="#64d63b"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="30%" cy="25%" r="60%">
+      <stop offset="0" stop-color="rgba(255,255,255,.35)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect x="44" y="44" width="424" height="424" rx="96" fill="url(#g)"/>
+  <rect x="44" y="44" width="424" height="424" rx="96" fill="url(#shine)"/>
+  <path d="M128 320l48-128h44l-64 160h-28zm112 0V192h44v128h-44zm84 0l64-160h-44l-48 128h28z" fill="#06110b" opacity=".92"/>
+  <text x="256" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="64" fill="#06110b" opacity=".95">SKILL+</text>
+</svg>
