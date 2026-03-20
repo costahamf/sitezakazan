@@ -136,6 +136,39 @@
     return host.childElementCount > 0;
   }
 
+  const MOBILE_DECOR_LOCK = {
+    steps: { left: "278px", top: "105px", right: "auto", bottom: "auto", width: "100px", opacity: ".96" },
+    pricing: { left: "210px", top: "-70px", right: "auto", bottom: "auto", width: "150px", opacity: ".96" },
+    result: { left: "260px", top: "auto", right: "auto", bottom: "995px", width: "100px", opacity: ".96" },
+    coaches: { left: "260px", top: "auto", right: "auto", bottom: "1435px", width: "100px", opacity: ".96" },
+    media: { left: "280px", top: "-20px", right: "auto", bottom: "auto", width: "72px", opacity: ".96" },
+    philosophy: { left: "306px", top: "96px", right: "auto", bottom: "auto", width: "72px", opacity: ".96" },
+    chess: { left: "240px", top: "-30px", right: "auto", bottom: "auto", width: "100px", opacity: ".96" },
+    testing: { left: "266px", top: "auto", right: "auto", bottom: "700px", width: "100px", opacity: ".96" }
+  };
+
+  function applyMobileDecorLock(){
+    const decorItems = document.querySelectorAll(".section-decor");
+    if(!decorItems.length) return;
+
+    const isLockedViewport = window.matchMedia && window.matchMedia("(max-width: 767.98px)").matches;
+    decorItems.forEach((item)=>{
+      const lockKey = [...item.classList].find((name)=>name.startsWith("section-decor--"))?.replace("section-decor--", "");
+      const lockStyles = lockKey ? MOBILE_DECOR_LOCK[lockKey] : null;
+
+      if(isLockedViewport && lockStyles){
+        Object.entries(lockStyles).forEach(([prop, value])=>{
+          item.style.setProperty(prop, value);
+        });
+        return;
+      }
+
+      ["left", "right", "top", "bottom", "width", "opacity"].forEach((prop)=>{
+        item.style.removeProperty(prop);
+      });
+    });
+  }
+
   function applyBackgrounds(){
     const media = SITE_CONFIG?.media || {};
     const isIndex = current === "index";
@@ -206,9 +239,11 @@
   }
 
   applyBackgrounds();
+  applyMobileDecorLock();
   
   window.addEventListener('load', function() {
     setTimeout(adjustHeroCutoff, 100);
+    applyMobileDecorLock();
   });
   
   window.addEventListener('resize', adjustHeroCutoff);
@@ -216,7 +251,10 @@
   let __bgT = null;
   window.addEventListener("resize", ()=>{
     clearTimeout(__bgT);
-    __bgT = setTimeout(applyBackgrounds, 140);
+    __bgT = setTimeout(()=>{
+      applyBackgrounds();
+      applyMobileDecorLock();
+    }, 140);
   }, { passive:true });
 
   const y = document.getElementById("year");

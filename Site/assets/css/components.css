@@ -2081,7 +2081,7 @@ section > .container > :not(.section-decor){
     bottom: 700px;
   }
 }
-@media (max-width: 576px){
+@media (max-width: 767.98px){
   .section-decor{
     width: 72px;
     opacity: .96;
