@@ -63,10 +63,13 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 
-/* Tablet: keep a visible gap before KPIs without fixing them as high as before */
-@media (min-width: 768px) and (max-width: 991.98px){
+@media (min-width: 992px){
+  .hero--index{
+    min-height: max(1120px, calc(100svh + 140px));
+    padding-bottom: 40px;
+  }
   .hero--index #heroKpis{
-    margin-top: clamp(48px, 10vh, 120px) !important;
+    margin-top: clamp(220px, 24vh, 360px) !important;
   }
 }
 
@@ -310,7 +313,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (min-width: 992px){
   .hero-quick-links{
-    padding-top: .75rem;
+    padding-top: 1.5rem;
     padding-bottom: 1.4rem;
   }
   .hero-quick-links .kpi-grid{

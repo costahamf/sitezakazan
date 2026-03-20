@@ -111,7 +111,7 @@ body.site-bg-layers-active:after{
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: -2;
   overflow: visible;
 }
 
@@ -123,17 +123,6 @@ body.site-bg-layers-active:after{
   height: auto;
   pointer-events: none;
   user-select: none;
-}
-
-#siteNav,
-#siteFooter,
-#siteModalHost,
-#siteFloatingHost,
-.hero > .container,
-section > .container,
-footer > .container{
-  position: relative;
-  z-index: 2;
 }
 
 .bg-hero{
