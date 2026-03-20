@@ -50,6 +50,7 @@ html{
 }
 body{
   position: relative;
+  isolation: isolate;
   min-height: 100vh;
   font-family: var(--font-sans);
   color: var(--text);
@@ -99,6 +100,40 @@ body:after{
   background-repeat: var(--site-bg-repeat, no-repeat);
   background-size: var(--site-bg-size, cover);
   background-position: var(--site-bg-position, center top);
+}
+
+body.site-bg-layers-active,
+body.site-bg-layers-active:after{
+  background-image: none;
+}
+
+.site-bg-layer-host{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.site-bg-layer{
+  position: absolute;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+#siteNav,
+#siteFooter,
+#siteModalHost,
+#siteFloatingHost,
+.hero > .container,
+section > .container,
+footer > .container{
+  position: relative;
+  z-index: 2;
 }
 
 .bg-hero{

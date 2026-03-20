@@ -31,32 +31,42 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 .hero--page{ padding-bottom: 26px; }
 @media (max-width: 576px){ .hero--page{ padding-top: 76px; padding-bottom: 22px; } }
-/* Index hero: keep players visible on mobile (overlay cutout) */
-.hero--index .container{ position: relative; }
-.hero--index .container > .row{ position: relative; z-index: 2; }
-
-/* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
-@media (min-width: 992px){
-  .hero--index .container > .row{
-    align-items: flex-start !important;
-  }
-  .hero--index .hero-copy{ margin-top: 18px; }
+/* Index hero: keep content above floating site background decor */
+.hero--index .container{
+  position: relative;
+}
+.hero--index .container > *{
+  position: relative;
+  z-index: 2;
 }
 
-/* Desktop + tablet: place KPI row noticeably lower in the first screen */
-@media (min-width: 768px){
-  .hero--index #heroKpis{
-    margin-top: clamp(72px, 12vh, 140px) !important;
-  }
-}
-
+/* Desktop: pin the KPI row to the bottom of the hero so it sits close to the icons block */
 @media (min-width: 992px){
   .hero--index{
-    min-height: max(1120px, calc(100svh + 180px));
-    padding-bottom: 96px;
+    min-height: max(1120px, calc(100svh + 140px));
+    padding-bottom: 24px;
   }
+  .hero--index .container{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero--index .container > .row{
+    align-items: flex-start !important;
+    flex: 0 0 auto;
+  }
+  .hero--index .hero-copy{ margin-top: 18px; }
   .hero--index #heroKpis{
-    margin-top: clamp(180px, 20vh, 300px) !important;
+    margin-top: auto !important;
+    padding-top: clamp(32px, 6vh, 72px);
+    padding-bottom: 0;
+  }
+}
+
+/* Tablet: keep a visible gap before KPIs without fixing them as high as before */
+@media (min-width: 768px) and (max-width: 991.98px){
+  .hero--index #heroKpis{
+    margin-top: clamp(48px, 10vh, 120px) !important;
   }
 }
 
@@ -291,7 +301,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 .hero-quick-links{
   background: #fff;
-  padding: 1rem 0 0;
+  padding: 1rem 0 1.15rem;
 }
 
 .hero--index + .hero-quick-links{
@@ -300,11 +310,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (min-width: 992px){
   .hero-quick-links{
-    padding-top: 2.5rem;
+    padding-top: .75rem;
     padding-bottom: 1.4rem;
   }
   .hero-quick-links .kpi-grid{
     padding-inline: 1.25rem;
+  }
+}
+@media (max-width: 576px){
+  .hero-quick-links{
+    padding-bottom: 1.35rem;
   }
 }
 
@@ -2088,10 +2103,10 @@ section > .container > :not(.section-decor){
 .chess-bullet-card,
 .chess-note-box--decor{
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .philosophy-line{
-  padding: 1rem 4.8rem 1rem 1.1rem;
+  padding: 1rem 1.1rem;
   border-radius: 0;
   background: linear-gradient(180deg, rgba(255, 247, 214, .96), rgba(251, 241, 196, .88));
   border: 2px solid #111;
@@ -2114,37 +2129,17 @@ section > .container > :not(.section-decor){
   position: relative;
   z-index: 1;
 }
-.philosophy-line-decor,
-.chess-bullet-decor{
-  position: absolute;
-  right: .5rem;
-  bottom: .4rem;
-  width: 58px;
-  height: 58px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: .28;
-  pointer-events: none;
-}
-.philosophy-line--one .philosophy-line-decor{ background-image: url("../img/sitebg-decor/book.webp"); }
-.philosophy-line--two .philosophy-line-decor{ background-image: url("../img/sitebg-decor/coach.webp"); }
-.philosophy-line--three .philosophy-line-decor{ background-image: url("../img/sitebg-decor/Chart.webp"); }
 .chess-bullet-card{
   display: flex;
   gap: .75rem;
   align-items: flex-start;
-  padding: 1rem 4.4rem 1rem 1.05rem;
+  padding: 1rem 1.05rem;
   border-radius: 0;
   background: linear-gradient(180deg, rgba(255, 247, 214, .96), rgba(251, 241, 196, .88));
   border: 2px solid #111;
   color: #1a2433;
   box-shadow: 0 14px 30px rgba(8, 24, 42, .08);
 }
-.chess-bullet-card--1 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/chess.webp"); }
-.chess-bullet-card--2 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/test.webp"); }
-.chess-bullet-card--3 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/conus.webp"); }
-.chess-bullet-card--4 .chess-bullet-decor{ background-image: url("../img/sitebg-decor/money.webp"); }
 .chess-bullet-icon{
   width: 34px;
   height: 34px;
@@ -2164,36 +2159,9 @@ section > .container > :not(.section-decor){
   border: 2px solid #111;
   border-radius: 0;
 }
-.chess-bullet-decor--note{
-  right: .75rem;
-  top: .65rem;
-  bottom: auto;
-  width: 64px;
-  height: 64px;
-  background-image: url("../img/sitebg-decor/TV.webp");
-  opacity: .22;
-}
+
 @media (max-width: 991.98px){
   .hero-quick-links .feature-icon-img{
     width: 96px !important;
-  }
-  .philosophy-line,
-  .chess-bullet-card,
-  .chess-note-box--decor{
-    padding-right: 3.8rem;
-  }
-  .philosophy-line-decor,
-  .chess-bullet-decor{
-    right: .35rem;
-    bottom: .35rem;
-    width: 44px;
-    height: 44px;
-    opacity: .24;
-  }
-  .chess-bullet-decor--note{
-    top: auto;
-    bottom: .35rem;
-    width: 48px;
-    height: 48px;
   }
 }
