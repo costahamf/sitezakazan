@@ -32,19 +32,19 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .hero--page{ padding-bottom: 26px; }
 @media (max-width: 576px){ .hero--page{ padding-top: 76px; padding-bottom: 22px; } }
 /* Index hero: keep content above floating site background decor */
-.hero--index .container{ position: relative; }
-.hero--index .container > .row,
-.hero-mobile-actions,
-.hero--index #heroKpis{
+.hero--index .container{
+  position: relative;
+}
+.hero--index .container > *{
   position: relative;
   z-index: 2;
 }
 
-/* Desktop reference behavior: keep icons block untouched and dock KPI cards right above it */
+/* Desktop: pin the KPI row to the bottom of the hero so it sits close to the icons block */
 @media (min-width: 992px){
   .hero--index{
-    min-height: max(920px, 100svh);
-    padding-bottom: 34px;
+    min-height: max(1120px, calc(100svh + 140px));
+    padding-bottom: 24px;
   }
   .hero--index .container{
     min-height: inherit;
@@ -53,20 +53,23 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
   .hero--index .container > .row{
     align-items: flex-start !important;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
   }
   .hero--index .hero-copy{ margin-top: 18px; }
   .hero--index #heroKpis{
     margin-top: auto !important;
-    padding-top: 24px;
-    padding-bottom: 12px;
+    padding-top: clamp(32px, 6vh, 72px);
+    padding-bottom: 0;
   }
 }
 
-/* Tablet: keep KPI row lower without stretching the icons block */
-@media (min-width: 768px) and (max-width: 991.98px){
+@media (min-width: 992px){
+  .hero--index{
+    min-height: max(1120px, calc(100svh + 140px));
+    padding-bottom: 40px;
+  }
   .hero--index #heroKpis{
-    margin-top: clamp(72px, 12vh, 140px) !important;
+    margin-top: clamp(220px, 24vh, 360px) !important;
   }
 }
 
@@ -302,9 +305,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 .hero-quick-links{
   background: #fff;
-  padding: 1rem 0 0;
-  position: relative;
-  overflow: hidden;
+  padding: 1rem 0 1.15rem;
 }
 
 .hero--index + .hero-quick-links{
@@ -334,7 +335,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     z-index: 1;
   }
   .hero-quick-links{
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
     padding-bottom: 1.4rem;
   }
   .hero-quick-links .kpi-grid{
@@ -343,7 +344,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 576px){
   .hero-quick-links{
-    padding-bottom: 1rem;
+    padding-bottom: 1.35rem;
   }
 }
 
