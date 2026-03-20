@@ -73,15 +73,22 @@
         </div>
       </div>
 
-      <!-- Hero metrics -->
-      <div class="row g-2 mt-5 hero-kpis-cutoff" id="heroKpis"></div>
     </div>
   </header>
 
-  <!-- Quick links (start on white background right after hero cutoff) -->
-  <section class="hero-quick-links">
+  <!-- Hero summary strip: KPI + quick links -->
+  <section class="hero-quick-links hero-quick-links--summary">
     <div class="container">
-      <div class="row g-3 kpi-grid" data-aos="fade-up" data-aos-delay="150">
+      <div class="row g-3 align-items-stretch hero-summary-row">
+        <div class="col-12 col-xl-5" data-aos="fade-up" data-aos-delay="50">
+          <div class="hero-kpis-panel h-100">
+            <div class="hero-kpis-panel__eyebrow">KPI блока hero</div>
+            <div class="hero-kpis-panel__title">Главные показатели рядом с блоком иконок</div>
+            <div class="row g-2 hero-kpis-grid" id="heroKpis"></div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-7" data-aos="fade-up" data-aos-delay="150">
+          <div class="row g-3 kpi-grid hero-quick-links-grid">
         <div class="col-12 col-lg-4">
           <div class="card-dark p-3 h-100">
             <div class="d-flex gap-3">
@@ -116,6 +123,7 @@
                 <a class="link-accent small" href="reviews.html">Смотреть →</a>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
