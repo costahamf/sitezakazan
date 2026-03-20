@@ -37,8 +37,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
 @media (min-width: 992px){
+  .hero--index .container{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+  }
   .hero--index .container > .row{
     align-items: flex-start !important;
+    flex: 1 0 auto;
   }
   .hero--index .hero-copy{ margin-top: 18px; }
 }
@@ -47,6 +53,18 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (min-width: 768px){
   .hero--index #heroKpis{
     margin-top: clamp(72px, 12vh, 140px) !important;
+  }
+}
+
+@media (min-width: 992px){
+  .hero--index{
+    min-height: max(920px, 100svh);
+    padding-bottom: 34px;
+  }
+  .hero--index #heroKpis{
+    margin-top: auto !important;
+    padding-top: 24px;
+    padding-bottom: 12px;
   }
 }
 
@@ -234,8 +252,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: max(760px, 100svh);
-    padding-bottom: 42px;
+    min-height: max(700px, 92svh);
+    padding-bottom: 28px;
   }
   .hero--index .container{
     min-height: inherit;
@@ -243,10 +261,19 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     flex-direction: column;
   }
   .hero--index .container > .row{
+    order: 1;
     flex: 0 0 auto;
   }
+  .hero-mobile-actions{
+    order: 2;
+    margin-top: auto !important;
+    margin-bottom: 18px !important;
+    padding-top: 12px;
+  }
   .hero--index #heroKpis{
-    margin-top: clamp(180px, 28vh, 320px) !important;
+    order: 3;
+    margin-top: 0 !important;
+    padding-bottom: 12px;
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -259,14 +286,22 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
-    min-height: max(780px, 100svh);
+    min-height: max(660px, 88svh);
   }
-  .hero--index #heroKpis{ margin-top: clamp(220px, 30vh, 320px) !important; }
+  .hero-mobile-actions{
+    margin-bottom: 14px !important;
+    padding-top: 8px;
+  }
+  .hero--index #heroKpis{
+    padding-bottom: 20px;
+  }
 }
 
 .hero-quick-links{
   background: #fff;
   padding: 1rem 0 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero--index + .hero-quick-links{
@@ -274,6 +309,27 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   z-index: 1;
 }
 @media (min-width: 992px){
+  .hero--index + .hero-quick-links{
+    margin-top: -6px;
+    padding-top: 1.25rem;
+  }
+  .hero--index + .hero-quick-links::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(180deg, rgba(7,12,18,.10) 0%, rgba(7,12,18,.04) 100%),
+      var(--index-hero-bg-url, none);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+  .hero--index + .hero-quick-links > .container{
+    position: relative;
+    z-index: 1;
+  }
   .hero-quick-links{
     padding-top: 2.5rem;
     padding-bottom: 1.4rem;
@@ -1771,6 +1827,7 @@ body[data-page="cabinet"] #siteFooter{
 
 .section-title{
   position: relative;
+  margin-bottom: 22px;
 }
 .section-title::after{
   content: "";
@@ -1936,11 +1993,11 @@ section > .container{
   background-size: contain;
   opacity: .92;
   pointer-events: none;
-  z-index: 0;
+  z-index: 4;
 }
 section > .container > :not(.section-decor){
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .section-decor--steps{
   left: -250px;

@@ -89,6 +89,18 @@ body:before{
   background-position: var(--site-bg-position, center top);
 }
 
+body:after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  background-image: var(--site-bg-url, none);
+  background-repeat: var(--site-bg-repeat, no-repeat);
+  background-size: var(--site-bg-size, cover);
+  background-position: var(--site-bg-position, center top);
+}
+
 .bg-hero{
   position: relative;
   isolation: isolate;
@@ -253,7 +265,7 @@ body[data-page="locations"] section:first-of-type{ padding-top: 14px; }
 .section-title{
   font-weight: 950;
   letter-spacing: -.7px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 .section-sub{
   color: var(--text-1);
@@ -545,4 +557,3 @@ footer{ display:block; width:100%; }
     background-size: 100% auto;
   }
 }
-
