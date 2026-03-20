@@ -93,14 +93,11 @@
 
   function applyBackgrounds(){
     const media = SITE_CONFIG?.media || {};
-    const desktopSiteBg = (current === "index")
-      ? (media.heroBg || media.siteBg)
-      : (media.siteBg || media.heroBg);
-    const mobileSiteBg = (current === "index")
-      ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg)
-      : (media.siteBgMobile || media.heroBgMobile || desktopSiteBg);
-    const siteBg = pickBg(desktopSiteBg, mobileSiteBg);
-    const layerCss = buildLayerCss(pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile));
+    const isIndex = current === "index";
+    const desktopSiteBg = isIndex ? (media.heroBg || media.siteBg) : null;
+    const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg) : null;
+    const siteBg = isIndex ? pickBg(desktopSiteBg, mobileSiteBg) : null;
+    const layerCss = isIndex ? buildLayerCss(pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile)) : null;
 
     if(layerCss){
       document.documentElement.style.setProperty("--site-bg-url", layerCss.image);
@@ -113,19 +110,22 @@
       document.documentElement.style.setProperty("--site-bg-position", 'center top');
       document.documentElement.style.setProperty("--site-bg-size", 'cover');
       document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
+    } else {
+      document.documentElement.style.setProperty("--site-bg-url", 'none');
+      document.documentElement.style.setProperty("--site-bg-position", 'center top');
+      document.documentElement.style.setProperty("--site-bg-size", 'cover');
+      document.documentElement.style.setProperty("--site-bg-repeat", 'no-repeat');
     }
 
     const hero = document.querySelector("[data-hero-bg]");
     if(hero){
-      const heroSrc = (current === "index")
-        ? pickBg(media.heroBg, media.heroBgMobile)
-        : siteBg;
+      const heroSrc = isIndex ? pickBg(media.heroBg, media.heroBgMobile) : null;
 
       if(heroSrc){
         const absHero = new URL(heroSrc, document.baseURI).href;
         hero.style.setProperty("--hero-bg-url", `url('${absHero}')`);
       } else {
-        hero.style.removeProperty("--hero-bg-url");
+        hero.style.setProperty("--hero-bg-url", 'none');
       }
     }
   }
