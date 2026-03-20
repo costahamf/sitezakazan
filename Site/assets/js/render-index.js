@@ -48,7 +48,7 @@
         return `
         <div class="col-6 col-md-4">
           <div class="stat">
-            <div class="num"><span class="count" data-target="${k.value}">0</span>${k.suffix || ""}</div>
+            <div class="num"><span class="count" data-target="${k.value}">${k.value}</span>${k.suffix || ""}</div>
             <div class="cap">${k.label}</div>
           </div>
         </div>

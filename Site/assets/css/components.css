@@ -50,6 +50,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 
+@media (min-width: 992px){
+  .hero--index{
+    min-height: max(1120px, calc(100svh + 180px));
+    padding-bottom: 96px;
+  }
+  .hero--index #heroKpis{
+    margin-top: clamp(180px, 20vh, 300px) !important;
+  }
+}
+
 
 .kpi-grid .card-dark{ height:100%; }
 
@@ -234,8 +244,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: max(760px, 100svh);
-    padding-bottom: 42px;
+    min-height: max(700px, 92svh);
+    padding-bottom: 28px;
   }
   .hero--index .container{
     min-height: inherit;
@@ -243,10 +253,19 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     flex-direction: column;
   }
   .hero--index .container > .row{
+    order: 1;
     flex: 0 0 auto;
   }
+  .hero-mobile-actions{
+    order: 2;
+    margin-top: auto !important;
+    margin-bottom: 18px !important;
+    padding-top: 12px;
+  }
   .hero--index #heroKpis{
-    margin-top: clamp(180px, 28vh, 320px) !important;
+    order: 3;
+    margin-top: 0 !important;
+    padding-bottom: 12px;
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -259,9 +278,15 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
-    min-height: max(780px, 100svh);
+    min-height: max(660px, 88svh);
   }
-  .hero--index #heroKpis{ margin-top: clamp(220px, 30vh, 320px) !important; }
+  .hero-mobile-actions{
+    margin-bottom: 14px !important;
+    padding-top: 8px;
+  }
+  .hero--index #heroKpis{
+    padding-bottom: 20px;
+  }
 }
 
 .hero-quick-links{
@@ -1771,6 +1796,7 @@ body[data-page="cabinet"] #siteFooter{
 
 .section-title{
   position: relative;
+  margin-bottom: 22px;
 }
 .section-title::after{
   content: "";
@@ -1936,11 +1962,11 @@ section > .container{
   background-size: contain;
   opacity: .92;
   pointer-events: none;
-  z-index: 0;
+  z-index: 4;
 }
 section > .container > :not(.section-decor){
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .section-decor--steps{
   left: -250px;
