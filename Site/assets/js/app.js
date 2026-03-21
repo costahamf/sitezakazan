@@ -83,8 +83,8 @@
     if(typeof size !== "string" || !size.trim()) return {};
     const [width, height] = size.trim().split(/\s+/, 2);
     const style = {};
-    if(width && width !== "auto") style.width = width;
-    if(height && height !== "auto") style.height = height;
+    if(width && width !== "auto") style["--site-bg-layer-width"] = width;
+    if(height && height !== "auto") style["--site-bg-layer-height"] = height;
     return style;
   }
 
@@ -125,7 +125,12 @@
 
       const pos = parseInsetPosition(layer.position);
       if(pos) Object.assign(img.style, pos);
-      Object.assign(img.style, parseLayerSize(layer.size));
+
+      const sizeVars = parseLayerSize(layer.size);
+      Object.entries(sizeVars).forEach(([prop, value])=>{
+        img.style.setProperty(prop, value);
+      });
+
       if(layer.opacity != null) img.style.opacity = String(layer.opacity);
       if(layer.transform) img.style.transform = layer.transform;
 

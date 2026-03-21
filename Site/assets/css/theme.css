@@ -581,3 +581,115 @@ footer{ display:block; width:100%; }
     background-size: 100% auto;
   }
 }
+
+/* === Responsive layout refinements === */
+:root{
+  --container-max: 82rem;
+  --container-pad: clamp(1rem, 3vw, 2rem);
+  --section-space: clamp(3.5rem, 7vw, 5.5rem);
+  --hero-space-top: clamp(5.5rem, 9vw, 7.5rem);
+  --hero-space-bottom: clamp(1.5rem, 4vw, 3rem);
+  --display-scale: clamp(2rem, 5vw, 3.5rem);
+  --title-scale: clamp(1.6rem, 3vw, 2.75rem);
+  --body-scale: clamp(.98rem, 1.1vw, 1.08rem);
+}
+
+body{
+  font-size: var(--body-scale);
+  line-height: 1.5;
+  background-attachment: scroll;
+}
+
+.container,
+.container-fluid{
+  width: min(100% - (var(--container-pad) * 2), var(--container-max));
+  padding-inline: 0;
+}
+
+section{
+  padding-block: var(--section-space);
+}
+
+.hero{
+  padding-top: var(--hero-space-top);
+  padding-bottom: var(--hero-space-bottom);
+}
+
+.hero .display-5,
+.hero .display-6,
+.display-5,
+.display-6{
+  font-size: var(--display-scale);
+}
+
+.section-title{
+  font-size: var(--title-scale);
+}
+
+.section-sub,
+.hero .lead,
+.muted{
+  font-size: clamp(.95rem, 1vw, 1.05rem);
+}
+
+.btn,
+.pill,
+.pill-mini,
+.stat .cap{
+  font-size: clamp(.88rem, .7rem + .4vw, 1rem);
+}
+
+img,
+svg,
+video,
+iframe{
+  max-width: 100%;
+}
+
+.site-bg-layer{
+  width: min(var(--site-bg-layer-width, 14rem), clamp(5rem, 18vw, 14rem));
+  height: var(--site-bg-layer-height, auto);
+  max-width: 24vw;
+}
+
+@media (max-width: 767.98px){
+  .site-bg-layer{
+    width: min(var(--site-bg-layer-width, 7rem), clamp(3.75rem, 26vw, 7rem));
+    max-width: 32vw;
+  }
+}
+
+[data-hero-bg]{
+  min-height: 100vh;
+}
+
+[data-hero-bg]::before{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 991.98px) {
+  [data-hero-bg]::before {
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1440px){
+  :root{
+    --container-max: 88rem;
+  }
+}
+
+@media (max-width: 575.98px){
+  :root{
+    --container-pad: 1rem;
+    --hero-space-top: 5rem;
+  }
+
+  .container,
+  .container-fluid{
+    width: min(100% - 2rem, var(--container-max));
+  }
+}
