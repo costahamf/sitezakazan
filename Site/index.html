@@ -286,36 +286,8 @@
         </div>
       </div>
 
-      <!-- Desktop: scrollable carousel with arrows (supports any number of cards) -->
-      <div class="d-none d-lg-block mt-3">
-        <div class="card-dark p-3">
-          <div class="mini-carousel-wrap desktop-snap">
-            <div class="snap-carousel" id="coachesDesktopScroller" aria-label="Тренеры (десктоп)"></div>
-            <button class="carousel-arrow carousel-arrow--left js-snap-prev" type="button" data-snap-target="#coachesDesktopScroller" aria-label="Назад">
-              <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="carousel-arrow carousel-arrow--right js-snap-next" type="button" data-snap-target="#coachesDesktopScroller" aria-label="Далее">
-              <i class="bi bi-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile: листание в окошке -->
-      <div class="d-lg-none mt-3">
-        <div class="card-dark p-3">
-                    <div class="mini-carousel-wrap">
-            <div id="coachesCarousel" class="carousel slide mini-carousel" data-bs-interval="false">
-              <div class="carousel-inner" id="coachesCarouselInner"></div>
-            </div>
-            <button class="carousel-arrow carousel-arrow--left" type="button" data-bs-target="#coachesCarousel" data-bs-slide="prev" aria-label="Назад">
-              <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="carousel-arrow carousel-arrow--right" type="button" data-bs-target="#coachesCarousel" data-bs-slide="next" aria-label="Далее">
-              <i class="bi bi-chevron-right"></i>
-            </button>
-          </div>
-</div>
+      <div class="mt-3">
+        <div id="coachesGrid" class="coach-grid" aria-label="Тренеры"></div>
       </div>
 
     </div>

@@ -2167,3 +2167,369 @@ section > .container > :not(.section-decor){
     width: 96px !important;
   }
 }
+
+/* === Responsive design refresh === */
+.hero--index{
+  min-height: 100vh;
+}
+
+.hero--index .hero-copy,
+.hero--index .hero-mobile-actions,
+.hero--index #heroKpis{
+  position: relative;
+  z-index: 2;
+}
+
+.hero--index .hero-visual img{
+  width: min(100%, 48rem);
+  max-width: 100%;
+  height: auto;
+  transform: translateY(clamp(-2rem, -5vw, -.5rem));
+}
+
+.hero-mobile-actions .btn,
+.d-flex.flex-wrap.gap-2.mb-4 .btn{
+  width: 100%;
+}
+
+.coach-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.coach-grid__item{
+  min-width: 0;
+}
+
+.coach-card{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.coach-card__media{
+  aspect-ratio: 4 / 5;
+}
+
+.coach-card__body{
+  display: grid;
+  gap: .55rem;
+  align-content: start;
+  flex: 1 1 auto;
+}
+
+.coach-card__name{
+  font-size: clamp(1.1rem, 1.2vw, 1.35rem);
+}
+
+.coach-card__text{
+  font-size: clamp(.92rem, .9rem + .15vw, 1rem);
+}
+
+.media-card{
+  min-width: 0;
+}
+
+.media-frame,
+.media-stage{
+  width: 100%;
+}
+
+.media-stage{
+  aspect-ratio: 16 / 9;
+}
+
+.media-stage > *{
+  width: 100%;
+  max-width: 100%;
+}
+
+.media-img,
+.media-video,
+.media-stage iframe{
+  width: 100%;
+  height: 100%;
+}
+
+.media-img{
+  height: auto;
+  min-height: 100%;
+  object-fit: contain;
+}
+
+.media-video,
+.media-stage iframe{
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.profile-media,
+.card-image,
+.philo-photo,
+.media-stage{
+  overflow: hidden;
+}
+
+.profile-media img,
+.card-image img,
+.philo-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-decor{
+  width: clamp(5rem, 10vw, 12rem);
+}
+
+.section-decor--steps{
+  left: clamp(-7rem, -8vw, -3rem);
+  top: clamp(1rem, 6vw, 3.75rem);
+  width: clamp(8rem, 16vw, 15rem);
+}
+
+.section-decor--pricing{
+  right: clamp(-7rem, -8vw, -3rem);
+  top: clamp(8rem, 32vw, 30rem);
+  width: clamp(8rem, 16vw, 17rem);
+}
+
+.section-decor--result{
+  left: clamp(-8rem, -9vw, -3rem);
+  bottom: clamp(-3rem, -5vw, -1rem);
+  width: clamp(8rem, 16vw, 18rem);
+}
+
+.section-decor--coaches{
+  right: clamp(-7rem, -8vw, -3rem);
+  bottom: clamp(-4rem, -6vw, -1rem);
+  width: clamp(8rem, 15vw, 16rem);
+}
+
+.section-decor--media{
+  left: clamp(-7rem, -8vw, -2rem);
+  top: clamp(5rem, 24vw, 20rem);
+}
+
+.section-decor--philosophy{
+  right: clamp(-7rem, -8vw, -3rem);
+  top: clamp(2rem, 10vw, 10rem);
+  width: clamp(8rem, 14vw, 15rem);
+}
+
+.section-decor--chess{
+  left: clamp(-7rem, -8vw, -3rem);
+  top: clamp(2rem, 12vw, 12rem);
+  width: clamp(8rem, 16vw, 18rem);
+}
+
+.section-decor--testing{
+  right: clamp(-5rem, -6vw, -2rem);
+  bottom: clamp(-1rem, -2vw, 0rem);
+  width: clamp(8rem, 18vw, 18rem);
+}
+
+@media (min-width: 768px){
+  .hero-mobile-actions .btn,
+  .d-flex.flex-wrap.gap-2.mb-4 .btn{
+    width: auto;
+  }
+
+  .coach-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px){
+  .coach-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero--index .hero-visual img{
+    width: min(100%, 52rem);
+    transform: translate(clamp(1rem, 4vw, 4rem), clamp(2rem, 6vw, 6rem));
+    transform-origin: bottom right;
+  }
+}
+
+@media (min-width: 1440px){
+  .coach-grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px){
+  .hero--index{
+    min-height: auto;
+  }
+
+  .hero--index .container{
+    min-height: auto;
+  }
+
+  .hero--index .hero-visual img{
+    transform: translateY(clamp(-1.5rem, -4vw, -.5rem));
+  }
+
+  .section-decor{
+    opacity: .7;
+  }
+}
+
+@media (max-width: 767.98px){
+  .media-card{
+    padding: 1rem !important;
+  }
+
+  .media-arrow--left{ left: .75rem; }
+  .media-arrow--right{ right: .75rem; }
+
+  .section-decor{
+    width: clamp(4.5rem, 20vw, 6.5rem);
+  }
+
+  .section-decor--steps,
+  .section-decor--pricing,
+  .section-decor--result,
+  .section-decor--coaches,
+  .section-decor--media,
+  .section-decor--philosophy,
+  .section-decor--chess,
+  .section-decor--testing{
+    left: auto;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    transform: translate(10%, -10%);
+  }
+}
+
+@media (max-width: 575.98px){
+  .hero .display-5,
+  .hero .display-6{
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
+  }
+
+  .hero .lead{
+    font-size: .95rem;
+  }
+
+  .hero--index #heroKpis > [class*="col"]:nth-child(-n+2){
+    width: 100%;
+  }
+
+  .profile-media,
+  .coach-card__media{
+    aspect-ratio: 16 / 18;
+  }
+
+  .media-stage{
+    border-radius: 1rem;
+  }
+}
+
+
+/* === Final responsive hero and decor overrides === */
+.hero--index{
+  min-height: clamp(31.25rem, 100vh, 75rem) !important;
+  padding-bottom: clamp(1.5rem, 5vh, 4rem) !important;
+}
+
+.hero--index .container{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: clamp(1.5rem, 4vh, 3rem);
+}
+
+.hero--index .container > .row{
+  align-items: flex-start !important;
+}
+
+.hero--index .hero-copy{
+  margin-top: 0;
+  max-width: 42rem;
+}
+
+.hero-mobile-actions{
+  margin-block: 0 !important;
+  padding-top: 0;
+}
+
+.hero--index #heroKpis{
+  margin-top: 0 !important;
+  padding-bottom: 0;
+}
+
+.hero--index #heroKpis > [class*="col"]{
+  width: 100%;
+}
+
+.media-img,
+.media-video,
+.media-stage iframe{
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-decor{
+  width: clamp(1.25rem, 5vw, 5rem);
+  opacity: .82;
+}
+
+.section-decor--steps{ left: clamp(-4rem, -5vw, -1rem); top: 8%; }
+.section-decor--pricing{ right: clamp(-4rem, -5vw, -1rem); top: 22%; }
+.section-decor--result{ left: clamp(-4rem, -5vw, -1rem); bottom: 6%; }
+.section-decor--coaches{ right: clamp(-4rem, -5vw, -1rem); bottom: 8%; }
+.section-decor--media{ left: clamp(-4rem, -5vw, -1rem); top: 12%; }
+.section-decor--philosophy{ right: clamp(-4rem, -5vw, -1rem); top: 10%; }
+.section-decor--chess{ left: clamp(-4rem, -5vw, -1rem); top: 10%; }
+.section-decor--testing{ right: clamp(-4rem, -5vw, -1rem); bottom: 5%; }
+
+@media (min-width: 48rem) and (max-width: 63.99875rem){
+  .hero--index{
+    min-height: clamp(37.5rem, 110vh, 87.5rem) !important;
+  }
+
+  .hero--index .container{
+    justify-content: space-between;
+  }
+
+  .hero--index #heroKpis{
+    margin-top: clamp(2rem, 8vh, 5rem) !important;
+  }
+
+  .hero--index #heroKpis > [class*="col"]{
+    width: 50%;
+  }
+}
+
+@media (min-width: 64rem){
+  .hero--index #heroKpis > [class*="col"]{
+    width: auto;
+  }
+}
+
+@media (max-width: 47.99875rem){
+  .hero--index{
+    min-height: clamp(31.25rem, 100vh, 62rem) !important;
+  }
+
+  .section-decor--steps,
+  .section-decor--pricing,
+  .section-decor--result,
+  .section-decor--coaches,
+  .section-decor--media,
+  .section-decor--philosophy,
+  .section-decor--chess,
+  .section-decor--testing{
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    top: 4%;
+    bottom: auto;
+    transform: none;
+  }
+}

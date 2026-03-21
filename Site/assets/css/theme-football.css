@@ -21,11 +21,7 @@ body.theme-football{
 
 @media (min-width: 992px){
   body.theme-football[data-page="index"]{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
-    background-attachment: scroll !important;
+    background-image: none !important;
   }
 
   body.theme-football::after{
@@ -99,8 +95,8 @@ body.theme-football .bg-hero::before{
 }
 @media (min-width: 992px){
   body.theme-football .bg-hero::before{
-    background-size: 100% auto !important;
-    background-position: center top !important;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
 
@@ -670,5 +666,40 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
   body.theme-football[data-page="index"] section.hero-quick-links:nth-of-type(even){
     background: transparent !important;
     border-top-color: transparent !important;
+  }
+}
+
+
+/* === Hero responsive zoom fixes === */
+body.theme-football[data-page="index"]{
+  background-image: none !important;
+}
+
+body.theme-football .bg-hero,
+body.theme-football [data-hero-bg]{
+  min-height: clamp(31.25rem, 100vh, 75rem) !important;
+  height: auto !important;
+  overflow: visible;
+}
+
+body.theme-football .bg-hero::before,
+body.theme-football [data-hero-bg]::before{
+  inset: 0;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 48rem) and (max-width: 63.99875rem){
+  body.theme-football .bg-hero,
+  body.theme-football [data-hero-bg]{
+    min-height: clamp(37.5rem, 110vh, 87.5rem) !important;
+  }
+}
+
+@media (min-width: 64rem){
+  body.theme-football .bg-hero,
+  body.theme-football [data-hero-bg]{
+    min-height: clamp(40rem, 100vh, 80rem) !important;
   }
 }
