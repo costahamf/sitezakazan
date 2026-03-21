@@ -143,20 +143,25 @@
     renderList(document.getElementById("coachBullets"), bullets);
 
     const team = (SITE_DATA.coaches && SITE_DATA.coaches.team) ? SITE_DATA.coaches.team : [];
+    const grid = document.getElementById("coachesGrid");
     const scroller = document.getElementById("coachesDesktopScroller");
     const inner = document.getElementById("coachesCarouselInner");
 
     const cardHTML = (c)=>`
-      <div class="card-dark p-0 h-100 profile-card">
-        <div class="profile-media">
-          <img src="${c.photo || "assets/img/coaches/coach-1.svg"}" alt="${c.name}">
+      <article class="card-dark p-0 h-100 profile-card coach-card">
+        <div class="profile-media coach-card__media">
+          <img src="${c.photo || "assets/img/coaches/coach-1.svg"}" alt="${c.name}" loading="lazy">
         </div>
-        <div class="p-3">
-          <div class="fw-bold">${c.name}</div>
-          <div class="muted small">${c.education || ""}</div>
+        <div class="p-3 p-xl-4 coach-card__body">
+          <div class="fw-bold coach-card__name">${c.name}</div>
+          <div class="muted small coach-card__text">${c.education || ""}</div>
         </div>
-      </div>
+      </article>
     `;
+
+    if(grid){
+      grid.innerHTML = team.map(c=>`<div class="coach-grid__item">${cardHTML(c)}</div>`).join("");
+    }
 
     if(scroller){
       scroller.innerHTML = team.map(c=>`
