@@ -174,9 +174,13 @@
       if(heroSrc){
         const absHero = new URL(heroSrc, document.baseURI).href;
         hero.style.setProperty("--hero-bg-url", `url('${absHero}')`);
+        document.documentElement.style.setProperty("--index-hero-bg-url", `url('${absHero}')`);
       } else {
         hero.style.setProperty("--hero-bg-url", 'none');
+        document.documentElement.style.setProperty("--index-hero-bg-url", 'none');
       }
+    } else {
+      document.documentElement.style.setProperty("--index-hero-bg-url", 'none');
     }
   }
 
