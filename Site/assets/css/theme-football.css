@@ -688,6 +688,18 @@ body.theme-football .container{
   }
 }
 
+@media (min-width: 577px) and (max-width: 767.98px){
+  body.theme-football{
+    --mobile-decor-content-max: 520px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px){
+  body.theme-football{
+    --mobile-decor-content-max: 560px;
+  }
+}
+
 @media (min-width: 1600px){
   body.theme-football{
     --page-content-max: 1380px;
