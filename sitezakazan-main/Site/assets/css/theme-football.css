@@ -663,13 +663,9 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
 body.theme-football{
   --page-content-max: 1320px;
   --page-side-gap: clamp(16px, 3vw, 36px);
-  /* Manual tuning knobs for the index hero art:
-     - increase --hero-art-extra-width to make the background wider
-     - increase --hero-focus-y to move the art lower */
-  --hero-art-extra-width: clamp(80px, 7vw, 220px);
-  --hero-art-width: calc(100% + var(--hero-art-extra-width));
+  --hero-art-width: 100%;
   --hero-focus-x: 50%;
-  --hero-focus-y: 34%;
+  --hero-focus-y: 30%;
   --hero-quick-links-overlap: 0px;
   --hero-quick-links-shift-y: 18px;
 }
@@ -687,6 +683,7 @@ body.theme-football .container{
   body.theme-football{
     --page-content-max: 1380px;
     --page-side-gap: clamp(24px, 3.2vw, 56px);
+    --hero-art-width: 1920px;
     --hero-quick-links-overlap: 188px;
   }
 }
@@ -756,7 +753,7 @@ body.theme-football .container{
     background-image: var(--index-hero-bg-url, none);
     background-repeat: no-repeat;
     background-size: var(--hero-art-width) auto;
-    background-position: var(--hero-focus-x) calc(100% + var(--hero-quick-links-shift-y));
+    background-position: var(--hero-focus-x) bottom;
     pointer-events: none;
     z-index: -1;
   }
