@@ -31,12 +31,6 @@ body.theme-football{
   body.theme-football::after{
     display: none !important;
   }
-
-  body.theme-football[data-page="index"] section.hero-quick-links,
-  body.theme-football[data-page="index"] section.hero-quick-links:nth-of-type(even){
-    background: transparent !important;
-    border-top-color: transparent !important;
-  }
 }
 
 
