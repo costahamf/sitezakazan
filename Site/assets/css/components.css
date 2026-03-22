@@ -40,6 +40,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-mobile-actions-gap: 12px;
   --hero-mobile-actions-margin-top: 34px;
   --hero-mobile-kpis-margin-top: 24px;
+}
 .hero--index .container{
   position: relative;
   height: 100%;
@@ -270,22 +271,22 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: var(--hero-mobile-min-height, clamp(780px, 126svh, 980px));
-    padding-bottom: var(--hero-mobile-padding-bottom, 88px);
+    min-height: var(--hero-mobile-min-height, clamp(860px, 138svh, 1080px));
+    padding-bottom: var(--hero-mobile-padding-bottom, 132px);
   }
   .hero--index .container > .row{
     order: 1;
   }
   .hero-mobile-actions{
     order: 2;
-    margin-top: var(--hero-mobile-actions-margin-top, 34px) !important;
-    margin-bottom: 20px !important;
-    padding-top: 12px;
+    margin-top: var(--hero-mobile-actions-margin-top, 54px) !important;
+    margin-bottom: 28px !important;
+    padding-top: 20px;
   }
   .hero--index #heroKpis{
     order: 3;
-	margin-top: var(--hero-mobile-kpis-margin-top, 24px);
-    padding-bottom: 12px;
+	margin-top: var(--hero-mobile-kpis-margin-top, 40px);
+    padding-bottom: 24px;
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -298,16 +299,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
-    min-height: clamp(620px, 108svh, 760px);
+    min-height: clamp(720px, 122svh, 860px);
   }
   .hero-mobile-actions{
-    margin-top: calc(var(--hero-mobile-actions-margin-top, 34px) - 6px) !important;
-    margin-bottom: 14px !important;
-    padding-top: 8px;
+    margin-top: calc(var(--hero-mobile-actions-margin-top, 54px) - 4px) !important;
+    margin-bottom: 20px !important;
+    padding-top: 12px;
   }
   .hero--index #heroKpis{
-	margin-top: calc(var(--hero-mobile-kpis-margin-top, 24px) - 4px);
-    padding-bottom: 20px;
+	margin-top: calc(var(--hero-mobile-kpis-margin-top, 40px) - 6px);
+    padding-bottom: 28px;
   }
 }
 
@@ -331,7 +332,24 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 576px){
   .hero-quick-links{
-    padding-bottom: 1.35rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.7rem;
+  }
+}
+
+@media (max-width: 991.98px){
+  #steps,
+  #coaches,
+  #media{
+    padding-top: 88px;
+  }
+}
+
+@media (max-width: 576px){
+  #steps,
+  #coaches,
+  #media{
+    padding-top: 96px;
   }
 }
 
@@ -344,6 +362,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .profile-media{
   width: 100%;
   aspect-ratio: 4 / 5;
+  min-height: clamp(280px, 30vw, 420px);
   background: rgba(10,16,14,.45);
   border-bottom: 1px solid rgba(190,255,220,.12);
 }
@@ -381,10 +400,26 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   /* Portrait photos in carousels: avoid top/bottom cropping on mobile */
   .profile-media{
     aspect-ratio: 4 / 5;
+    min-height: clamp(320px, 70vw, 420px);
     background: rgba(0,0,0,.18);
   }
   .profile-media img{
     object-fit: contain;
+  }
+}
+
+#coaches .profile-card--coach .profile-media{
+  min-height: clamp(340px, 34vw, 460px);
+}
+
+#coaches .profile-card--coach .profile-media img{
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 991.98px){
+  #coaches .profile-card--coach .profile-media{
+    min-height: clamp(360px, 82vw, 500px);
   }
 }
 
@@ -2159,6 +2194,44 @@ section > .container > :not(.section-decor){
   .section-decor--philosophy{ top: -60px; }
   .section-decor--chess{ top: -70px; width: 160px; }
   .section-decor--testing{ bottom: 690px; right: -90px; }
+}
+
+/* sitebg icons: tall / narrow screens (e.g. 1024x1366) */
+@media (min-width: 768px) and (max-width: 1199.98px) and (max-aspect-ratio: 4/3){
+  section > .container{
+    --section-decor-edge-offset: clamp(-12px, -1.2vw, -4px);
+  }
+  .section-decor{
+    width: clamp(92px, 10vw, 132px);
+    opacity: .9;
+  }
+  .section-decor--steps{ top: 96px; right: 8px; left: auto; }
+  .section-decor--pricing{ top: 96px; right: 0; width: clamp(118px, 12vw, 156px); }
+  .section-decor--result{ bottom: 1120px; right: 4px; left: auto; width: clamp(112px, 11vw, 148px); }
+  .section-decor--coaches{ bottom: 1360px; right: 0; width: clamp(108px, 11vw, 144px); }
+  .section-decor--media{ top: 18px; right: 0; left: auto; }
+  .section-decor--philosophy{ top: 6px; right: 0; }
+  .section-decor--chess{ top: -8px; right: 2px; left: auto; width: clamp(112px, 11vw, 148px); }
+  .section-decor--testing{ bottom: 660px; right: -24px; width: clamp(106px, 11vw, 142px); }
+}
+
+/* sitebg icons: iPad Pro-like portrait tablets */
+@media (min-width: 1000px) and (max-width: 1100px) and (min-height: 1300px) and (orientation: portrait){
+  section > .container{
+    --section-decor-edge-offset: 6px;
+  }
+  .section-decor{
+    width: clamp(116px, 10.5vw, 146px);
+    opacity: .92;
+  }
+  .section-decor--steps{ top: 88px; right: 18px; left: auto; }
+  .section-decor--pricing{ top: 78px; right: 8px; width: clamp(136px, 13vw, 168px); }
+  .section-decor--result{ bottom: 1180px; right: 12px; left: auto; width: clamp(126px, 12vw, 160px); }
+  .section-decor--coaches{ bottom: 1450px; right: 10px; width: clamp(122px, 11.5vw, 152px); }
+  .section-decor--media{ top: -12px; right: 12px; left: auto; width: clamp(120px, 11vw, 148px); }
+  .section-decor--philosophy{ top: -20px; right: 12px; width: clamp(118px, 10.8vw, 146px); }
+  .section-decor--chess{ top: -42px; right: 12px; left: auto; width: clamp(126px, 12vw, 158px); }
+  .section-decor--testing{ bottom: 720px; right: -10px; width: clamp(122px, 11.5vw, 152px); }
 }
 
 /* Philosophy / chess clean cards */
