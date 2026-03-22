@@ -142,13 +142,19 @@
   function applyBackgrounds(){
     const media = SITE_CONFIG?.media || {};
     const isIndex = current === "index";
-    const desktopSiteBg = isIndex ? (media.heroBg || media.siteBg) : null;
-    const tabletSiteBg = isIndex ? (media.heroBgTablet || media.siteBgTablet || desktopSiteBg) : null;
-    const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || tabletSiteBg || desktopSiteBg) : null;
+    const isTablet = window.matchMedia('(min-width: 577px) and (max-width: 991.98px)').matches;
+    const isNarrowMobile = window.matchMedia('(max-width: 390px)').matches;
+    const desktopSiteBg = isIndex ? media.siteBg : null;
+    const tabletSiteBg = isIndex ? (media.siteBgTablet || desktopSiteBg) : null;
+    const mobileSiteBg = isIndex ? (media.siteBgMobile || tabletSiteBg || desktopSiteBg) : null;
     const siteBg = isIndex ? pickResponsiveValue(desktopSiteBg, tabletSiteBg, mobileSiteBg) : null;
     const hasSectionDecor = isIndex && document.querySelector(".section-decor") !== null;
     const activeLayers = (isIndex && !hasSectionDecor)
-      ? pickResponsiveValue(media.siteBgLayers?.desktop, media.siteBgLayers?.tablet, media.siteBgLayers?.mobile)
+      ? (isNarrowMobile
+          ? (media.siteBgLayers?.narrowMobile || media.siteBgLayers?.mobile || null)
+          : (isTablet
+              ? (media.siteBgLayers?.tablet || null)
+              : pickResponsiveValue(media.siteBgLayers?.desktop, media.siteBgLayers?.tablet, media.siteBgLayers?.mobile)))
       : null;
     const hasRenderedLayers = renderSiteBgLayers(activeLayers);
 

@@ -263,22 +263,23 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: var(--hero-mobile-min-height, clamp(620px, 100svh, 760px));
-    padding-bottom: var(--hero-mobile-padding-bottom, 28px);
+    min-height: var(--hero-mobile-min-height, clamp(700px, 112svh, 860px));
+    padding-bottom: var(--hero-mobile-padding-bottom, 48px);
   }
   .hero--index .container > .row{
     order: 1;
   }
-  .hero-mobile-actions{
-    order: 2;
-    margin-top: auto !important;
-    margin-bottom: var(--hero-mobile-actions-margin-bottom, 18px) !important;
-    padding-top: var(--hero-mobile-actions-gap, 12px);
-  }
   .hero--index #heroKpis{
+    order: 2;
+    margin-top: var(--hero-mobile-kpis-margin-top, 10px) !important;
+    padding-bottom: var(--hero-mobile-kpis-padding-bottom, 10px);
+  }
+  .hero-mobile-actions{
     order: 3;
-    margin-top: var(--hero-mobile-kpis-margin-top, 0px) !important;
-    padding-bottom: var(--hero-mobile-kpis-padding-bottom, 12px);
+    margin-top: var(--hero-mobile-actions-margin-top, 8px) !important;
+    margin-bottom: var(--hero-mobile-actions-margin-bottom, 0px) !important;
+    padding-top: var(--hero-mobile-actions-gap, 8px);
+    padding-bottom: var(--hero-mobile-actions-padding-bottom, 0px);
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -290,18 +291,32 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (max-width: 576px){
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
+  .hero--index{
+    min-height: var(--hero-mobile-min-height, clamp(720px, 118svh, 900px));
+    padding-bottom: var(--hero-mobile-padding-bottom, 56px);
+  }
+  .hero--index #heroKpis > [class*="col"]:nth-child(-n+2){
+    width: 100%;
+  }
   .hero-mobile-actions{
     padding-top: var(--hero-mobile-actions-gap, 8px);
   }
 }
 
 @media (max-width: 390px){
+  .hero--index{
+    min-height: var(--hero-mobile-min-height, clamp(760px, 126svh, 960px));
+    padding-bottom: var(--hero-mobile-padding-bottom, 64px);
+  }
   .hero .display-5, .hero .display-6{
     font-size: 1.56rem;
     line-height: 1.04;
   }
   .hero .btn{
     font-size: .82rem;
+  }
+  .hero-mobile-actions{
+    margin-top: 12px !important;
   }
   .hero-mobile-actions .btn{
     min-height: 48px;
