@@ -40,6 +40,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-mobile-actions-gap: 12px;
   --hero-mobile-actions-margin-top: 34px;
   --hero-mobile-kpis-margin-top: 24px;
+}
 .hero--index .container{
   position: relative;
   height: 100%;
@@ -270,22 +271,22 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 991.98px){
   .hero--index{
-    min-height: var(--hero-mobile-min-height, clamp(780px, 126svh, 980px));
-    padding-bottom: var(--hero-mobile-padding-bottom, 88px);
+    min-height: var(--hero-mobile-min-height, clamp(860px, 138svh, 1080px));
+    padding-bottom: var(--hero-mobile-padding-bottom, 132px);
   }
   .hero--index .container > .row{
     order: 1;
   }
   .hero-mobile-actions{
     order: 2;
-    margin-top: var(--hero-mobile-actions-margin-top, 34px) !important;
-    margin-bottom: 20px !important;
-    padding-top: 12px;
+    margin-top: var(--hero-mobile-actions-margin-top, 54px) !important;
+    margin-bottom: 28px !important;
+    padding-top: 20px;
   }
   .hero--index #heroKpis{
     order: 3;
-	margin-top: var(--hero-mobile-kpis-margin-top, 24px);
-    padding-bottom: 12px;
+	margin-top: var(--hero-mobile-kpis-margin-top, 40px);
+    padding-bottom: 24px;
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -298,16 +299,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index .row{ row-gap: 10px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
-    min-height: clamp(620px, 108svh, 760px);
+    min-height: clamp(720px, 122svh, 860px);
   }
   .hero-mobile-actions{
-    margin-top: calc(var(--hero-mobile-actions-margin-top, 34px) - 6px) !important;
-    margin-bottom: 14px !important;
-    padding-top: 8px;
+    margin-top: calc(var(--hero-mobile-actions-margin-top, 54px) - 4px) !important;
+    margin-bottom: 20px !important;
+    padding-top: 12px;
   }
   .hero--index #heroKpis{
-	margin-top: calc(var(--hero-mobile-kpis-margin-top, 24px) - 4px);
-    padding-bottom: 20px;
+	margin-top: calc(var(--hero-mobile-kpis-margin-top, 40px) - 6px);
+    padding-bottom: 28px;
   }
 }
 
@@ -331,7 +332,24 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 576px){
   .hero-quick-links{
-    padding-bottom: 1.35rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.7rem;
+  }
+}
+
+@media (max-width: 991.98px){
+  #steps,
+  #coaches,
+  #media{
+    padding-top: 88px;
+  }
+}
+
+@media (max-width: 576px){
+  #steps,
+  #coaches,
+  #media{
+    padding-top: 96px;
   }
 }
 
@@ -344,6 +362,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .profile-media{
   width: 100%;
   aspect-ratio: 4 / 5;
+  min-height: clamp(280px, 30vw, 420px);
   background: rgba(10,16,14,.45);
   border-bottom: 1px solid rgba(190,255,220,.12);
 }
@@ -381,10 +400,26 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   /* Portrait photos in carousels: avoid top/bottom cropping on mobile */
   .profile-media{
     aspect-ratio: 4 / 5;
+    min-height: clamp(320px, 70vw, 420px);
     background: rgba(0,0,0,.18);
   }
   .profile-media img{
     object-fit: contain;
+  }
+}
+
+#coaches .profile-card--coach .profile-media{
+  min-height: clamp(340px, 34vw, 460px);
+}
+
+#coaches .profile-card--coach .profile-media img{
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 991.98px){
+  #coaches .profile-card--coach .profile-media{
+    min-height: clamp(360px, 82vw, 500px);
   }
 }
 
