@@ -563,7 +563,7 @@ footer{ display:block; width:100%; }
   inset: 0;
   background-image: var(--hero-bg-url, none);
   background-size: cover;
-  background-position: 50% 40%;
+  background-position: 50% 30%;
   background-repeat: no-repeat;
   pointer-events: none;
   will-change: transform;
@@ -579,13 +579,7 @@ footer{ display:block; width:100%; }
 @media (max-width: 991.98px) {
   [data-hero-bg]::before {
     height: 100%;
-    background-position: 50% 40%;
+    background-position: 50% 30%;
     background-size: cover;
-  }
-}
-
-@media (min-width: 1400px) {
-  [data-hero-bg]::before {
-    background-position: 50% 45%;
   }
 }

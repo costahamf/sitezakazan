@@ -34,18 +34,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 /* Index hero: tie the block size to a 16:9 canvas instead of letting the background appear oversized */
 .hero--index{
   width: 100%;
-  margin: 0 auto;
 }
-@media (min-width: 992px){
-  .hero--index{ max-width: 960px; }
-}
-@media (min-width: 1200px){
-  .hero--index{ max-width: 1140px; }
-}
-@media (min-width: 1400px){
-  .hero--index{ max-width: 1320px; }
-}
-
 .hero--index .container{
   position: relative;
   height: 100%;
@@ -65,8 +54,9 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (min-width: 992px){
   .hero--index{
     aspect-ratio: 16 / 9;
-    max-height: min(900px, 85vh);
-    padding-bottom: clamp(40px, 6vw, 100px);
+    min-height: 680px;
+    max-height: 900px;
+    padding-bottom: 40px;
   }
   .hero--index .container > .row{
     align-items: flex-start !important;
