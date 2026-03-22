@@ -26,10 +26,16 @@ window.SITE_CONFIG = {
         { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 760px", size: "96px auto" },
         { src: "assets/img/sitebg-decor/chess.webp", position: "right -20px top 1640px", size: "102px auto" },
         { src: "assets/img/sitebg-decor/test.webp", position: "left -14px bottom 320px", size: "110px auto" }
+      ],
+      narrowMobile: [
+        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -34px top 126px", size: "86px auto" },
+        { src: "assets/img/sitebg-decor/book.webp", position: "left -26px top 708px", size: "78px auto" },
+        { src: "assets/img/sitebg-decor/chess.webp", position: "right -28px top 1500px", size: "84px auto" },
+        { src: "assets/img/sitebg-decor/test.webp", position: "left -24px bottom 260px", size: "90px auto" }
       ]
     },
     siteBg: "assets/img/sitebg-decor/swistl.webp",
-    siteBgTablet: "assets/img/sitebg-decor/swistl.webp",
+    siteBgTablet: "assets/img/sitebg-decor/swistl.webp", // замени на отдельный tablet-only фон, когда подготовишь файл
     siteBgMobile: "assets/img/sitebg-decor/swistl.webp",
     heroBg: "assets/img/heroBg.webp",
     heroBgTablet: "assets/img/heroBgMobile.webp",
