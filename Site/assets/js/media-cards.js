@@ -72,7 +72,7 @@ function clampIndex(i, len){
     const it = items[state.p] || null;
 
     photoStage.innerHTML = it ? `
-      <div class="media-stage fade-in">
+      <div class="media-stage media-stage--photo fade-in">
         <img class="media-img" src="${esc(it.src)}" alt="${esc(it.caption || "Фото")}" loading="lazy" />
       </div>
     ` : emptyHtml();
@@ -103,7 +103,7 @@ function clampIndex(i, len){
 
     if(it.type === "mp4"){
       videoStage.innerHTML = `
-        <div class="media-stage fade-in">
+        <div class="media-stage media-stage--video fade-in">
           <video class="media-video" controls playsinline preload="metadata">
             <source src="${esc(it.src)}" type="video/mp4"/>
           </video>
@@ -111,7 +111,7 @@ function clampIndex(i, len){
       `;
     }else{
       videoStage.innerHTML = `
-        <div class="media-stage fade-in">
+        <div class="media-stage media-stage--video fade-in">
           <iframe src="${esc(sanitizeEmbedSrc(it.src, { loop: it.loop }))}" title="${esc(it.caption || 'Видео')}" allow="${esc(allow)}" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       `;
