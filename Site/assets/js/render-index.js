@@ -38,16 +38,15 @@
         if(textMode){
           return `
         <div class="col-6 col-md-4">
-          <div class="stat">
+          <div class="stat stat--text">
             <div class="num"><span class="count-text" data-target-text="${k.text.replace(/"/g,'&quot;')}">${k.text}</span></div>
-            <div class="cap">${k.label || '&nbsp;'}</div>
           </div>
         </div>
       `;
         }
         return `
         <div class="col-6 col-md-4">
-          <div class="stat">
+          <div class="stat stat--metric">
             <div class="num"><span class="count" data-target="${k.value}">${k.value}</span>${k.suffix || ""}</div>
             <div class="cap">${k.label}</div>
           </div>

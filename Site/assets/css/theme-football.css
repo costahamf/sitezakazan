@@ -347,6 +347,11 @@ body.theme-football #heroKpis .stat{
   box-shadow:0 3px 0 rgba(0,0,0,.62), 0 10px 22px rgba(0,0,0,.18) !important;
   color:#151515 !important;
   padding:14px 12px !important;
+  min-height:112px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 body.theme-football #heroKpis .stat .num{
   color:#0f0f0f !important;
@@ -359,6 +364,16 @@ body.theme-football #heroKpis .stat .cap{
   text-transform:uppercase;
   letter-spacing:.045em;
   font-size:.8rem;
+}
+body.theme-football #heroKpis > [class*="col"]{
+  display:flex;
+}
+body.theme-football #heroKpis .stat--text{
+  justify-content:center;
+}
+body.theme-football #heroKpis .stat--text .num{
+  font-size:clamp(1.9rem, 2vw, 2.5rem);
+  line-height:1.1;
 }
 
 body.theme-football .btn,
