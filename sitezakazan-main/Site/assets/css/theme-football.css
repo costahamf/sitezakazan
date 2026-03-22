@@ -667,6 +667,7 @@ body.theme-football{
   --hero-focus-x: 50%;
   --hero-focus-y: 30%;
   --hero-quick-links-overlap: 0px;
+  --hero-quick-links-shift-y: 18px;
 }
 
 body.theme-football .container{
