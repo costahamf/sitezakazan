@@ -29,8 +29,10 @@ window.SITE_CONFIG = {
       ]
     },
     siteBg: "assets/img/sitebg-decor/swistl.webp",
+    siteBgTablet: "assets/img/sitebg-decor/swistl.webp",
     siteBgMobile: "assets/img/sitebg-decor/swistl.webp",
     heroBg: "assets/img/heroBg.webp",
+    heroBgTablet: "assets/img/heroBgMobile.webp",
     heroBgMobile: "assets/img/heroBgMobile.webp",
     galleryFolder: "assets/img/gallery/",
   },

@@ -63,9 +63,12 @@
   }
   applyFootballUtilityClasses();
 
-  function pickBg(desktop, mobile){
-    const isMobile = window.matchMedia && window.matchMedia("(max-width: 767.98px)").matches;
-    return (isMobile && mobile) ? mobile : desktop;
+  function pickResponsiveValue(desktop, tablet, mobile){
+    const isMobile = window.matchMedia && window.matchMedia("(max-width: 576px)").matches;
+    const isTablet = window.matchMedia && window.matchMedia("(min-width: 577px) and (max-width: 991.98px)").matches;
+    if(isMobile && mobile) return mobile;
+    if(isTablet && tablet) return tablet;
+    return desktop;
   }
 
   function parseInsetPosition(position){
@@ -140,11 +143,12 @@
     const media = SITE_CONFIG?.media || {};
     const isIndex = current === "index";
     const desktopSiteBg = isIndex ? (media.heroBg || media.siteBg) : null;
-    const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || desktopSiteBg) : null;
-    const siteBg = isIndex ? pickBg(desktopSiteBg, mobileSiteBg) : null;
+    const tabletSiteBg = isIndex ? (media.heroBgTablet || media.siteBgTablet || desktopSiteBg) : null;
+    const mobileSiteBg = isIndex ? (media.heroBgMobile || media.siteBgMobile || tabletSiteBg || desktopSiteBg) : null;
+    const siteBg = isIndex ? pickResponsiveValue(desktopSiteBg, tabletSiteBg, mobileSiteBg) : null;
     const hasSectionDecor = isIndex && document.querySelector(".section-decor") !== null;
     const activeLayers = (isIndex && !hasSectionDecor)
-      ? pickBg(media.siteBgLayers?.desktop, media.siteBgLayers?.mobile)
+      ? pickResponsiveValue(media.siteBgLayers?.desktop, media.siteBgLayers?.tablet, media.siteBgLayers?.mobile)
       : null;
     const hasRenderedLayers = renderSiteBgLayers(activeLayers);
 
@@ -169,7 +173,9 @@
 
     const hero = document.querySelector("[data-hero-bg]");
     if(hero){
-      const heroSrc = isIndex ? pickBg(media.heroBg, media.heroBgMobile) : null;
+      const heroSrc = isIndex
+        ? pickResponsiveValue(media.heroBg, media.heroBgTablet || media.heroBg, media.heroBgMobile || media.heroBgTablet || media.heroBg)
+        : null;
 
       if(heroSrc){
         const absHero = new URL(heroSrc, document.baseURI).href;
