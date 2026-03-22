@@ -23,8 +23,8 @@ body.theme-football{
   body.theme-football[data-page="index"]{
     background-image: url("../img/heroBg.webp") !important;
     background-repeat: no-repeat !important;
-    background-position: center top !important;
-    background-size: 100% auto !important;
+    background-position: 50% 40% !important;
+    background-size: cover !important;
     background-attachment: scroll !important;
   }
 
@@ -88,19 +88,17 @@ body.theme-football .bg-hero::after{
   /* keep existing hero image/gradient behavior untouched */
 }
 body.theme-football .bg-hero::before{
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
 }
-body.theme-football .bg-hero::before{
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+body.theme-football [data-hero-bg]::before{
+  background-position: 50% 40%;
 }
-@media (min-width: 992px){
-  body.theme-football .bg-hero::before{
-    background-size: 100% auto !important;
-    background-position: center top !important;
+@media (min-width: 1400px){
+  body.theme-football .bg-hero::before,
+  body.theme-football [data-hero-bg]::before{
+    background-position: 50% 45%;
   }
 }
 
