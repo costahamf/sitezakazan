@@ -1579,6 +1579,7 @@ body[data-page="cabinet"] #siteFooter{
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  min-height: clamp(240px, 30vw, 420px);
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(190,255,220,.10);
@@ -1602,6 +1603,28 @@ body[data-page="cabinet"] #siteFooter{
 }
 .media-video{ object-fit: contain; background: #000; }
 .media-frame .media-arrow{ z-index: 30; }
+
+#mediaPhotoStage .media-stage{
+  aspect-ratio: auto;
+  min-height: clamp(280px, 34vw, 520px);
+}
+
+#mediaPhotoStage .media-img{
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 520px);
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px){
+  #mediaPhotoStage .media-stage{
+    min-height: clamp(240px, 68vw, 420px);
+  }
+
+  #mediaPhotoStage .media-img{
+    max-height: min(56vh, 420px);
+  }
+}
 
 /* Testing card: image-first layout (bigger preview on desktop, no cropping) */
 .testing-card{ max-width: 1060px; margin: 0 auto; }
@@ -2215,23 +2238,20 @@ section > .container > :not(.section-decor){
   .section-decor--testing{ bottom: 660px; right: -24px; width: clamp(106px, 11vw, 142px); }
 }
 
-/* sitebg icons: iPad Pro-like portrait tablets */
-@media (min-width: 1000px) and (max-width: 1100px) and (min-height: 1300px) and (orientation: portrait){
-  section > .container{
-    --section-decor-edge-offset: 6px;
-  }
+/* sitebg icons: extra-wide layouts */
+@media (min-width: 1600px) and (min-aspect-ratio: 16/9){
   .section-decor{
-    width: clamp(116px, 10.5vw, 146px);
-    opacity: .92;
+    width: clamp(210px, 12vw, 290px);
+    opacity: .96;
   }
-  .section-decor--steps{ top: 88px; right: 18px; left: auto; }
-  .section-decor--pricing{ top: 78px; right: 8px; width: clamp(136px, 13vw, 168px); }
-  .section-decor--result{ bottom: 1180px; right: 12px; left: auto; width: clamp(126px, 12vw, 160px); }
-  .section-decor--coaches{ bottom: 1450px; right: 10px; width: clamp(122px, 11.5vw, 152px); }
-  .section-decor--media{ top: -12px; right: 12px; left: auto; width: clamp(120px, 11vw, 148px); }
-  .section-decor--philosophy{ top: -20px; right: 12px; width: clamp(118px, 10.8vw, 146px); }
-  .section-decor--chess{ top: -42px; right: 12px; left: auto; width: clamp(126px, 12vw, 158px); }
-  .section-decor--testing{ bottom: 720px; right: -10px; width: clamp(122px, 11.5vw, 152px); }
+  .section-decor--steps{ left: -320px; top: 48px; width: clamp(240px, 15vw, 320px); }
+  .section-decor--pricing{ right: -320px; top: 420px; width: clamp(250px, 16vw, 340px); }
+  .section-decor--result{ left: -340px; bottom: -90px; width: clamp(250px, 16vw, 350px); }
+  .section-decor--coaches{ right: -300px; bottom: -80px; width: clamp(220px, 14vw, 300px); }
+  .section-decor--media{ left: -310px; top: 280px; width: clamp(220px, 14vw, 300px); }
+  .section-decor--philosophy{ right: -320px; top: 130px; width: clamp(220px, 14vw, 300px); }
+  .section-decor--chess{ left: -340px; top: 190px; width: clamp(240px, 16vw, 340px); }
+  .section-decor--testing{ right: -250px; bottom: -24px; width: clamp(240px, 15vw, 320px); }
 }
 
 /* Philosophy / chess clean cards */
