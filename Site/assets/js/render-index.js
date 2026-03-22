@@ -110,7 +110,7 @@
     const inner = document.getElementById("graduatesCarouselInner");
 
     const cardHTML = (t)=>`
-      <div class="card-dark p-0 h-100 profile-card">
+      <div class="card-dark p-0 h-100 profile-card profile-card--graduate">
         <div class="profile-media">
           <img src="${t.photo || "assets/img/graduates/grad-1.svg"}" alt="${t.name}">
         </div>
@@ -147,7 +147,7 @@
     const inner = document.getElementById("coachesCarouselInner");
 
     const cardHTML = (c)=>`
-      <div class="card-dark p-0 h-100 profile-card">
+      <div class="card-dark p-0 h-100 profile-card profile-card--coach">
         <div class="profile-media">
           <img src="${c.photo || "assets/img/coaches/coach-1.svg"}" alt="${c.name}">
         </div>
