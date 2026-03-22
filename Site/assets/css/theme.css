@@ -60,13 +60,13 @@ body{
   background-image: none;
   background-repeat: var(--site-bg-repeat, no-repeat);
   background-position: var(--site-bg-position, center top);
-  background-size: var(--site-bg-size, var(--site-bg-size-desktop, 100% auto));
-  background-attachment: fixed;
+  background-size: var(--site-bg-size, cover);
+  background-attachment: scroll;
 }
 
 @media (max-width: 767.98px){
   body{
-    background-size: var(--site-bg-size, var(--site-bg-size-mobile, var(--site-bg-size-desktop, 100% auto)));
+    background-size: var(--site-bg-size, cover);
     background-attachment: scroll;
   }
 }
@@ -110,9 +110,11 @@ body.site-bg-layers-active:after{
 .site-bg-layer-host{
   position: absolute;
   inset: 0;
+  width: min(100%, 100vw);
+  max-width: min(100%, var(--container-max, 96rem));
+  margin-inline: auto;
   pointer-events: none;
   z-index: -2;
-  overflow: visible;
 }
 
 .site-bg-layer{
@@ -128,14 +130,16 @@ body.site-bg-layers-active:after{
 .bg-hero{
   position: relative;
   isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
 }
 .bg-hero:before{
   content:"";
   position:absolute; inset:0;
   background-image: var(--hero-bg-url, url("../img/hero-bg.svg"));
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center;
   -webkit-mask-image: none;
   mask-image: none;
   filter: saturate(1.15) contrast(1.05);
@@ -144,8 +148,8 @@ body.site-bg-layers-active:after{
 }
 @media (max-width: 991.98px){
   .bg-hero:before{
-    background-size: 100% auto;
-    background-position: center bottom;
+    background-size: cover;
+    background-position: center;
   }
 }
 .bg-hero:after{
@@ -552,8 +556,9 @@ footer{ display:block; width:100%; }
 
 [data-hero-bg] {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
   background: none !important;
-  height: var(--hero-height, auto);
 }
 
 [data-hero-bg]::before {
@@ -562,7 +567,7 @@ footer{ display:block; width:100%; }
   inset: 0;
   background-image: var(--hero-bg-url, none);
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: -1;
@@ -577,7 +582,7 @@ footer{ display:block; width:100%; }
 @media (max-width: 991.98px) {
   [data-hero-bg]::before {
     height: 100%;
-    background-position: center 0;
-    background-size: 100% auto;
+    background-position: center;
+    background-size: cover;
   }
 }

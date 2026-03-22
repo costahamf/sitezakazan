@@ -7,19 +7,45 @@
 }
 /* Components that you will likely restyle in Figma */
 
+:root{
+  --container-max: 96rem;
+  --page-gutter: clamp(1rem, 3vw, 2rem);
+}
+
+.container{
+  width: min(100% - (var(--page-gutter) * 2), var(--container-max));
+  max-width: var(--container-max);
+  padding-inline: 0;
+}
+@media (min-width: 1200px){
+  .container{
+    width: min(100% - (var(--page-gutter) * 2), 90rem);
+    max-width: 90rem;
+  }
+}
+@media (min-width: 1440px){
+  .container{
+    width: min(100% - (var(--page-gutter) * 2), var(--container-max));
+    max-width: var(--container-max);
+  }
+}
+
 .hero{
-  padding-top: 92px;
-  padding-bottom: 18px;
   position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: clamp(5.5rem, 10vw, 7rem);
+  padding-bottom: clamp(1.25rem, 4vw, 2.5rem);
 }
 .hero h1{
   font-weight: 950;
-  letter-spacing: -0.8px;
-  line-height: 1.05;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  font-size: clamp(2rem, 5vw, 4.75rem);
 }
 .hero .lead{
   color: rgba(233,242,238,.85);
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
 }
 
 /* Reviews page: drop the headline a touch lower from the nav (more breathing room) */
@@ -32,31 +58,39 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .hero--page{ padding-bottom: 26px; }
 @media (max-width: 576px){ .hero--page{ padding-top: 76px; padding-bottom: 22px; } }
 /* Index hero: keep players visible on mobile (overlay cutout) */
-.hero--index .container{ position: relative; }
-.hero--index .container > .row{ position: relative; z-index: 2; }
-
-/* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
-@media (min-width: 992px){
-  .hero--index .container > .row{
-    align-items: flex-start !important;
-  }
-  .hero--index .hero-copy{ margin-top: 18px; }
+.hero--index{
+  min-height: 100vh;
 }
-
-/* Desktop + tablet: place KPI row noticeably lower in the first screen */
+.hero--index .container{
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hero--index .container > .row{
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  align-items: flex-start;
+}
+.hero--index .hero-copy{
+  width: min(100%, 38rem);
+  padding-top: clamp(.5rem, 2vh, 1.5rem);
+}
+.hero--index #heroKpis{
+  margin-top: clamp(2.5rem, 8vh, 7rem) !important;
+}
 @media (min-width: 768px){
   .hero--index #heroKpis{
-    margin-top: clamp(72px, 12vh, 140px) !important;
+    margin-top: clamp(4rem, 12vh, 9rem) !important;
   }
 }
-
 @media (min-width: 992px){
   .hero--index{
-    min-height: max(1120px, calc(100svh + 140px));
-    padding-bottom: 40px;
+    padding-bottom: clamp(2rem, 4vw, 3rem);
   }
   .hero--index #heroKpis{
-    margin-top: clamp(500px, 24vh, 360px) !important;
+    margin-top: clamp(6rem, 18vh, 13rem) !important;
   }
 }
 
@@ -221,51 +255,44 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 
 /* HERO MOBILE TUNING */
+.hero-mobile-actions{
+  order: 2;
+  margin-top: clamp(1rem, 4vh, 2rem) !important;
+  margin-bottom: clamp(1rem, 3vh, 1.5rem) !important;
+  padding-top: clamp(.5rem, 2vh, 1rem);
+}
+.hero-mobile-actions .btn{
+  width: 100%;
+}
 @media (max-width: 576px){
   .hero .display-5, .hero .display-6{
-    font-size: 1.72rem;
-    line-height: 1.05;
+    font-size: clamp(1.85rem, 8vw, 2.4rem);
+    line-height: 1.04;
   }
   .hero .lead{
-    font-size: .92rem;
+    font-size: .95rem;
   }
   .hero .btn{
-    padding: .46rem .84rem !important;
-    font-size: .86rem;
+    padding: .7rem 1rem !important;
+    font-size: .92rem;
   }
-  /* hide the age/city pill on mobile to lift the headline */
   .hero .pill{ display: none !important; }
   .hero .stat{
-    padding: 14px;
+    padding: .9rem;
   }
   .hero .stat .num{
     font-size: 1.36rem;
   }
 }
 @media (max-width: 991.98px){
-  .hero--index{
-    min-height: max(700px, 92svh);
-    padding-bottom: 28px;
-  }
-  .hero--index .container{
-    min-height: inherit;
-    display: flex;
-    flex-direction: column;
-  }
   .hero--index .container > .row{
     order: 1;
     flex: 0 0 auto;
   }
-  .hero-mobile-actions{
-    order: 2;
-    margin-top: auto !important;
-    margin-bottom: 18px !important;
-    padding-top: 12px;
-  }
   .hero--index #heroKpis{
     order: 3;
     margin-top: 0 !important;
-    padding-bottom: 12px;
+    padding-bottom: clamp(.75rem, 3vw, 1.25rem);
   }
   .hero--index #heroKpis > [class*="col"]:nth-child(n+3){
     display: none !important;
@@ -275,18 +302,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 @media (max-width: 576px){
-  .hero--index .row{ row-gap: 10px; }
+  .hero--index .row{ row-gap: .75rem; }
   .hero-visual{ min-height: 0; }
-  .hero--index{
-    min-height: max(660px, 88svh);
-  }
-  .hero-mobile-actions{
-    margin-bottom: 14px !important;
-    padding-top: 8px;
-  }
-  .hero--index #heroKpis{
-    padding-bottom: 20px;
-  }
 }
 
 .hero-quick-links{
@@ -318,6 +335,9 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .profile-card{
   border-radius: var(--radius-lg);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .profile-media{
   width: 100%;
@@ -327,9 +347,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 .profile-media img{
   width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
   display:block;
+}
+.profile-card > .p-3{
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: .5rem;
 }
 .badge-popular{
   background: rgba(143,211,255,.16);
@@ -356,13 +383,9 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 /* Mobile fine-tuning for coach/graduate cards */
 @media (max-width: 991.98px){
-  /* Portrait photos in carousels: avoid top/bottom cropping on mobile */
   .profile-media{
     aspect-ratio: 4 / 5;
     background: rgba(0,0,0,.18);
-  }
-  .profile-media img{
-    object-fit: contain;
   }
 }
 
@@ -986,7 +1009,7 @@ gap: 8px;
 .carousel-arrow--right{ right: 10px; }
 .carousel-arrow i{ font-size: 1.15rem; }
 
-/* Desktop: snap/scroll carousel (trainers & graduates) */
+/* Desktop/tablet: responsive grid for trainers & graduates */
 .desktop-snap .carousel-arrow{ top: 50%; }
 .snap-carousel{
   display: flex;
@@ -1006,6 +1029,35 @@ gap: 8px;
 /* Variant: show exactly 3 cards in the visible area on desktop (used on program.html) */
 .snap-carousel--three{ padding: 6px; }
 .snap-carousel--three .snap-item{ flex: 0 0 calc((100% - 24px) / 3); }
+
+#coachesDesktopScroller,
+#graduatesDesktopScroller{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: 0;
+  overflow: visible;
+}
+#coachesDesktopScroller .snap-item,
+#graduatesDesktopScroller .snap-item{
+  flex: none;
+}
+#coaches .desktop-snap .carousel-arrow,
+#result .desktop-snap .carousel-arrow{
+  display: none;
+}
+@media (min-width: 1024px){
+  #coachesDesktopScroller,
+  #graduatesDesktopScroller{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1440px){
+  #coachesDesktopScroller,
+  #graduatesDesktopScroller{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
 
 .quiz-picker-sheet.is-open .quiz-picker-panel{ opacity: 1; transform: translateY(0) scale(1); }
@@ -1517,7 +1569,20 @@ body[data-page="cabinet"] #siteFooter{
 
 
 /* Media frames: arrows should be centered relative to the preview area */
-.media-frame{ position: relative; }
+.media-card{
+  padding: clamp(1rem, 2.4vw, 1.5rem) !important;
+}
+.media-frame{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#mediaPhotoStage,
+#mediaVideoStage,
+#testingStage{
+  width: 100%;
+}
 .media-stage{
   position: relative;
   width: 100%;
@@ -1529,21 +1594,24 @@ body[data-page="cabinet"] #siteFooter{
   display: grid;
   place-items: center;
 }
-.media-img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain; /* show the whole photo (no cropping) */
-}
+.media-img,
 .media-video,
 .media-stage iframe{
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: block;
   border: 0;
+}
+.media-img{
+  object-fit: cover;
+}
+.media-video,
+.media-stage iframe{
+  aspect-ratio: 16 / 9;
   background: #000;
 }
-.media-video{ object-fit: contain; background: #000; }
+.media-video{ object-fit: cover; }
 .media-frame .media-arrow{ z-index: 30; }
 
 /* Testing card: image-first layout (bigger preview on desktop, no cropping) */
@@ -1953,143 +2021,100 @@ body[data-page="cabinet"] #siteFooter{
 
 
 
-section > .container{
-  position: relative;
-  overflow: visible;
-}
 .section-decor{
   position: absolute;
   display: block;
-  width: clamp(150px, 14vw, 220px);
+  width: clamp(4.5rem, 12vw, 13rem);
   aspect-ratio: 1 / 1;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   opacity: .92;
   pointer-events: none;
-  z-index: 4;
+  z-index: 1;
+}
+section > .container{
+  position: relative;
 }
 section > .container > :not(.section-decor){
   position: relative;
   z-index: 2;
 }
 .section-decor--steps{
-  left: -270px;
-  top: 60px;
-  width: 250px;
+  right: 1%;
+  top: 4%;
   background-image: url("../img/sitebg-decor/conus.webp");
 }
 .section-decor--pricing{
-  right: -270px;
-  top: 490px;
-  width: 270px;
+  right: 2%;
+  top: 8%;
   background-image: url("../img/sitebg-decor/money.webp");
 }
 .section-decor--result{
-  left: -290px;
-  bottom: -60px;
-  width: 290px;
+  left: 1%;
+  bottom: 8%;
   background-image: url("../img/sitebg-decor/Chart.webp");
 }
 .section-decor--coaches{
-  right: -250px;
-  bottom: -70px;
-  width: 260px;
+  right: 1%;
+  bottom: 8%;
   background-image: url("../img/sitebg-decor/coach.webp");
   transform: scaleX(-1);
 }
 .section-decor--media{
-  left: -240px;
-  top: 325px;
+  left: 1%;
+  top: 10%;
   background-image: url("../img/sitebg-decor/TV.webp");
 }
 .section-decor--philosophy{
-  right: -270px;
-  top: 170px;
-  width: 250px;
+  right: 1%;
+  top: 6%;
   background-image: url("../img/sitebg-decor/book.webp");
 }
 .section-decor--chess{
-  left: -280px;
-  top: 220px;
-  width: 290px;
+  left: 1%;
+  top: 8%;
   background-image: url("../img/sitebg-decor/chess.webp");
 }
 .section-decor--testing{
-  right: -180px;
-  bottom: -8px;
-  width: 300px;
+  right: 1%;
+  bottom: 5%;
   background-image: url("../img/sitebg-decor/test.webp");
 }
-@media (max-width: 1199.98px){
+@media (min-width: 768px){
   .section-decor{
-    width: 128px;
+    width: clamp(5.5rem, 10vw, 10rem);
+    opacity: .9;
   }
   .section-decor--steps,
-  .section-decor--result,
   .section-decor--media,
   .section-decor--chess{
-    left: -70px;
+    left: 1%;
+    right: auto;
   }
   .section-decor--pricing,
   .section-decor--coaches,
   .section-decor--philosophy,
   .section-decor--testing{
-    right: -72px;
+    right: 1%;
   }
 }
-@media (max-width: 991.98px){
+@media (min-width: 1024px){
   .section-decor{
-    width: 84px;
-    opacity: .94;
+    width: clamp(7rem, 9vw, 12rem);
   }
-  .section-decor--steps{
-    left: auto;
-    right: 12px;
-    top: 118px;
-  }
-  .section-decor--pricing{
-    right: 30px;
-    top: 168px;
-  }
-  .section-decor--result{
-    left: 260px;
-    bottom: 995px;
-  }
-  .section-decor--coaches{
-    right: 30px;
-    bottom: 1435px;
-  }
-  .section-decor--media{
-    left: 280px;
-    top: 122px;
-  }
-  .section-decor--philosophy{
-    right: 12px;
-    top: 96px;
-  }
-  .section-decor--chess{
-    left: 240px;
-    top: -30px;
-  }
-  .section-decor--testing{
-    right: 24px;
-    bottom: 700px;
-  }
+  .section-decor--steps{ top: 10%; }
+  .section-decor--pricing{ top: 24%; }
+  .section-decor--result{ bottom: 10%; }
+  .section-decor--coaches{ bottom: 10%; }
+  .section-decor--media{ top: 24%; }
+  .section-decor--philosophy{ top: 16%; }
+  .section-decor--chess{ top: 20%; }
 }
-@media (max-width: 576px){
+@media (min-width: 1440px){
   .section-decor{
-    width: 72px;
-    opacity: .96;
+    width: clamp(8rem, 8vw, 13rem);
   }
-  .section-decor--steps{ top: 105px; width: 100px; }
-  .section-decor--pricing{ top: -70px; width: 150px; } 
-  .section-decor--media{ top: -20px; }
-  .section-decor--result{ width: 100px; }
-  .section-decor--coaches{ width: 100px; }
-  .section-decor--chess{ width: 100px; }
-  .section-decor--testing{ width: 100px; }
-  
 }
 
 /* Philosophy / chess clean cards */
