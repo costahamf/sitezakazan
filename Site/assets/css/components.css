@@ -2000,21 +2000,21 @@ section > .container > :not(.section-decor){
    for each block change only these variables:
    --decor-left / --decor-right / --decor-top / --decor-bottom / --decor-size */
 .section-decor--steps{
-  --decor-left: -270px;
-  --decor-top: 60px;
-  --decor-size: 250px;
+  left: -260px;
+  top: 60px;
+  width: 250px;
   background-image: url("../img/sitebg-decor/conus.webp");
 }
 .section-decor--pricing{
-  --decor-right: -270px;
-  --decor-top: 490px;
-  --decor-size: 270px;
+  right: -250px;
+  top: 490px;
+  width: 270px;
   background-image: url("../img/sitebg-decor/money.webp");
 }
 .section-decor--result{
-  --decor-left: -290px;
-  --decor-bottom: -60px;
-  --decor-size: 290px;
+  left: -275px;
+  bottom: -60px;
+  width: 290px;
   background-image: url("../img/sitebg-decor/Chart.webp");
 }
 .section-decor--coaches{
@@ -2025,8 +2025,8 @@ section > .container > :not(.section-decor){
   transform: scaleX(-1);
 }
 .section-decor--media{
-  --decor-left: -240px;
-  --decor-top: 325px;
+  left: -240px;
+  top: 335px;
   background-image: url("../img/sitebg-decor/TV.webp");
 }
 .section-decor--philosophy{
@@ -2123,30 +2123,14 @@ section > .container > :not(.section-decor){
     --decor-size: 72px;
     opacity: .96;
   }
-  .section-decor--steps{ --decor-top: 105px; --decor-size: 100px; }
-  .section-decor--pricing{ --decor-top: -70px; --decor-size: 150px; }
-  .section-decor--media{ --decor-top: -20px; }
-  .section-decor--result{ --decor-size: 100px; }
-  .section-decor--coaches{ --decor-size: 100px; }
-  .section-decor--chess{ --decor-size: 100px; }
-  .section-decor--testing{ --decor-size: 100px; }
-}
-
-@media (max-width: 390px){
-  section > .container{
-    --section-decor-edge-offset: -14px;
-  }
-  .section-decor{
-    --decor-size: 68px;
-  }
-  .section-decor--steps{ --decor-top: 96px; --decor-size: 92px; }
-  .section-decor--pricing{ --decor-top: -48px; --decor-size: 126px; }
-  .section-decor--result{ --decor-size: 92px; }
-  .section-decor--coaches{ --decor-size: 92px; }
-  .section-decor--media{ --decor-top: -6px; }
-  .section-decor--philosophy{ --decor-top: 82px; }
-  .section-decor--chess{ --decor-top: 6px; --decor-size: 92px; }
-  .section-decor--testing{ --decor-size: 92px; }
+  .section-decor--steps{ top: 120px; width: 100px; }
+  .section-decor--pricing{ top: -70px; width: 150px; } 
+  .section-decor--media{ top: -20px; right: 10px; }
+  .section-decor--result{ width: 100px; }
+  .section-decor--coaches{ width: 100px; }
+  .section-decor--chess{ width: 100px; }
+  .section-decor--testing{ width: 100px; }
+  .section-decor--philosophy{ right: 10px; }
 }
 
 @media (min-width: 577px) and (max-width: 767.98px){
@@ -2154,16 +2138,16 @@ section > .container > :not(.section-decor){
     --section-decor-edge-offset: -20px;
   }
   .section-decor{
-    --decor-size: 88px;
+    width: 88px;
   }
-  .section-decor--steps{ --decor-top: 112px; }
-  .section-decor--pricing{ --decor-top: 118px; }
-  .section-decor--result{ --decor-bottom: 920px; }
-  .section-decor--coaches{ --decor-bottom: 1320px; }
-  .section-decor--media{ --decor-top: 92px; }
-  .section-decor--philosophy{ --decor-top: 76px; }
-  .section-decor--chess{ --decor-top: 12px; }
-  .section-decor--testing{ --decor-bottom: 640px; }
+  .section-decor--steps{ top: 130px; }
+  .section-decor--pricing{ top: 118px; }
+  .section-decor--result{ bottom: 920px; }
+  .section-decor--coaches{ bottom: 1320px; }
+  .section-decor--media{ top: 92px; }
+  .section-decor--philosophy{ top: 76px; }
+  .section-decor--chess{ top: 12px; }
+  .section-decor--testing{ bottom: 640px; }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
@@ -2171,16 +2155,16 @@ section > .container > :not(.section-decor){
     --section-decor-edge-offset: -24px;
   }
   .section-decor{
-    --decor-size: 96px;
+    width: 130px;
   }
-  .section-decor--steps{ --decor-top: 118px; }
-  .section-decor--pricing{ --decor-top: 138px; }
-  .section-decor--result{ --decor-bottom: 860px; }
-  .section-decor--coaches{ --decor-bottom: 1240px; }
-  .section-decor--media{ --decor-top: 106px; }
-  .section-decor--philosophy{ --decor-top: 84px; }
-  .section-decor--chess{ --decor-top: 20px; }
-  .section-decor--testing{ --decor-bottom: 580px; }
+  .section-decor--steps{ top: 80px; }
+  .section-decor--pricing{ top: 85px; width: 160px;}
+  .section-decor--result{ bottom: 1140px;width: 160px; }
+  .section-decor--coaches{ bottom: 1400px; right: 3px; }
+  .section-decor--media{ top: -50px; }
+  .section-decor--philosophy{ top: -60px; }
+  .section-decor--chess{ top: -70px; width: 160px; }
+  .section-decor--testing{ bottom: 690px; right: -90px; }
 }
 
 /* Philosophy / chess clean cards */
