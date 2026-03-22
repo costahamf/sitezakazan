@@ -1579,6 +1579,7 @@ body[data-page="cabinet"] #siteFooter{
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  min-height: clamp(240px, 30vw, 420px);
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(190,255,220,.10);
@@ -1602,6 +1603,28 @@ body[data-page="cabinet"] #siteFooter{
 }
 .media-video{ object-fit: contain; background: #000; }
 .media-frame .media-arrow{ z-index: 30; }
+
+#mediaPhotoStage .media-stage{
+  aspect-ratio: auto;
+  min-height: clamp(280px, 34vw, 520px);
+}
+
+#mediaPhotoStage .media-img{
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 520px);
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px){
+  #mediaPhotoStage .media-stage{
+    min-height: clamp(240px, 68vw, 420px);
+  }
+
+  #mediaPhotoStage .media-img{
+    max-height: min(56vh, 420px);
+  }
+}
 
 /* Testing card: image-first layout (bigger preview on desktop, no cropping) */
 .testing-card{ max-width: 1060px; margin: 0 auto; }
