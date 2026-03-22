@@ -656,3 +656,141 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
     border-top-color: transparent !important;
   }
 }
+
+/* Ultra-wide layout: keep content in a readable column and let the
+   background breathe with decorative side fills instead of stretching the
+   original hero art beyond the design canvas. */
+body.theme-football{
+  --page-content-max: 1320px;
+  --page-side-gap: clamp(16px, 3vw, 36px);
+  --hero-art-width: 100%;
+  --hero-focus-x: 58%;
+  --hero-focus-y: 30%;
+  --hero-quick-links-overlap: 0px;
+}
+
+body.theme-football .container{
+  width: min(calc(100% - (var(--page-side-gap) * 2)), var(--page-content-max)) !important;
+  max-width: var(--page-content-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--bs-gutter-x, .75rem) !important;
+  padding-right: var(--bs-gutter-x, .75rem) !important;
+}
+
+@media (min-width: 1600px){
+  body.theme-football{
+    --page-content-max: 1380px;
+    --page-side-gap: clamp(24px, 3.2vw, 56px);
+    --hero-art-width: 1920px;
+    --hero-quick-links-overlap: 72px;
+  }
+}
+
+@media (min-width: 2200px){
+  body.theme-football{
+    --page-content-max: 1420px;
+    --page-side-gap: clamp(32px, 4vw, 96px);
+  }
+}
+
+@media (min-width: 992px){
+  body.theme-football[data-page="index"]{
+    background-image: none !important;
+    background-color: var(--brand-black) !important;
+  }
+
+  body.theme-football[data-page="index"] .hero--index{
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-bottom: 88px;
+    background:
+      radial-gradient(1200px 640px at 6% 16%, rgba(255,255,255,.20), transparent 65%),
+      radial-gradient(1400px 780px at 96% 12%, rgba(255,255,255,.18), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03) 52%, rgba(255,255,255,0) 100%);
+  }
+
+  body.theme-football[data-page="index"] .hero--index::before,
+  body.theme-football[data-page="index"] [data-hero-bg].hero--index::before{
+    background-size: var(--hero-art-width) auto !important;
+    background-position: var(--hero-focus-x) var(--hero-focus-y) !important;
+    background-repeat: no-repeat !important;
+    opacity: .98;
+    z-index: -2;
+  }
+
+  body.theme-football[data-page="index"] .hero--index::after{
+    content:"" !important;
+    position:absolute;
+    inset:0;
+    display:block !important;
+    pointer-events:none;
+    z-index:-3;
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,.72) 0%,
+        rgba(255,255,255,.34) 12%,
+        rgba(255,255,255,0) 26%,
+        rgba(255,255,255,0) 74%,
+        rgba(255,255,255,.30) 88%,
+        rgba(255,255,255,.68) 100%
+      ),
+      radial-gradient(700px 260px at 50% 100%, rgba(255,255,255,.20), rgba(255,255,255,0) 72%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.028) 0 1px, transparent 1px 7px) !important;
+  }
+
+  body.theme-football[data-page="index"] .hero--index .hero-copy{
+    max-width: min(100%, 640px);
+  }
+
+  body.theme-football[data-page="index"] section{
+    overflow: hidden;
+    overflow: clip;
+  }
+
+  body.theme-football[data-page="index"] .hero-quick-links{
+    position: relative;
+    margin-top: calc(var(--hero-quick-links-overlap) * -1);
+    padding-top: calc(1.5rem + var(--hero-quick-links-overlap));
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(237,237,237,.88) 44%, rgba(237,237,237,1) 100%) !important;
+    border-top-color: transparent !important;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1600px){
+  body.theme-football[data-page="index"] .hero--index{
+    min-height: clamp(760px, 46vw, 980px);
+    max-height: 980px;
+  }
+
+  body.theme-football[data-page="index"] section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(760px 300px at left center, rgba(255,255,255,.58), transparent 72%),
+      radial-gradient(760px 340px at right 20%, rgba(255,255,255,.42), transparent 74%);
+  }
+
+  body.theme-football[data-page="index"] .hero-quick-links::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(237,237,237,.92) 42%, rgba(237,237,237,1) 100%),
+      radial-gradient(780px 240px at left top, rgba(255,255,255,.92), transparent 74%),
+      radial-gradient(780px 260px at right top, rgba(255,255,255,.88), transparent 74%);
+  }
+
+  body.theme-football[data-page="index"] .hero-quick-links > .container{
+    position: relative;
+    z-index: 1;
+  }
+}
