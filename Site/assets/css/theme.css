@@ -125,6 +125,15 @@ body.site-bg-layers-active:after{
   user-select: none;
 }
 
+@media (max-width: 991.98px){
+  .site-bg-layer-host{
+    left: 50%;
+    right: auto;
+    width: min(calc(100% - 32px), var(--mobile-decor-content-max, 500px));
+    transform: translateX(-50%);
+  }
+}
+
 .bg-hero{
   position: relative;
   isolation: isolate;
