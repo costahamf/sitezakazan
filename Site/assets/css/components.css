@@ -2052,45 +2052,54 @@ section > .container > :not(.section-decor){
   }
 }
 @media (max-width: 991.98px){
+  section > .container{
+    --section-decor-edge-offset: clamp(-26px, -1.8vw, -12px);
+  }
   .section-decor{
     width: 84px;
     opacity: .94;
   }
   .section-decor--steps{
     left: auto;
-    right: 12px;
+    right: var(--section-decor-edge-offset);
     top: 118px;
   }
   .section-decor--pricing{
-    right: 30px;
+    right: calc(var(--section-decor-edge-offset) + 14px);
     top: 168px;
   }
   .section-decor--result{
-    left: 260px;
+    left: auto;
+    right: var(--section-decor-edge-offset);
     bottom: 995px;
   }
   .section-decor--coaches{
-    right: 30px;
+    right: calc(var(--section-decor-edge-offset) + 10px);
     bottom: 1435px;
   }
   .section-decor--media{
-    left: 280px;
+    left: auto;
+    right: var(--section-decor-edge-offset);
     top: 122px;
   }
   .section-decor--philosophy{
-    right: 12px;
+    right: var(--section-decor-edge-offset);
     top: 96px;
   }
   .section-decor--chess{
-    left: 240px;
+    left: auto;
+    right: calc(var(--section-decor-edge-offset) - 6px);
     top: -30px;
   }
   .section-decor--testing{
-    right: 24px;
+    right: calc(var(--section-decor-edge-offset) + 8px);
     bottom: 700px;
   }
 }
 @media (max-width: 576px){
+  section > .container{
+    --section-decor-edge-offset: clamp(-18px, -4vw, -8px);
+  }
   .section-decor{
     width: 72px;
     opacity: .96;

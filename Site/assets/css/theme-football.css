@@ -663,6 +663,7 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
 body.theme-football{
   --page-content-max: 1320px;
   --page-side-gap: clamp(16px, 3vw, 36px);
+  --mobile-decor-content-max: 500px;
   --hero-art-width: 104%;
   --hero-focus-x: 50%;
   --hero-focus-y: 25%;
@@ -676,6 +677,15 @@ body.theme-football .container{
   margin-right: auto !important;
   padding-left: var(--bs-gutter-x, .75rem) !important;
   padding-right: var(--bs-gutter-x, .75rem) !important;
+}
+
+@media (max-width: 991.98px){
+  body.theme-football .hero--index > .container,
+  body.theme-football section > .container,
+  body.theme-football .hero-quick-links > .container{
+    width: min(calc(100% - (var(--page-side-gap) * 2)), var(--mobile-decor-content-max)) !important;
+    max-width: var(--mobile-decor-content-max) !important;
+  }
 }
 
 @media (min-width: 1600px){
