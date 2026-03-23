@@ -21,6 +21,12 @@ window.SITE_CONFIG = {
         { src: "assets/img/sitebg-decor/test.webp", position: "right 4vw bottom 260px", size: "220px auto" },
         { src: "assets/img/sitebg-decor/conus.webp", position: "left 5vw bottom 180px", size: "170px auto" }
       ],
+      tablet: [
+        { src: "assets/img/sitebg-decor/Chart.webp", position: "right -8px top 140px", size: "128px auto" },
+        { src: "assets/img/sitebg-decor/book.webp", position: "left -12px top 900px", size: "116px auto" },
+        { src: "assets/img/sitebg-decor/chess.webp", position: "right -10px top 1860px", size: "124px auto" },
+        { src: "assets/img/sitebg-decor/test.webp", position: "left -8px bottom 360px", size: "126px auto" }
+      ],
       mobile: [
         { src: "assets/img/sitebg-decor/Chart.webp", position: "right -24px top 110px", size: "110px auto" },
         { src: "assets/img/sitebg-decor/book.webp", position: "left -18px top 760px", size: "96px auto" },
@@ -29,8 +35,10 @@ window.SITE_CONFIG = {
       ]
     },
     siteBg: "assets/img/sitebg-decor/swistl.webp",
+    siteBgTablet: "assets/img/sitebg-decor/swistl.webp",
     siteBgMobile: "assets/img/sitebg-decor/swistl.webp",
     heroBg: "assets/img/heroBg.webp",
+    heroBgTablet: "assets/img/heroBg.webp",
     heroBgMobile: "assets/img/heroBgMobile.webp",
     galleryFolder: "assets/img/gallery/",
   },
