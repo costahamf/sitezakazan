@@ -725,7 +725,21 @@ body.theme-football .container{
     --hero-art-bleed: var(--hero-art-bleed-tablet);
     --hero-focus-x: var(--hero-focus-x-tablet);
     --hero-focus-y: var(--hero-focus-y-tablet);
-    --hero-quick-links-overlap: var(--hero-quick-links-overlap-tablet);
+    --hero-quick-links-overlap: clamp(108px, 10vw, 156px);
+    --hero-bg-bleed-bottom: calc(var(--hero-quick-links-overlap) + 20px);
+  }
+
+  body.theme-football[data-page="index"] .hero--index{
+    min-height: clamp(660px, 63vw, 860px);
+    padding-bottom: calc(clamp(170px, 16vw, 236px) + var(--hero-quick-links-overlap));
+  }
+
+  body.theme-football[data-page="index"] .hero--index + .hero-quick-links,
+  body.theme-football[data-page="index"] .hero-quick-links{
+    margin-top: calc(var(--hero-quick-links-overlap) * -1) !important;
+    padding-top: 0 !important;
+    position: relative;
+    z-index: 1;
   }
 
   body.theme-football[data-page="index"] .hero--index::before,
