@@ -189,17 +189,16 @@ function clampIndex(i, len){
         const h = img.naturalHeight || 9;
         const r = w / h;
 
-        // Desktop can accept a wider range because the block is spacious.
-        // Mobile should avoid getting too tall, but we still want the image to sit tight
-        // in the rounded frame (no big empty gaps).
-        const isDesktop = window.matchMedia && window.matchMedia('(min-width: 992px)').matches;
-        const minR = isDesktop ? 1.3 : 1.2;
-        const maxR = 2.2;
+        // Keep testing slides visually aligned with the portrait cards used in the
+        // coaches/graduates sections. Only keep the source aspect when the image is
+        // already close to that portrait proportion; otherwise fall back to 4/5.
+        const minR = 0.72;
+        const maxR = 0.92;
 
         if(r >= minR && r <= maxR){
           stage.style.aspectRatio = `${w} / ${h}`;
         }else{
-          stage.style.aspectRatio = '16 / 9';
+          stage.style.aspectRatio = '4 / 5';
         }
       };
       if(img.complete) applyAspect();

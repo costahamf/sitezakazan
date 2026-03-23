@@ -422,10 +422,15 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 
 /* === PROFILE CARDS (coaches / graduates) === */
 .profile-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 .profile-media{
+  position: relative;
+  flex: 0 0 auto;
   width: 100%;
   aspect-ratio: var(--result-card-media-ratio, 4 / 5);
   min-height: var(--result-card-media-min-height, clamp(280px, 30vw, 420px));
@@ -433,10 +438,18 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   border-bottom: 1px solid rgba(190,255,220,.12);
 }
 .profile-media img{
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display:block;
+}
+.profile-card > .p-3{
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  background: linear-gradient(180deg, rgba(8,12,10,.92), rgba(8,12,10,.96));
 }
 .badge-popular{
   background: rgba(143,211,255,.16);
@@ -489,12 +502,20 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   min-height: clamp(340px, 34vw, 460px);
 }
 
+#result .profile-card--graduate .profile-media,
+#coaches .profile-card--coach .profile-media{
+  aspect-ratio: 4 / 5;
+  min-height: clamp(340px, 34vw, 460px);
+}
+
+#result .profile-card--graduate .profile-media img,
 #coaches .profile-card--coach .profile-media img{
   object-fit: cover;
   object-position: center top;
 }
 
 @media (max-width: 991.98px){
+  #result .profile-card--graduate .profile-media,
   #coaches .profile-card--coach .profile-media{
     min-height: clamp(360px, 82vw, 500px);
   }
@@ -1682,24 +1703,28 @@ body[data-page="cabinet"] #siteFooter{
 .media-frame .media-arrow{ z-index: 30; }
 
 #mediaPhotoStage .media-stage{
-  aspect-ratio: auto;
-  min-height: clamp(280px, 34vw, 520px);
+  aspect-ratio: 4 / 5;
+  min-height: clamp(340px, 34vw, 460px);
 }
 
 #mediaPhotoStage .media-img{
   width: 100%;
-  height: auto;
-  max-height: min(70vh, 520px);
-  object-fit: contain;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
 }
 
 @media (max-width: 991.98px){
   #mediaPhotoStage .media-stage{
-    min-height: clamp(240px, 68vw, 420px);
+    aspect-ratio: var(--result-card-media-ratio, 4 / 5);
+    min-height: clamp(360px, 82vw, 500px);
   }
 
   #mediaPhotoStage .media-img{
-    max-height: min(56vh, 420px);
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
   }
 }
 
@@ -1713,11 +1738,14 @@ body[data-page="cabinet"] #siteFooter{
 }
 .testing-media-col{ min-width: 0; }
 .testing-media .media-stage{
-  /* Desktop: make the testing image big BUT without the huge top/bottom gaps.
-     Use a stable aspect so the image fills the rounded stage nicely. */
-  aspect-ratio: 16 / 9;
+  /* Desktop: keep the testing preview visually aligned with profile cards. */
+  aspect-ratio: 4 / 5;
   height: auto;
-  min-height: var(--testing-stage-min-height, clamp(340px, 34vw, 560px));
+  min-height: var(--testing-stage-min-height, clamp(340px, 34vw, 460px));
+}
+.testing-media .media-img{
+  object-fit: cover;
+  object-position: center top;
 }
 .testing-info{
   border-radius: 18px;
@@ -1776,7 +1804,12 @@ body[data-page="cabinet"] #siteFooter{
      Let aspect-ratio drive the height so the image sits tight in the rounded frame. */
   .testing-media .media-stage{
     height: auto;
-    min-height: var(--testing-stage-min-height, clamp(280px, 68vw, 420px));
+    aspect-ratio: var(--result-card-media-ratio, 4 / 5);
+    min-height: var(--testing-stage-min-height, clamp(360px, 82vw, 500px));
+  }
+  .testing-media .media-img{
+    object-fit: contain;
+    object-position: center center;
   }
 }
 
