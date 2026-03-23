@@ -450,7 +450,7 @@ a.link-accent:hover{ color: rgba(191,233,255,1); text-decoration:underline; }
   }
 }
 
-@media (max-width: 991.98px){
+@media (max-width: 1199.98px){
   .nav-glass .container{ position: relative; }
 
   .nav-glass .navbar-brand,

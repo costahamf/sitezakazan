@@ -20,7 +20,7 @@ window.PARTIALS = {
     const cabinetHref = (SITE_CONFIG?.nav?.cabinetHref || "cabinet.html");
 
     return `
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-glass">
+<nav class="navbar navbar-expand-xl navbar-dark fixed-top nav-glass">
   <div class="container">
     <a class="navbar-brand brand-mark" href="index.html">
       <img class="brand-logo" src="${SITE_CONFIG.brand.logo}" alt="${SITE_CONFIG.brand.name}" />
@@ -28,7 +28,7 @@ window.PARTIALS = {
     </a>
 
     <!-- Mobile: cabinet + burger -->
-    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+    <div class="d-flex align-items-center gap-2 ms-auto d-xl-none">
       <a class="nav-icon-link nav-icon-link--mobile" href="${cabinetHref}" aria-label="Личный кабинет">
         <i class="bi bi-person-circle"></i>
       </a>
@@ -39,14 +39,14 @@ window.PARTIALS = {
     </div>
 
     <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+      <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-2">
         <li class="nav-item"><a class="nav-link ${cur==='index'?'active':''}" href="index.html#home">Главная</a></li>
         <li class="nav-item"><a class="nav-link ${cur==='locations'?'active':''}" href="locations.html">Локации</a></li>
         <li class="nav-item"><a class="nav-link ${cur==='schedule'?'active':''}" href="schedule.html">Расписание</a></li>
         <li class="nav-item"><a class="nav-link ${cur==='reviews'?'active':''}" href="reviews.html">Отзывы</a></li>
 
         <!-- Родителям (desktop hover dropdown) -->
-        <li class="nav-item nav-parents d-none d-lg-block">
+        <li class="nav-item nav-parents d-none d-xl-block">
           <a class="nav-link d-inline-flex align-items-center ${isParents?'active':''}" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Родителям <i class="bi bi-chevron-down ms-1 small"></i>
           </a>
@@ -56,7 +56,7 @@ window.PARTIALS = {
         </li>
 
         <!-- Родителям (mobile popup) -->
-        <li class="nav-item d-lg-none">
+        <li class="nav-item d-xl-none">
           <a class="nav-link ${isParents?'active':''}" href="#" data-bs-toggle="modal" data-bs-target="#parentsModal">
             Родителям <i class="bi bi-chevron-right ms-1 small"></i>
           </a>
@@ -67,7 +67,7 @@ window.PARTIALS = {
         <li class="nav-item"><a class="nav-link ${cur==='camps'?'active':''}" href="camps.html">Сборы</a></li>
         <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
 
-        <li class="nav-item d-lg-none mt-2 pt-2 border-top border-light border-opacity-10">
+        <li class="nav-item d-xl-none mt-2 pt-2 border-top border-light border-opacity-10">
           <div class="d-flex gap-2">
             <a class="mini-contact" href="tel:${SITE_CONFIG.contacts.phoneTel}" aria-label="Позвонить"><i class="bi bi-telephone-fill"></i><span>Телефон</span></a>
             <a class="mini-contact" href="${maxLink || '#'}" target="_blank" rel="noopener" aria-label="Написать в MAX"><span class="brand-badge">MAX</span><span>MAX</span></a>
@@ -76,13 +76,13 @@ window.PARTIALS = {
         </li>
 
 <!-- Cabinet icon (desktop) -->
-        <li class="nav-item ms-lg-1 d-none d-lg-block">
+        <li class="nav-item ms-xl-1 d-none d-xl-block">
           <a class="nav-link nav-icon-link" href="${cabinetHref}" aria-label="Личный кабинет">
             <i class="bi bi-person-circle"></i>
           </a>
         </li>
 
-        <li class="nav-item ms-lg-2 d-none d-lg-block">
+        <li class="nav-item ms-xl-2 d-none d-xl-block">
           <button class="btn btn-accent px-4" data-bs-toggle="modal" data-bs-target="#signupModal">
             <i class="bi bi-lightning-charge-fill me-1"></i> Записаться
           </button>
