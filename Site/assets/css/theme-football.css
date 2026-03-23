@@ -802,15 +802,4 @@ body.theme-football .container{
     z-index: 1;
   }
 
-  body.theme-football[data-page="index"] .hero-quick-links::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--index-hero-bg-url, none);
-    background-repeat: no-repeat;
-    background-size: var(--hero-art-width) auto;
-    background-position: var(--hero-focus-x) bottom;
-    pointer-events: none;
-    z-index: -1;
-  }
 }
