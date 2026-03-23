@@ -93,9 +93,9 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (min-width: 992px){
   .hero--index{
     aspect-ratio: 16 / 9;
-    min-height: 680px;
-    max-height: 900px;
-    padding-bottom: 40px;
+    min-height: 740px;
+    max-height: 980px;
+    padding-bottom: 88px;
   }
   .hero--index .container{
     max-width: var(--hero-desktop-max-width);
