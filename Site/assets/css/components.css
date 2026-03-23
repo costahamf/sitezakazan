@@ -40,6 +40,20 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-mobile-actions-gap: 12px;
   --hero-mobile-actions-margin-top: 434px;
   --hero-mobile-kpis-margin-top: 424px;
+  --hero-kpis-padding-top: clamp(32px, 5vw, 72px);
+  --hero-boy-width: min(100%, 903px);
+  --hero-boy-max-width: 903px;
+  --hero-boy-top: 88px;
+  --hero-boy-right: clamp(-42px, -2vw, 0px);
+  --hero-boy-bottom: auto;
+  --hero-boy-left: auto;
+  --hero-boy-transform: scale(1.5) translate(100px, 130px);
+  --hero-icons-offset-y: 0px;
+  --hero-icons-icon-size: clamp(108px, 10vw, 136px);
+  --hero-icons-card-padding: 1rem;
+  --result-card-media-ratio: 4 / 5;
+  --result-card-media-min-height: clamp(280px, 30vw, 420px);
+  --testing-stage-min-height: clamp(340px, 34vw, 560px);
 }
 .hero--index .container{
   position: relative;
@@ -55,6 +69,24 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 .hero--index #heroKpis{
   margin-top: auto;
+}
+.hero-boy-layer{
+  position: absolute;
+  inset: var(--hero-boy-top) var(--hero-boy-right) var(--hero-boy-bottom) var(--hero-boy-left);
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  pointer-events: none;
+}
+.hero-boy-layer .hero-visual{
+  width: var(--hero-boy-width);
+  max-width: var(--hero-boy-max-width);
+}
+.hero-boy-layer .hero-visual img{
+  width: 100%;
+  max-width: 100%;
+  transform: var(--hero-boy-transform);
 }
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
@@ -74,16 +106,26 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     max-width: min(100%, 620px);
   }
   .hero--index #heroKpis{
-    padding-top: clamp(32px, 5vw, 72px);
+    padding-top: var(--hero-kpis-padding-top, clamp(32px, 5vw, 72px));
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
   .hero--index{
     min-height: clamp(640px, 72vw, 820px);
+    --hero-kpis-padding-top: clamp(24px, 5vw, 48px);
+    --hero-boy-width: min(100%, 640px);
+    --hero-boy-top: 118px;
+    --hero-boy-right: 50%;
+    --hero-boy-transform: translateX(50%) translateY(-52px);
+    --hero-icons-icon-size: clamp(92px, 12vw, 120px);
+    --hero-icons-offset-y: 0px;
+    --result-card-media-ratio: 4 / 5;
+    --result-card-media-min-height: clamp(340px, 58vw, 460px);
+    --testing-stage-min-height: clamp(300px, 48vw, 430px);
   }
   .hero--index #heroKpis{
-    padding-top: clamp(24px, 5vw, 48px);
+    padding-top: var(--hero-kpis-padding-top, clamp(24px, 5vw, 48px));
   }
 }
 
@@ -112,7 +154,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   overflow: visible !important;
 }
 .kpi-grid .feature-icon-img{
-  width: clamp(108px, 10vw, 136px) !important;
+  width: var(--hero-icons-icon-size, clamp(108px, 10vw, 136px)) !important;
   height: auto !important;
   max-width: none !important;
   object-fit: contain !important;
@@ -217,33 +259,27 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   color: #17304b;
   font-weight: 700;
 }
-.hero--index{
-  --hero-boy-max-width: 903px;
-}
 @media (max-width: 991.98px){
-  .hero--index .hero-visual{
-    display: flex;
-    justify-content: center;
+  .hero--index{
+    --hero-boy-width: min(100%, 560px);
+    --hero-boy-max-width: 560px;
+    --hero-boy-top: 120px;
+    --hero-boy-right: 50%;
+    --hero-boy-bottom: auto;
+    --hero-boy-left: auto;
+    --hero-boy-transform: translateX(50%) translateY(-40px);
+    --result-card-media-ratio: 4 / 5;
+    --result-card-media-min-height: clamp(320px, 70vw, 420px);
+    --testing-stage-min-height: clamp(280px, 68vw, 420px);
   }
-  .hero--index .hero-visual img{
-    max-width: 100%;
+  .hero-boy-layer{
+    justify-content: center;
   }
 }
 @media (min-width: 992px){
-  .hero--index .col-lg-6[aria-hidden="true"]{
-    display: flex;
+  .hero-boy-layer{
     justify-content: flex-end;
-  }
-  .hero--index .hero-visual{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    min-height: 100%;
-  }
-  .hero--index .hero-visual img{
-    width: min(100%, var(--hero-boy-max-width)) !important;
-    max-width: var(--hero-boy-max-width) !important;
-    margin-right: 0;
+    align-items: flex-start;
   }
 }
 
@@ -273,6 +309,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index{
     min-height: var(--hero-mobile-min-height, clamp(860px, 138svh, 1080px));
     padding-bottom: var(--hero-mobile-padding-bottom, 132px);
+    --hero-icons-offset-y: 0px;
   }
   .hero--index .container > .row{
     order: 1;
@@ -300,6 +337,15 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero-visual{ min-height: 0; }
   .hero--index{
     min-height: clamp(720px, 122svh, 860px);
+    --hero-boy-width: min(100%, 380px);
+    --hero-boy-top: 122px;
+    --hero-boy-right: 50%;
+    --hero-boy-transform: translateX(50%) translateY(-10px);
+    --hero-icons-icon-size: clamp(88px, 27vw, 110px);
+    --hero-icons-card-padding: .9rem;
+    --result-card-media-ratio: 5 / 6;
+    --result-card-media-min-height: clamp(300px, 78vw, 410px);
+    --testing-stage-min-height: clamp(240px, 68vw, 360px);
   }
   .hero-mobile-actions{
     margin-top: calc(var(--hero-mobile-actions-margin-top, 54px) - 4px) !important;
@@ -312,9 +358,29 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 
+@media (min-width: 577px) and (max-width: 767.98px){
+  .hero--index{
+    --hero-boy-width: min(100%, 470px);
+    --hero-boy-top: 130px;
+    --hero-boy-right: 50%;
+    --hero-boy-transform: translateX(50%) translateY(-20px);
+    --hero-icons-icon-size: clamp(92px, 18vw, 118px);
+    --hero-icons-card-padding: 1rem;
+    --result-card-media-ratio: 4 / 5;
+    --result-card-media-min-height: clamp(320px, 66vw, 430px);
+    --testing-stage-min-height: clamp(260px, 60vw, 390px);
+  }
+}
+
 .hero-quick-links{
   background: #fff;
   padding: 1rem 0 1.15rem;
+}
+.hero-quick-links .container{
+  transform: translateY(var(--hero-icons-offset-y, 0px));
+}
+.hero-quick-links .card-dark{
+  padding: var(--hero-icons-card-padding, 1rem) !important;
 }
 
 .hero--index + .hero-quick-links{
@@ -361,8 +427,8 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 .profile-media{
   width: 100%;
-  aspect-ratio: 4 / 5;
-  min-height: clamp(280px, 30vw, 420px);
+  aspect-ratio: var(--result-card-media-ratio, 4 / 5);
+  min-height: var(--result-card-media-min-height, clamp(280px, 30vw, 420px));
   background: rgba(10,16,14,.45);
   border-bottom: 1px solid rgba(190,255,220,.12);
 }
@@ -399,13 +465,24 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (max-width: 991.98px){
   /* Portrait photos in carousels: avoid top/bottom cropping on mobile */
   .profile-media{
-    aspect-ratio: 4 / 5;
-    min-height: clamp(320px, 70vw, 420px);
     background: rgba(0,0,0,.18);
   }
   .profile-media img{
     object-fit: contain;
   }
+}
+
+#result .profile-media{
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.18);
+}
+
+#result .profile-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 #coaches .profile-card--coach .profile-media{
@@ -1640,6 +1717,7 @@ body[data-page="cabinet"] #siteFooter{
      Use a stable aspect so the image fills the rounded stage nicely. */
   aspect-ratio: 16 / 9;
   height: auto;
+  min-height: var(--testing-stage-min-height, clamp(340px, 34vw, 560px));
 }
 .testing-info{
   border-radius: 18px;
@@ -1696,7 +1774,10 @@ body[data-page="cabinet"] #siteFooter{
   .testing-grid{ grid-template-columns: 1fr; }
   /* Mobile: keep the block compact, but avoid top/bottom gaps caused by a fixed height.
      Let aspect-ratio drive the height so the image sits tight in the rounded frame. */
-  .testing-media .media-stage{ height: auto; }
+  .testing-media .media-stage{
+    height: auto;
+    min-height: var(--testing-stage-min-height, clamp(280px, 68vw, 420px));
+  }
 }
 
 /* Signup mini contacts (shown under consent, especially useful on mobile) */
@@ -2018,20 +2099,6 @@ body[data-page="cabinet"] #siteFooter{
   text-overflow: clip;
   word-break: break-word;
 }
-
-@media (max-width: 991.98px){
-  .hero--index .hero-visual img{
-    transform: translateY(-60px);  
-  }
-}
-
-@media (min-width: 992px){
-  .hero--index .hero-visual img{
-     transform: scale(1.5) translate(100px, 130px);  
-  }
-}
-
-
 
 section > .container{
   position: relative;
