@@ -196,7 +196,7 @@
     const hero = document.querySelector('[data-hero-bg]');
     if (!hero) return;
     
-    const isMobile = window.matchMedia('(max-width: 991.98px)').matches;
+    const isMobile = window.matchMedia('(max-width: 1199.98px)').matches;
     const kpis = document.getElementById('heroKpis');
     
     if (!isMobile && kpis) {

@@ -27,7 +27,7 @@
     if(cityEl) cityEl.textContent = SITE_CONFIG.contacts.city;
 
     if(kpiHost){
-      const isMobile = window.matchMedia && window.matchMedia('(max-width: 991.98px)').matches;
+      const isMobile = window.matchMedia && window.matchMedia('(max-width: 1199.98px)').matches;
       const byId = Object.fromEntries((h.kpis || []).map(k => [k.id, k]));
       const kpis = isMobile
         ? [byId.years, byId.transfers].filter(Boolean)

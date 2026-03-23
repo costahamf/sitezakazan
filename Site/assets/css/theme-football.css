@@ -19,15 +19,7 @@ body.theme-football{
   background-image:none !important;
 }
 
-@media (min-width: 992px){
-  body.theme-football[data-page="index"]{
-    background-image: url("../img/heroBg.webp") !important;
-    background-repeat: no-repeat !important;
-    background-position: 50% 30% !important;
-    background-size: cover !important;
-    background-attachment: scroll !important;
-  }
-
+@media (min-width: 1200px){
   body.theme-football::after{
     display: none !important;
   }
@@ -648,7 +640,7 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
   background: var(--surface-light) !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   body.theme-football[data-page="index"] .hero-quick-links,
   body.theme-football[data-page="index"] section.hero-quick-links,
   body.theme-football[data-page="index"] section.hero-quick-links:nth-of-type(even){
@@ -690,7 +682,7 @@ body.theme-football .container{
   padding-right: var(--bs-gutter-x, .75rem) !important;
 }
 
-@media (max-width: 991.98px){
+@media (max-width: 1199.98px){
   body.theme-football .hero--index > .container,
   body.theme-football section > .container,
   body.theme-football .hero-quick-links > .container{
@@ -705,7 +697,7 @@ body.theme-football .container{
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px){
+@media (min-width: 768px) and (max-width: 1199.98px){
   body.theme-football{
     --mobile-decor-content-max: 560px;
   }
@@ -769,7 +761,7 @@ body.theme-football .container{
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    padding-bottom: clamp(228px, 18vw, 300px);
+    padding-bottom: calc(clamp(228px, 18vw, 300px) + var(--hero-quick-links-overlap));
     background-color: var(--surface-light);
   }
 
@@ -808,15 +800,9 @@ body.theme-football .container{
   }
 
   body.theme-football[data-page="index"] .hero-quick-links::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--index-hero-bg-url, none);
-    background-repeat: no-repeat;
-    background-size: var(--hero-art-width) auto;
-    background-position: var(--hero-focus-x) bottom;
-    pointer-events: none;
-    z-index: -1;
+    content: none !important;
+    display: none !important;
+    background: none !important;
   }
 
   body.theme-football[data-page="index"] section.hero-quick-links,
