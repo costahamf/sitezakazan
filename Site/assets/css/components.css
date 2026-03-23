@@ -43,12 +43,20 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-kpis-padding-top: clamp(44px, 6vw, 92px);
   --hero-boy-width: min(100%, 903px);
   --hero-boy-max-width: 903px;
-  --hero-boy-top: 88px;
-  --hero-boy-right: clamp(-42px, -2vw, 0px);
   --hero-boy-bottom: auto;
   --hero-boy-left: auto;
-  --hero-boy-transform: scale(1.5) translate(100px, 130px);
-  --hero-bg-bleed-bottom: 164px;
+  --hero-boy-desktop-top: 88px;
+  --hero-boy-desktop-right: clamp(-42px, -2vw, 0px);
+  --hero-boy-desktop-transform: scale(1.5) translate(100px, 130px);
+  --hero-bg-bleed-bottom-desktop: 164px;
+  --hero-boy-tablet-top: 118px;
+  --hero-boy-tablet-right: 50%;
+  --hero-boy-tablet-transform: translateX(50%) translateY(-52px);
+  --hero-bg-bleed-bottom-tablet: 132px;
+  --hero-boy-top: var(--hero-boy-desktop-top);
+  --hero-boy-right: var(--hero-boy-desktop-right);
+  --hero-boy-transform: var(--hero-boy-desktop-transform);
+  --hero-bg-bleed-bottom: var(--hero-bg-bleed-bottom-desktop);
   --hero-icons-offset-y: 0px;
   --hero-icons-icon-size: clamp(108px, 10vw, 136px);
   --hero-icons-card-padding: 1rem;
@@ -98,12 +106,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
-@media (min-width: 992px){
+@media (min-width: 1200px), (min-width: 992px) and (orientation: landscape) and (hover: hover) and (pointer: fine){
   .hero--index{
     aspect-ratio: 16 / 9;
     min-height: 740px;
     max-height: 980px;
     padding-bottom: 88px;
+    --hero-boy-top: var(--hero-boy-desktop-top);
+    --hero-boy-right: var(--hero-boy-desktop-right);
+    --hero-boy-transform: var(--hero-boy-desktop-transform);
+    --hero-bg-bleed-bottom: var(--hero-bg-bleed-bottom-desktop);
   }
   .hero--index .container{
     max-width: var(--hero-desktop-max-width);
@@ -115,6 +127,32 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
   .hero--index #heroKpis{
     padding-top: var(--hero-kpis-padding-top, clamp(32px, 5vw, 72px));
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) and (orientation: portrait){
+  .hero--index{
+    min-height: clamp(640px, 72vw, 820px);
+    --hero-kpis-padding-top: clamp(32px, 5vw, 56px);
+    --hero-boy-width: min(100%, 640px);
+    --hero-boy-top: var(--hero-boy-tablet-top);
+    --hero-boy-right: var(--hero-boy-tablet-right);
+    --hero-boy-transform: var(--hero-boy-tablet-transform);
+    --hero-bg-bleed-bottom: var(--hero-bg-bleed-bottom-tablet);
+    --hero-icons-icon-size: clamp(92px, 12vw, 120px);
+    --hero-icons-offset-y: 0px;
+    --result-card-media-ratio: 4 / 5;
+    --result-card-media-min-height: clamp(340px, 58vw, 460px);
+    --testing-stage-min-height: clamp(300px, 48vw, 430px);
+  }
+  .hero--index + .hero-quick-links{
+    --hero-bg-bleed-bottom: var(--hero-bg-bleed-bottom-tablet);
+  }
+  .hero--index #heroKpis{
+    padding-top: var(--hero-kpis-padding-top, clamp(24px, 5vw, 48px));
+  }
+  .hero--index .lead{
+    display: none !important;
   }
 }
 
@@ -288,9 +326,16 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     justify-content: center;
   }
 }
-@media (min-width: 992px){
+@media (min-width: 1200px), (min-width: 992px) and (orientation: landscape) and (hover: hover) and (pointer: fine){
   .hero-boy-layer{
     justify-content: flex-end;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) and (orientation: portrait){
+  .hero-boy-layer{
+    justify-content: center;
     align-items: flex-start;
   }
 }
@@ -2427,5 +2472,44 @@ section > .container > :not(.section-decor){
 @media (max-width: 991.98px){
   .hero-quick-links .feature-icon-img{
     width: 96px !important;
+  }
+}
+
+
+/* Desktop navigation should expand only on true desktop pointers.
+   Portrait tablets (including 1024x1366) stay on the toggle menu. */
+@media (min-width: 1200px), (min-width: 992px) and (orientation: landscape) and (hover: hover) and (pointer: fine){
+  .navbar-toggler{
+    display: none !important;
+  }
+  .navbar-collapse,
+  .navbar-collapse.collapse,
+  .navbar-collapse.collapsing{
+    display: flex !important;
+    flex-basis: auto;
+    align-items: center;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .navbar-nav{
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(.2rem, .6vw, .85rem);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) and (orientation: portrait){
+  .navbar-toggler{
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-collapse.collapse:not(.show){
+    display: none !important;
+  }
+  .navbar-collapse.show{
+    display: block !important;
   }
 }
