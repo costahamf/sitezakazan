@@ -770,16 +770,16 @@ body.theme-football .container{
     --hero-art-bleed: var(--hero-art-bleed-desktop);
     --hero-focus-x: var(--hero-focus-x-desktop);
     --hero-focus-y: var(--hero-focus-y-desktop);
-    --hero-quick-links-overlap: clamp(100px, 9vw, 150px);
+    --hero-quick-links-overlap: clamp(168px, 14vw, 220px);
   }
 
   body.theme-football[data-page="index"] .hero--index{
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    min-height: clamp(740px, 48vw, 940px);
+    min-height: clamp(760px, 50vw, 980px);
     max-height: 980px;
-    padding-bottom: clamp(180px, 14vw, 240px);
+    padding-bottom: clamp(228px, 18vw, 300px);
     background-color: var(--surface-light);
   }
 
@@ -796,9 +796,21 @@ body.theme-football .container{
   body.theme-football[data-page="index"] .hero-quick-links{
     position: relative;
     margin-top: calc(var(--hero-quick-links-overlap) * -1);
-    padding-top: .3rem !important;
+    padding-top: 0 !important;
     background: transparent !important;
     border-top-color: transparent !important;
     z-index: 1;
+  }
+
+  body.theme-football[data-page="index"] .hero-quick-links::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--index-hero-bg-url, none);
+    background-repeat: no-repeat;
+    background-size: var(--hero-art-width) auto;
+    background-position: var(--hero-focus-x) bottom;
+    pointer-events: none;
+    z-index: -1;
   }
 }
