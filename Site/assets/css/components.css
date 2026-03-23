@@ -34,13 +34,13 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 /* Index hero: tie the block size to a 16:9 canvas instead of letting the background appear oversized */
 .hero--index{
   width: 100%;
-  --hero-desktop-max-width: min(1440px, calc(100vw - 48px));
+  --hero-desktop-max-width: min(1480px, calc(100vw - 24px));
   --hero-mobile-min-height: clamp(820px, 132svh, 1040px);
   --hero-mobile-padding-bottom: 112px;
   --hero-mobile-actions-gap: 12px;
   --hero-mobile-actions-margin-top: 434px;
-  --hero-mobile-kpis-margin-top: 424px;
-  --hero-kpis-padding-top: clamp(32px, 5vw, 72px);
+  --hero-mobile-kpis-margin-top: 448px;
+  --hero-kpis-padding-top: clamp(44px, 6vw, 92px);
   --hero-boy-width: min(100%, 903px);
   --hero-boy-max-width: 903px;
   --hero-boy-top: 88px;
@@ -48,12 +48,20 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-boy-bottom: auto;
   --hero-boy-left: auto;
   --hero-boy-transform: scale(1.5) translate(100px, 130px);
+  --hero-bg-bleed-bottom: 164px;
   --hero-icons-offset-y: 0px;
   --hero-icons-icon-size: clamp(108px, 10vw, 136px);
   --hero-icons-card-padding: 1rem;
   --result-card-media-ratio: 4 / 5;
   --result-card-media-min-height: clamp(280px, 30vw, 420px);
   --testing-stage-min-height: clamp(340px, 34vw, 560px);
+}
+.hero--index + .hero-quick-links{
+  --hero-bg-bleed-bottom: 164px;
+}
+.hero--index.bg-hero::before,
+.hero--index.bg-hero::after{
+  bottom: calc(-1 * var(--hero-bg-bleed-bottom, 0px));
 }
 .hero--index .container{
   position: relative;
@@ -99,7 +107,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
   .hero--index .container{
     max-width: var(--hero-desktop-max-width);
-    padding-inline: clamp(20px, 3vw, 40px);
+    padding-inline: clamp(16px, 2.2vw, 28px);
   }
   .hero--index .hero-copy{
     margin-top: 18px;
@@ -113,16 +121,20 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 @media (min-width: 768px) and (max-width: 991.98px){
   .hero--index{
     min-height: clamp(640px, 72vw, 820px);
-    --hero-kpis-padding-top: clamp(24px, 5vw, 48px);
+    --hero-kpis-padding-top: clamp(32px, 5vw, 56px);
     --hero-boy-width: min(100%, 640px);
     --hero-boy-top: 118px;
     --hero-boy-right: 50%;
     --hero-boy-transform: translateX(50%) translateY(-52px);
+    --hero-bg-bleed-bottom: 132px;
     --hero-icons-icon-size: clamp(92px, 12vw, 120px);
     --hero-icons-offset-y: 0px;
     --result-card-media-ratio: 4 / 5;
     --result-card-media-min-height: clamp(340px, 58vw, 460px);
     --testing-stage-min-height: clamp(300px, 48vw, 430px);
+  }
+  .hero--index + .hero-quick-links{
+    --hero-bg-bleed-bottom: 132px;
   }
   .hero--index #heroKpis{
     padding-top: var(--hero-kpis-padding-top, clamp(24px, 5vw, 48px));
@@ -309,7 +321,11 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   .hero--index{
     min-height: var(--hero-mobile-min-height, clamp(860px, 138svh, 1080px));
     padding-bottom: var(--hero-mobile-padding-bottom, 132px);
+    --hero-bg-bleed-bottom: 108px;
     --hero-icons-offset-y: 0px;
+  }
+  .hero--index + .hero-quick-links{
+    --hero-bg-bleed-bottom: 108px;
   }
   .hero--index .container > .row{
     order: 1;
@@ -341,11 +357,15 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     --hero-boy-top: 122px;
     --hero-boy-right: 50%;
     --hero-boy-transform: translateX(50%) translateY(-10px);
+    --hero-bg-bleed-bottom: 92px;
     --hero-icons-icon-size: clamp(88px, 27vw, 110px);
     --hero-icons-card-padding: .9rem;
     --result-card-media-ratio: 5 / 6;
     --result-card-media-min-height: clamp(300px, 78vw, 410px);
     --testing-stage-min-height: clamp(240px, 68vw, 360px);
+  }
+  .hero--index + .hero-quick-links{
+    --hero-bg-bleed-bottom: 92px;
   }
   .hero-mobile-actions{
     margin-top: calc(var(--hero-mobile-actions-margin-top, 54px) - 4px) !important;
@@ -373,7 +393,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 
 .hero-quick-links{
-  background: #fff;
+  background: transparent;
   padding: 1rem 0 1.15rem;
 }
 .hero-quick-links .container{
@@ -386,10 +406,12 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 .hero--index + .hero-quick-links{
   position: relative;
   z-index: 1;
+  margin-top: calc(-1 * var(--hero-bg-bleed-bottom, 0px));
+  padding-top: calc(1rem + var(--hero-bg-bleed-bottom, 0px));
 }
 @media (min-width: 992px){
   .hero-quick-links{
-    padding-top: 1.5rem;
+    padding-top: calc(1.5rem + var(--hero-bg-bleed-bottom, 0px));
     padding-bottom: 1.4rem;
   }
   .hero-quick-links .kpi-grid{
@@ -398,7 +420,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 @media (max-width: 576px){
   .hero-quick-links{
-    padding-top: 1.4rem;
+    padding-top: calc(1.4rem + var(--hero-bg-bleed-bottom, 0px));
     padding-bottom: 1.7rem;
   }
 }
