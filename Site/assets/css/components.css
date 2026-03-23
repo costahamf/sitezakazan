@@ -1702,28 +1702,22 @@ body[data-page="cabinet"] #siteFooter{
 .media-frame .media-arrow{ z-index: 30; }
 
 #mediaPhotoStage .media-stage{
-  aspect-ratio: 4 / 5;
-  min-height: clamp(340px, 34vw, 460px);
+  aspect-ratio: 16 / 9;
+  min-height: clamp(240px, 30vw, 420px);
 }
 
 #mediaPhotoStage .media-img{
   width: 100%;
   height: 100%;
   max-height: none;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
 }
 
 @media (max-width: 991.98px){
   #mediaPhotoStage .media-stage{
-    aspect-ratio: var(--result-card-media-ratio, 4 / 5);
-    min-height: clamp(360px, 82vw, 500px);
-  }
-
-  #mediaPhotoStage .media-img{
-    height: 100%;
-    max-height: none;
-    object-fit: contain;
+    aspect-ratio: 16 / 9;
+    min-height: clamp(220px, 56vw, 360px);
   }
 }
 
