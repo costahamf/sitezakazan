@@ -98,7 +98,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
 }
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
-@media (min-width: 1200px){
+@media (min-width: 992px){
   .hero--index{
     aspect-ratio: 16 / 9;
     min-height: 740px;
@@ -118,7 +118,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199.98px){
+@media (min-width: 768px) and (max-width: 991.98px){
   .hero--index{
     min-height: clamp(640px, 72vw, 820px);
     --hero-kpis-padding-top: clamp(32px, 5vw, 56px);
@@ -271,7 +271,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   color: #17304b;
   font-weight: 700;
 }
-@media (max-width: 1199.98px){
+@media (max-width: 991.98px){
   .hero--index{
     --hero-boy-width: min(100%, 560px);
     --hero-boy-max-width: 560px;
@@ -288,7 +288,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     justify-content: center;
   }
 }
-@media (min-width: 1200px){
+@media (min-width: 992px){
   .hero-boy-layer{
     justify-content: flex-end;
     align-items: flex-start;
@@ -317,7 +317,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     font-size: 1.36rem;
   }
 }
-@media (max-width: 1199.98px){
+@media (max-width: 991.98px){
   .hero--index{
     min-height: var(--hero-mobile-min-height, clamp(860px, 138svh, 1080px));
     padding-bottom: var(--hero-mobile-padding-bottom, 132px);
@@ -409,7 +409,7 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   margin-top: calc(-1 * var(--hero-bg-bleed-bottom, 0px));
   padding-top: calc(1rem + var(--hero-bg-bleed-bottom, 0px));
 }
-@media (min-width: 1200px){
+@media (min-width: 992px){
   .hero-quick-links{
     padding-top: calc(1.5rem + var(--hero-bg-bleed-bottom, 0px));
     padding-bottom: 1.4rem;
