@@ -449,7 +449,6 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   position: relative;
   z-index: 1;
   flex: 1 1 auto;
-  background: linear-gradient(180deg, rgba(8,12,10,.92), rgba(8,12,10,.96));
 }
 .badge-popular{
   background: rgba(143,211,255,.16);
