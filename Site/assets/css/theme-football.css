@@ -755,6 +755,7 @@ body.theme-football .container{
     --hero-focus-x: var(--hero-focus-x-desktop);
     --hero-focus-y: var(--hero-focus-y-desktop);
     --hero-quick-links-overlap: clamp(168px, 14vw, 220px);
+    --hero-bg-bleed-bottom: calc(var(--hero-quick-links-overlap) + 28px);
   }
 
   body.theme-football[data-page="index"] .hero--index{
