@@ -657,15 +657,15 @@ body.theme-football{
   --page-side-gap: clamp(16px, 3vw, 36px);
   --mobile-decor-content-max: 500px;
   --hero-art-width-desktop: 118%;
-  --hero-art-width-tablet: 100%;
+  --hero-art-width-tablet: 92%;
   --hero-art-width: var(--hero-art-width-desktop);
   --hero-art-bleed-desktop: clamp(36px, 3vw, 96px);
-  --hero-art-bleed-tablet: 0px;
+  --hero-art-bleed-tablet: 24px;
   --hero-art-bleed: var(--hero-art-bleed-desktop);
   --hero-focus-x-desktop: 50%;
   --hero-focus-y-desktop: 25%;
   --hero-focus-x-tablet: 50%;
-  --hero-focus-y-tablet: 22%;
+  --hero-focus-y-tablet: 18%;
   --hero-focus-x: var(--hero-focus-x-desktop);
   --hero-focus-y: var(--hero-focus-y-desktop);
   --hero-quick-links-overlap-desktop: 0px;
