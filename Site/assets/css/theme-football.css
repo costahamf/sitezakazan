@@ -661,14 +661,14 @@ body.theme-football section.hero-quick-links:nth-of-type(even){
    background breathe with decorative side fills instead of stretching the
    original hero art beyond the design canvas. */
 body.theme-football{
-  --page-content-max: 1380px;
-  --page-side-gap: clamp(12px, 2.2vw, 28px);
+  --page-content-max: 1460px;
+  --page-side-gap: clamp(8px, 1.4vw, 18px);
   --mobile-decor-content-max: 500px;
-  --hero-art-width: min(1720px, calc(100% + 220px));
-  --hero-art-bleed: clamp(40px, 4vw, 132px);
+  --hero-art-bleed: clamp(56px, 5vw, 170px);
+  --hero-art-width: calc(100% + (var(--hero-art-bleed) * 2));
   --hero-focus-x: 50%;
   --hero-focus-y: 18%;
-  --hero-bottom-bleed: clamp(160px, 14vw, 240px);
+  --hero-bottom-bleed: clamp(300px, 20vw, 420px);
 }
 
 body.theme-football .container{
@@ -703,16 +703,16 @@ body.theme-football .container{
 
 @media (min-width: 1600px){
   body.theme-football{
-    --page-content-max: 1420px;
-    --page-side-gap: clamp(18px, 2.8vw, 40px);
-    --hero-art-width: min(1860px, calc(100% + 280px));
+    --page-content-max: 1540px;
+    --page-side-gap: clamp(10px, 1.6vw, 24px);
+    --hero-art-bleed: clamp(72px, 5vw, 220px);
   }
 }
 
 @media (min-width: 2200px){
   body.theme-football{
-    --page-content-max: 1460px;
-    --page-side-gap: clamp(24px, 3.4vw, 64px);
+    --page-content-max: 1620px;
+    --page-side-gap: clamp(12px, 2vw, 32px);
   }
 }
 
@@ -762,7 +762,7 @@ body.theme-football .container{
   body.theme-football[data-page="index"] .hero-quick-links{
     position: relative;
     margin-top: calc(var(--hero-bottom-bleed, 0px) * -1) !important;
-    padding-top: calc(1.5rem + var(--hero-bottom-bleed, 0px)) !important;
+    padding-top: calc(1rem + var(--hero-bottom-bleed, 0px)) !important;
     background: transparent !important;
     border-top-color: transparent !important;
     z-index: 1;
