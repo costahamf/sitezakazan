@@ -48,6 +48,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   --hero-boy-bottom: auto;
   --hero-boy-left: auto;
   --hero-boy-transform: scale(1.5) translate(100px, 130px);
+  --hero-arrow-width: clamp(130px, 12vw, 190px);
+  --hero-arrow-top: 58px;
+  --hero-arrow-right: 44px;
+  --hero-arrow-transform: rotate(-4deg);
+  --hero-ball-width: clamp(72px, 7vw, 120px);
+  --hero-ball-bottom: 72px;
+  --hero-ball-right: 58px;
+  --hero-ball-transform: rotate(-12deg);
   --hero-bg-bleed-bottom: 164px;
   --hero-icons-offset-y: 0px;
   --hero-icons-icon-size: clamp(108px, 10vw, 136px);
@@ -96,6 +104,26 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   max-width: 100%;
   transform: var(--hero-boy-transform);
 }
+.hero-boy-layer .hero-decor{
+  position: absolute;
+  display: block;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-boy-layer .hero-decor--arrow{
+  width: var(--hero-arrow-width);
+  top: var(--hero-arrow-top);
+  right: var(--hero-arrow-right);
+  transform: var(--hero-arrow-transform);
+}
+.hero-boy-layer .hero-decor--ball{
+  width: var(--hero-ball-width);
+  bottom: var(--hero-ball-bottom);
+  right: var(--hero-ball-right);
+  transform: var(--hero-ball-transform);
+}
 
 /* Index hero: lift the left copy a bit on desktop so it sits closer to the header */
 @media (min-width: 992px){
@@ -118,6 +146,13 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
   }
 }
 
+@media (min-width: 1200px) and (max-width: 1399.98px){
+  .hero--index{
+    min-height: 780px;
+    --hero-kpis-padding-top: clamp(14px, 2vw, 28px);
+  }
+}
+
 @media (min-width: 768px) and (max-width: 991.98px){
   .hero--index{
     min-height: clamp(640px, 72vw, 820px);
@@ -126,6 +161,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     --hero-boy-top: 118px;
     --hero-boy-right: 50%;
     --hero-boy-transform: translateX(50%) translateY(-52px);
+    --hero-arrow-width: clamp(108px, 15vw, 150px);
+    --hero-arrow-top: 84px;
+    --hero-arrow-right: calc(50% - 260px);
+    --hero-arrow-transform: rotate(-2deg);
+    --hero-ball-width: clamp(68px, 9vw, 96px);
+    --hero-ball-bottom: 136px;
+    --hero-ball-right: calc(50% - 272px);
+    --hero-ball-transform: rotate(-10deg);
     --hero-bg-bleed-bottom: 132px;
     --hero-icons-icon-size: clamp(92px, 12vw, 120px);
     --hero-icons-offset-y: 0px;
@@ -357,6 +400,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     --hero-boy-top: 400px;
     --hero-boy-right: 50%;
     --hero-boy-transform: translateX(50%) translateY(-10px);
+    --hero-arrow-width: clamp(84px, 24vw, 118px);
+    --hero-arrow-top: 384px;
+    --hero-arrow-right: calc(50% - 182px);
+    --hero-arrow-transform: rotate(-6deg);
+    --hero-ball-width: clamp(52px, 13vw, 72px);
+    --hero-ball-bottom: 188px;
+    --hero-ball-right: calc(50% - 166px);
+    --hero-ball-transform: rotate(-12deg);
     --hero-bg-bleed-bottom: 92px;
     --hero-icons-icon-size: clamp(88px, 27vw, 110px);
     --hero-icons-card-padding: .9rem;
@@ -384,6 +435,14 @@ body[data-page="reviews"] .hero{ padding-top: 86px; padding-bottom: 18px; }
     --hero-boy-top: 130px;
     --hero-boy-right: 50%;
     --hero-boy-transform: translateX(50%) translateY(-20px);
+    --hero-arrow-width: clamp(94px, 16vw, 130px);
+    --hero-arrow-top: 140px;
+    --hero-arrow-right: calc(50% - 242px);
+    --hero-arrow-transform: rotate(-5deg);
+    --hero-ball-width: clamp(56px, 10vw, 84px);
+    --hero-ball-bottom: 104px;
+    --hero-ball-right: calc(50% - 228px);
+    --hero-ball-transform: rotate(-10deg);
     --hero-icons-icon-size: clamp(92px, 18vw, 118px);
     --hero-icons-card-padding: 1rem;
     --result-card-media-ratio: 4 / 5;
@@ -2429,13 +2488,22 @@ section > .container > :not(.section-decor){
     width: 96px !important;
   }
 }
+@media (min-width: 1400px){
+  .hero--index{
+    --hero-kpis-padding-top: clamp(22px, 3vw, 46px);
+  }
+}
 @media (min-width: 1300px) and (max-width: 1439.98px){
   .hero--index{
-    --hero-kpis-padding-top: -30px; /* меньше = KPI выше */
+    --hero-kpis-padding-top: clamp(10px, 1.8vw, 24px);
+    --hero-arrow-top: 44px;
+    --hero-arrow-right: 24px;
+    --hero-ball-bottom: 64px;
+    --hero-ball-right: 44px;
   }
 
   .hero--index #heroKpis{
-    margin-top: 0; /* отключаем прижатие вниз */
+    margin-top: 0;
     padding-top: var(--hero-kpis-padding-top);
   }
 }
